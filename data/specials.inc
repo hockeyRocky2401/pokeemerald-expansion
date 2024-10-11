@@ -261,6 +261,7 @@ gSpecials::
 	def_special ValidateEReaderTrainer
 	def_special GetBattleTowerSinglesStreak
 	def_special ReducePlayerPartyToSelectedMons
+	def_special ReducePlayerPartyToSelectedMons5
 	def_special BedroomPC
 	def_special PlayerPC
 	def_special FieldShowRegionMap

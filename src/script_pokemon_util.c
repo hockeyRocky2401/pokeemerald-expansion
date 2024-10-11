@@ -15,6 +15,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "party_menu5.h"
 #include "pokedex.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
@@ -220,12 +221,12 @@ void ChooseFivePokemonParty(void)
 {
     gMain.savedCallback = CB2_ReturnFromChooseFivePokemonParty;
     VarSet(VAR_FRONTIER_FACILITY, FACILITY_GYM);
-    InitChooseHalfPartyForBattle(0);
+    InitChooseFivePartyForBattle5(0);
 }
 
 static void CB2_ReturnFromChooseFivePokemonParty(void)
 {
-    switch (gSelectedOrderFromParty[0])
+    switch (gSelectedOrderFromParty5[0])
     {
     case 0:
         gSpecialVar_Result = FALSE;
@@ -240,6 +241,27 @@ static void CB2_ReturnFromChooseFivePokemonParty(void)
 
 void ReducePlayerPartyToSelectedMons(void)
 {
+    struct Pokemon party[MAX_FRONTIER_PARTY_SIZE];
+    int i;
+
+    CpuFill32(0, party, sizeof party);
+
+    // copy the selected Pokémon according to the order.
+    for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
+        if (gSelectedOrderFromParty[i]) // as long as the order keeps going (did the player select 1 mon? 2? 3?), do not stop
+            party[i] = gPlayerParty[gSelectedOrderFromParty[i] - 1]; // index is 0 based, not literal
+
+    CpuFill32(0, gPlayerParty, sizeof gPlayerParty);
+
+    // overwrite the first 4 with the order copied to.
+    for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
+        gPlayerParty[i] = party[i];
+
+    CalculatePlayerPartyCount();
+}
+
+void ReducePlayerPartyToSelectedMons5(void)
+{
     struct Pokemon party[JUAN_PARTY_SIZE];
     int i;
 
@@ -247,12 +269,12 @@ void ReducePlayerPartyToSelectedMons(void)
 
     // copy the selected Pokémon according to the order.
     for (i = 0; i < JUAN_PARTY_SIZE; i++)
-        if (gSelectedOrderFromParty[i]) // as long as the order keeps going (did the player select 1 mon? 2? 3?), do not stop
-            party[i] = gPlayerParty[gSelectedOrderFromParty[i] - 1]; // index is 0 based, not literal
+        if (gSelectedOrderFromParty5[i]) // as long as the order keeps going (did the player select 1 mon? 2? 3?), do not stop
+            party[i] = gPlayerParty[gSelectedOrderFromParty5[i] - 1]; // index is 0 based, not literal
 
     CpuFill32(0, gPlayerParty, sizeof gPlayerParty);
 
-    // overwrite the first 4 with the order copied to.
+    // overwrite the first 5 with the order copied to.
     for (i = 0; i < JUAN_PARTY_SIZE; i++)
         gPlayerParty[i] = party[i];
 

@@ -372,8 +372,31 @@ PetalburgCity_Gym_EventScript_GiveEnigmaBerry::
 	end
 
 PetalburgCity_Gym_EventScript_NormanBattle::
+    goto_if_unset FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_NormanParty
+	release
+	end
+
+PetalburgCity_Gym_EventScript_NormanParty::
 	msgbox PetalburgCity_Gym_Text_NormanIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_NORMAN_1, PetalburgCity_Gym_Text_NormanDefeat
+	waitmessage
+	special SavePlayerParty
+	fadescreen FADE_TO_BLACK
+	setvar VAR_0x8005, 4
+	special ChoosePartyForBattleFrontier
+	waitstate
+	goto_if_ne VAR_RESULT, 0, PetalburgCity_Gym_EventScript_NormanBattle2
+	special LoadPlayerParty
+	release
+	end
+
+PetalburgCity_Gym_EventScript_NormanBattle2::
+    special ReducePlayerPartyToSelectedMons 
+    frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
+	trainerbattle_single TRAINER_NORMAN_1, PetalburgCity_Gym_Text_NormanIntro2, PetalburgCity_Gym_Text_NormanDefeat, PetalburgCity_Gym_EventScript_NormanDefeated
+	special LoadPlayerParty
+
+PetalburgCity_Gym_EventScript_NormanDefeated::
+    special LoadPlayerParty
 	message PetalburgCity_Gym_Text_ReceivedBalanceBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
@@ -402,7 +425,7 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	case DIR_NORTH, PetalburgCity_Gym_EventScript_WallysDadArrivesNorth
 	case DIR_WEST, PetalburgCity_Gym_EventScript_WallysDadArrivesWest
 	case DIR_EAST, PetalburgCity_Gym_EventScript_WallysDadArrivesEast
-	end
+
 
 PetalburgCity_Gym_EventScript_GiveFacade::
 	giveitem ITEM_TM_FACADE
@@ -1262,6 +1285,10 @@ PetalburgCity_Gym_Text_NormanIntro:
 	.string "Fine, as I promised, we will have\n"
 	.string "a POKéMON battle.\p"
 	.string "{PLAYER}…\p"
+	.string "I will be using four POKéMON, so\n"
+    .string "you may use no more than four.$"
+
+PetalburgCity_Gym_Text_NormanIntro2:
 	.string "I'm so happy that I can have\n"
 	.string "a real battle with my own child.\p"
 	.string "But, a battle is a battle!\p"

@@ -38,6 +38,7 @@
 #include "constants/items.h"
 #include "constants/event_objects.h"
 #include "party_menu.h"
+#include "party_menu5.h"
 
 struct FrontierBrainMon
 {
@@ -54,9 +55,11 @@ static void GetChallengeStatus(void);
 static void GetFrontierData(void);
 static void SetFrontierData(void);
 static void SetSelectedPartyOrder(void);
+static void SetSelectedPartyOrder5(void);
 static void DoSoftReset_(void);
 static void SetFrontierTrainers(void);
 static void SaveSelectedParty(void);
+static void SaveSelectedParty5(void);
 static void ShowFacilityResultsWindow(void);
 static void CheckPutFrontierTVShowOnAir(void);
 static void Script_GetFrontierBrainStatus(void);
@@ -69,6 +72,7 @@ static void CheckPartyIneligibility(void);
 static void ValidateVisitingTrainer(void);
 static void IncrementWinStreak(void);
 static void RestoreHeldItems(void);
+static void RestoreHeldItems5(void);
 static void SaveRecordBattle(void);
 static void BufferFrontierTrainerName(void);
 static void ResetSketchedMoves(void);
@@ -822,6 +826,10 @@ static void SetFrontierData(void)
     case FRONTIER_DATA_HEARD_BRAIN_SPEECH:
         gSaveBlock2Ptr->frontier.battledBrainFlags |= sBattledBrainBitFlags[facility][hasSymbol];
         break;
+    case FRONTIER_DATA_SELECTED_MON_ORDER5:
+        for (i = 0; i < JUAN_PARTY_SIZE; i++)
+            gSaveBlock2Ptr->frontier.selectedPartyMons5[i] = gSelectedOrderFromParty5[i];
+        break;
     }
 }
 
@@ -833,6 +841,16 @@ static void SetSelectedPartyOrder(void)
     for (i = 0; i < gSpecialVar_0x8005; i++)
         gSelectedOrderFromParty[i] = gSaveBlock2Ptr->frontier.selectedPartyMons[i];
     ReducePlayerPartyToSelectedMons();
+}
+
+static void SetSelectedPartyOrder5(void)
+{
+    s32 i;
+
+    ClearSelectedPartyOrder5();
+    for (i = 0; i < gSpecialVar_0x8005; i++)
+        gSelectedOrderFromParty5[i] = gSaveBlock2Ptr->frontier.selectedPartyMons5[i];
+    ReducePlayerPartyToSelectedMons5();
 }
 
 static void DoSoftReset_(void)
@@ -849,11 +867,23 @@ static void SaveSelectedParty(void)
 {
     u8 i;
 
-    for (i = 0; i < JUAN_PARTY_SIZE; i++)
+    for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
     {
         u16 monId = gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1;
         if (monId < PARTY_SIZE)
             gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1] = gPlayerParty[i];
+    }
+}
+
+static void SaveSelectedParty5(void)
+{
+    u8 i;
+
+    for (i = 0; i < JUAN_PARTY_SIZE; i++)
+    {
+        u16 monId = gSaveBlock2Ptr->frontier.selectedPartyMons5[i] - 1;
+        if (monId < PARTY_SIZE)
+            gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons5[i] - 1] = gPlayerParty[i];
     }
 }
 
@@ -2104,11 +2134,25 @@ static void RestoreHeldItems(void)
 {
     u8 i;
 
-    for (i = 0; i < JUAN_PARTY_SIZE; i++)
+    for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
     {
         if (gSaveBlock2Ptr->frontier.selectedPartyMons[i] != 0)
         {
             u16 item = GetMonData(&gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1], MON_DATA_HELD_ITEM, NULL);
+            SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &item);
+        }
+    }
+}
+
+static void RestoreHeldItems5(void)
+{
+    u8 i;
+
+    for (i = 0; i < JUAN_PARTY_SIZE; i++)
+    {
+        if (gSaveBlock2Ptr->frontier.selectedPartyMons5[i] != 0)
+        {
+            u16 item = GetMonData(&gSaveBlock1Ptr->playerParty[gSaveBlock2Ptr->frontier.selectedPartyMons5[i] - 1], MON_DATA_HELD_ITEM, NULL);
             SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &item);
         }
     }

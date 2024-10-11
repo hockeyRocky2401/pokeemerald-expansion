@@ -54,7 +54,9 @@ MossdeepCity_Gym_EventScript_SetSwitch4Metatiles::
 	end
 
 MossdeepCity_Gym_EventScript_TateAndLiza::
-	trainerbattle_double TRAINER_TATE_AND_LIZA_1, MossdeepCity_Gym_Text_TateAndLizaIntro, MossdeepCity_Gym_Text_TateAndLizaDefeat, MossdeepCity_Gym_Text_TateAndLizaNeedTwoMons, MossdeepCity_Gym_EventScript_TateAndLizaDefeated, NO_MUSIC
+    lock 
+	faceplayer
+	goto_if_unset FLAG_DEFEATED_MOSSDEEP_GYM, MossdeepCity_Gym_EventScript_TateAndLizaParty
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MossdeepCity_Gym_EventScript_TateAndLizaRematch
 	goto_if_unset FLAG_RECEIVED_TM_CALM_MIND, MossdeepCity_Gym_EventScript_GiveCalmMind2
@@ -62,7 +64,27 @@ MossdeepCity_Gym_EventScript_TateAndLiza::
 	release
 	end
 
+MossdeepCity_Gym_EventScript_TateAndLizaParty::
+    msgbox MossdeepCity_Gym_Text_TateAndLizaIntro MSGBOX_DEFAULT
+	waitmessage
+	special SavePlayerParty
+	fadescreen FADE_TO_BLACK
+	setvar VAR_0x8005, 4
+	special ChoosePartyForBattleFrontier
+	waitstate
+	goto_if_ne VAR_RESULT, 0, MossdeepCity_Gym_EventScript_TateAndLizaBattle
+	special LoadPlayerParty
+	release
+	end
+
+MossdeepCity_Gym_EventScript_TateAndLizaBattle::
+    special ReducePlayerPartyToSelectedMons 
+    frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
+	trainerbattle_double TRAINER_TATE_AND_LIZA_1, MossdeepCity_Gym_Text_TateAndLizaIntro2, MossdeepCity_Gym_Text_TateAndLizaDefeat, MossdeepCity_Gym_Text_TateAndLizaNeedTwoMons, MossdeepCity_Gym_EventScript_TateAndLizaDefeated, NO_MUSIC
+    special LoadPlayerParty
+
 MossdeepCity_Gym_EventScript_TateAndLizaDefeated::
+    special LoadPlayerParty
 	message MossdeepCity_Gym_Text_ReceivedMindBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
@@ -561,6 +583,10 @@ MossdeepCity_Gym_Text_TateAndLizaIntro:
 	.string "LIZA: We can each determine what…\p"
 	.string "TATE: The other is thinking…\n"
 	.string "LIZA: All in our minds!\p"
+	.string "TATE: You may use...\n"
+	.string "LIZA: Up to four POKéMON.$"
+
+MossdeepCity_Gym_Text_TateAndLizaIntro2:
 	.string "TATE: This combination of ours…\n"
 	.string "LIZA: Can you beat it?$"
 

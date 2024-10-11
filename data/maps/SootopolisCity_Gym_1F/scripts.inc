@@ -80,7 +80,9 @@ SootopolisCity_Gym_1F_Movement_FallThroughIce:
 	step_end
 
 SootopolisCity_Gym_1F_EventScript_Juan::
-    goto_if_unset FLAG_DEFEATED_SOOTOPOLIS_GYM, SootopolisCity_Gym_1F_EventScript_JuanParty
+    lock 
+	faceplayer
+	goto_if_unset FLAG_DEFEATED_SOOTOPOLIS_GYM, SootopolisCity_Gym_1F_EventScript_JuanParty
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, SootopolisCity_Gym_1F_EventScript_JuanRematch
 	goto_if_unset FLAG_RECEIVED_TM_WATER_PULSE, SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2
@@ -91,6 +93,7 @@ SootopolisCity_Gym_1F_EventScript_Juan::
 
 SootopolisCity_Gym_1F_EventScript_JuanParty::
     msgbox SootopolisCity_Gym_1F_Text_JuanIntro
+	waitmessage
     special SavePlayerParty
     fadescreen FADE_TO_BLACK
     special ChooseFivePokemonParty
@@ -101,8 +104,8 @@ SootopolisCity_Gym_1F_EventScript_JuanParty::
     end 
 
 SootopolisCity_Gym_1F_EventScript_JuanBattle::
-    special ReducePlayerPartyToSelectedMons 
-    frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
+    special ReducePlayerPartyToSelectedMons5
+    frontier_set FRONTIER_DATA_SELECTED_MON_ORDER5
     trainerbattle_single TRAINER_JUAN_1, SootopolisCity_Gym_1F_Text_JuanIntro2, SootopolisCity_Gym_1F_Text_JuanDefeat, SootopolisCity_Gym_1F_EventScript_JuanDefeated, NO_MUSIC
     special LoadPlayerParty
 
@@ -225,16 +228,18 @@ SootopolisCity_Gym_1F_Text_JuanIntro:
 	.string "However, a compelling reason arose for\n"
 	.string "me to make a comeback.\p"
 	.string "Ah, but enough chatter.\p"
+	.string "Let us begin our match, shall we?\p"
 	.string "I will be using five POKéMON and\n"
 	.string "therefore, you may not use six.$"
 
+	
 SootopolisCity_Gym_1F_Text_JuanIntro2:
-	.string "Let us begin our match, shall we?\p"
-	.string "Please, you shall bear witness to\n"
+    .string "Please, you shall bear witness to\n"
 	.string "our artistry.\p"
 	.string "A grand illusion of water sculpted\n"
 	.string "by POKéMON and myself!$"
-
+    
+	
 @ NOTE: This defeat text actually causes a buffer overflow. It's about 50 bytes too long for
 @ the gDisplayedStringBattle buffer that it's put into, and it stomps all over the gBattleTextBuffs
 @ after, as well as the otherwise unused array after that. One wonders if that's the reason for

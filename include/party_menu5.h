@@ -1,14 +1,14 @@
-#ifndef GUARD_PARTY_MENU_H
-#define GUARD_PARTY_MENU_H
+#ifndef GUARD_PARTY_MENU5_H
+#define GUARD_PARTY_MENU5_H
 
 #include "main.h"
 #include "task.h"
 
 // seems like the last two fields may have been left as all-purpose vars
 // and the second of the two just happens to only be used in one case
-struct PartyMenu
+struct PartyMenu5
 {
-    MainCallback exitCallback;
+    MainCallback exitCallback5;
     TaskFunc task;
     u8 menuType:4;
     u8 layout:2;
@@ -20,13 +20,13 @@ struct PartyMenu
     s16 learnMoveState;  // data2, used only as a learn move state
 };
 
-extern struct PartyMenu gPartyMenu;
-extern bool8 gPartyMenuUseExitCallback;
-extern u8 gSelectedMonPartyId;
-extern MainCallback gPostMenuFieldCallback;
-extern u8 gSelectedOrderFromParty[MAX_FRONTIER_PARTY_SIZE];
-// extern u8 gSelectedOrderFromParty5[JUAN_PARTY_SIZE];
-extern u8 gBattlePartyCurrentOrder[PARTY_SIZE / 2];
+extern struct PartyMenu5 gPartyMenu5;
+extern bool8 gPartyMenuUseExitCallback5;
+extern u8 gSelectedMonPartyId5;
+extern MainCallback gPostMenuFieldCallback5;
+// extern u8 gSelectedOrderFromParty[MAX_FRONTIER_PARTY_SIZE];
+extern u8 gSelectedOrderFromParty5[JUAN_PARTY_SIZE];
+extern u8 gBattlePartyCurrentOrder5[PARTY_SIZE / 2];
 
 extern void (*gItemUseCB)(u8, TaskFunc);
 extern const struct SpriteTemplate gSpriteTemplate_StatusIcons;

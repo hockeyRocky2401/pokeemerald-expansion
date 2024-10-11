@@ -133,7 +133,9 @@ DewfordTown_Gym_EventScript_StopCountingTrainers::
 	return
 
 DewfordTown_Gym_EventScript_Brawly::
-	trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
+    lock
+	faceplayer
+    goto_if_unset FLAG_DEFEATED_DEWFORD_GYM, DewfordTown_Gym_EventScript_BrawlyParty
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
 	goto_if_unset FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp2
@@ -141,7 +143,26 @@ DewfordTown_Gym_EventScript_Brawly::
 	release
 	end
 
+DewfordTown_Gym_EventScript_BrawlyParty::
+   msgbox DewfordTown_Gym_Text_BrawlyIntro MSGBOX_DEFAULT
+   waitmessage
+   special SavePlayerParty
+   fadescreen FADE_TO_BLACK
+   special ChooseHalfPartyForBattle
+   waitstate
+   goto_if_ne VAR_RESULT, 0, DewfordTown_Gym_EventScript_BrawlyBattle
+   special LoadPlayerParty
+   release
+   end
+
+DewfordTown_Gym_EventScript_BrawlyBattle::
+   special ReducePlayerPartyToSelectedMons 
+   frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
+   trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro2, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
+   special LoadPlayerParty
+
 DewfordTown_Gym_EventScript_BrawlyDefeated::
+    special LoadPlayerParty
 	call DewfordTown_Gym_EventScript_AnimateFlashFullBrightness
 	message DewfordTown_Gym_Text_ReceivedKnuckleBadge
 	waitmessage
@@ -386,6 +407,9 @@ DewfordTown_Gym_Text_BrawlyIntro:
 	.string "of these parts, and I've grown tough\l"
 	.string "in the pitch-black cave!\p"
 	.string "So you wanted to challenge me?\n"
+	.string "Then pick three POKéMON.$"
+
+DewfordTown_Gym_Text_BrawlyIntro2:
 	.string "Let me see what you're made of!$"
 
 DewfordTown_Gym_Text_BrawlyDefeat:

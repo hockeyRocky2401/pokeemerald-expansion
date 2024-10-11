@@ -375,7 +375,8 @@ struct BattleFrontier
               u8 challengePaused:1;
               u8 disableRecordBattle:1;
               //u8 padding1:4;
-    /*0xCAA*/ u16 selectedPartyMons[JUAN_PARTY_SIZE];
+    /*0xCAA*/ u16 selectedPartyMons[MAX_FRONTIER_PARTY_SIZE];
+    /*0xCAA*/ u16 selectedPartyMons5[JUAN_PARTY_SIZE];
     /*0xCB2*/ u16 curChallengeBattleNum; // Battle number / room number (Pike) / floor number (Pyramid)
     /*0xCB4*/ u16 trainerIds[20];
     /*0xCDC*/ u32 winStreakActiveFlags;

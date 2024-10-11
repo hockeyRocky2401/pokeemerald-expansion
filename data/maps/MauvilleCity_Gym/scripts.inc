@@ -74,7 +74,9 @@ MauvilleCity_Gym_EventScript_DeactivatePuzzle::
 	end
 
 MauvilleCity_Gym_EventScript_Wattson::
-	trainerbattle_single TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
+    lock 
+	faceplayer
+	goto_if_unset FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_WattsonParty
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
 	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
@@ -83,7 +85,27 @@ MauvilleCity_Gym_EventScript_Wattson::
 	release
 	end
 
+MauvilleCity_Gym_EventScript_WattsonParty::
+    msgbox MauvilleCity_Gym_Text_WattsonIntro MSGBOX_DEFAULT
+	waitmessage
+	special SavePlayerParty
+	fadescreen FADE_TO_BLACK
+	setvar VAR_0x8005, 4
+	special ChoosePartyForBattleFrontier
+	waitstate
+	goto_if_ne VAR_RESULT, 0, MauvilleCity_Gym_EventScript_WattsonBattle
+	special LoadPlayerParty
+	release
+	end 
+
+MauvilleCity_Gym_EventScript_WattsonBattle::
+    special ReducePlayerPartyToSelectedMons 
+    frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
+	trainerbattle_single TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonIntro2, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
+    special LoadPlayerParty
+
 MauvilleCity_Gym_EventScript_WattsonDefeated::
+    special LoadPlayerParty
 	message MauvilleCity_Gym_Text_ReceivedDynamoBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
@@ -342,7 +364,11 @@ MauvilleCity_Gym_Text_WattsonIntro:
 	.string "past all my rigged doors?\p"
 	.string "Wahahahah!\n"
 	.string "Now, that is amusing!\p"
-	.string "Then, I, WATTSON, the LEADER of\n"
+	.string "Pick up to four POKéMON and lets\n"
+	.string "get this show on the road!$"
+
+MauvilleCity_Gym_Text_WattsonIntro2:
+	.string "I, WATTSON, the LEADER of\n"
 	.string "MAUVILLE GYM, shall electrify you!$"
 
 MauvilleCity_Gym_Text_WattsonDefeat:

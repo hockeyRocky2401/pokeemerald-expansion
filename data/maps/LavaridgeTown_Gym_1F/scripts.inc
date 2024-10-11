@@ -49,7 +49,9 @@ LavaridgeTown_Gym_1F_EventScript_EndCheckBuryTrainers::
 	return
 
 LavaridgeTown_Gym_1F_EventScript_Flannery::
-	trainerbattle_single TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryIntro, LavaridgeTown_Gym_1F_Text_FlanneryDefeat, LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated, NO_MUSIC
+    lock 
+	faceplayer
+	goto_if_unset FLAG_DEFEATED_LAVARIDGE_GYM, LavaridgeTown_Gym_1F_EventScript_FlanneryParty
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, LavaridgeTown_Gym_1F_EventScript_FlanneryRematch
 	goto_if_unset FLAG_RECEIVED_TM_OVERHEAT, LavaridgeTown_Gym_1F_EventScript_GiveOverheat2
@@ -57,7 +59,27 @@ LavaridgeTown_Gym_1F_EventScript_Flannery::
 	release
 	end
 
+LavaridgeTown_Gym_1F_EventScript_FlanneryParty::
+    msgbox LavaridgeTown_Gym_1F_Text_FlanneryIntro MSGBOX_DEFAULT
+	waitmessage
+	special SavePlayerParty
+	fadescreen FADE_TO_BLACK
+	setvar VAR_0x8005, 4
+	special ChoosePartyForBattleFrontier
+	waitstate
+	goto_if_ne VAR_RESULT, 0, LavaridgeTown_Gym_1F_EventScript_FlanneryBattle
+	special LoadPlayerParty
+	release
+	end
+
+LavaridgeTown_Gym_1F_EventScript_FlanneryBattle::
+    special ReducePlayerPartyToSelectedMons 
+    frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
+   	trainerbattle_single TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryIntro2, LavaridgeTown_Gym_1F_Text_FlanneryDefeat, LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated, NO_MUSIC
+    special LoadPlayerParty
+
 LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
+    special LoadPlayerParty
 	message LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
@@ -314,6 +336,10 @@ LavaridgeTown_Gym_1F_Text_FlanneryIntro:
 	.string "Uh…\n"
 	.string "Dare not underestimate me, though\l"
 	.string "I have been LEADER only a short time!\p"
+    .string "Anyway, I have four POKéMON, so that\n"
+	.string "means you can't use more than four!$"
+
+    LavaridgeTown_Gym_1F_Text_FlanneryIntro2:
 	.string "With skills inherited from my grand-\n"
 	.string "father, I shall, uh…demonstrate the\l"
 	.string "hot moves we have honed on this land!$"
