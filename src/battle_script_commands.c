@@ -3688,7 +3688,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
             case MOVE_EFFECT_DIRE_CLAW:
                 if (!gBattleMons[gEffectBattler].status1)
                 {
-                    static const u8 sDireClawEffects[] = { MOVE_EFFECT_POISON, MOVE_EFFECT_PARALYSIS, MOVE_EFFECT_SLEEP };
+                    static const u8 sDireClawEffects[] = { MOVE_EFFECT_TOXIC, MOVE_EFFECT_PARALYSIS, MOVE_EFFECT_SLEEP };
                     gBattleScripting.moveEffect = RandomElement(RNG_DIRE_CLAW, sDireClawEffects);
                     SetMoveEffect(primary, certain);
                 }
@@ -5386,6 +5386,51 @@ static bool32 TryKnockOffBattleScript(u32 battlerDef)
     return FALSE;
 }
 
+//New for Swalot
+static bool32 TryAcidicStomachBattleScript(u32 battlerItemOwner, u32 battlerAbilityHolder)
+{
+    if (gBattleMons[battlerItemOwner].item != ITEM_NONE
+        && CanBattlerGetOrLoseItem(battlerItemOwner, gBattleMons[battlerItemOwner].item)
+        && !NoAliveMonsForEitherParty())
+    {
+        if (GetBattlerAbility(battlerItemOwner) == ABILITY_STICKY_HOLD && IsBattlerAlive(battlerItemOwner))
+        {
+            gBattlerAbility = battlerItemOwner; // Sticky Hold owner
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_StickyHoldActivates;
+        }
+        else
+        {
+            u32 side = GetBattlerSide(battlerItemOwner);
+
+            gLastUsedItem = gBattleMons[battlerItemOwner].item;
+            gBattleMons[battlerItemOwner].item = ITEM_NONE;
+            if (gBattleMons[battlerItemOwner].ability != ABILITY_GORILLA_TACTICS)
+                gBattleStruct->choicedMove[battlerItemOwner] = 0;
+            CheckSetUnburden(battlerItemOwner);
+
+            if (B_KNOCK_OFF_REMOVAL >= GEN_5)
+            {
+                BtlController_EmitSetMonData(battlerItemOwner, BUFFER_A, REQUEST_HELDITEM_BATTLE, 0,
+                    sizeof(gBattleMons[battlerItemOwner].item), &gBattleMons[battlerItemOwner].item);
+                MarkBattlerForControllerExec(battlerItemOwner);
+            }
+            else
+            {
+                gWishFutureKnock.knockedOffMons[side] |= gBitTable[gBattlerPartyIndexes[battlerItemOwner]];
+            }
+
+            // IMPORTANT: make {B_ABILITY} print as Acidic Stomach's owner
+            gBattlerAbility = battlerAbilityHolder;
+
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_AcidicStomach; // your new script + string
+        }
+        return TRUE;
+    }
+    return FALSE;
+}
+
 #define SYMBIOSIS_CHECK(battler, ally)                             \
     GetBattlerAbility(ally) == ABILITY_SYMBIOSIS                   \
     && gBattleMons[battler].item == ITEM_NONE                      \
@@ -5471,7 +5516,8 @@ static void Cmd_moveend(void)
                 else if (gProtectStructs[gBattlerTarget].banefulBunkered)
                 {
                     gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
-                    gBattleScripting.moveEffect = MOVE_EFFECT_POISON | MOVE_EFFECT_AFFECTS_USER;
+                    // gBattleScripting.moveEffect = MOVE_EFFECT_POISON | MOVE_EFFECT_AFFECTS_USER;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_TOXIC | MOVE_EFFECT_AFFECTS_USER;
                     PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_BANEFUL_BUNKER);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_BanefulBunkerEffect;
@@ -5683,7 +5729,8 @@ static void Cmd_moveend(void)
                 effect = TRUE;
             gBattleScripting.moveendState++;
             break;
-        case MOVEEND_MOVE_EFFECTS2: // For effects which should happen after target items, for example Knock Off after damage from Rocky Helmet.
+        case MOVEEND_MOVE_EFFECTS2: // For effects which should happen after target items, 
+                                    //for example Knock Off after damage from Rocky Helmet.
         {
             switch (gBattleStruct->moveEffect2)
             {
@@ -6281,6 +6328,46 @@ static void Cmd_moveend(void)
             }
             gBattleScripting.moveendState++;
             break;
+            //New, for Swalot.
+        case MOVEEND_ACIDIC_STOMACH:
+    if (IsBattlerAlive(gBattlerAttacker)
+      && gBattleMons[gBattlerAttacker].item != ITEM_NONE
+      && !(gWishFutureKnock.knockedOffMons[GetBattlerSide(gBattlerAttacker)]
+            & gBitTable[gBattlerPartyIndexes[gBattlerAttacker]])
+      && !(TestIfSheerForceAffected(gBattlerAttacker, gCurrentMove))
+      && IsMoveMakingContact(gCurrentMove, gBattlerAttacker)
+      && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+    {
+        for (i = 0; i < gBattlersCount; i++)
+        {
+            u8 battler = i;
+
+            // battler = ability holder
+            if (battler != gBattlerAttacker
+              && GetBattlerAbility(battler) == ABILITY_ACIDIC_STOMACH
+              && BATTLER_TURN_DAMAGED(battler)
+              && !DoesSubstituteBlockMove(gBattlerAttacker, battler, gCurrentMove)
+              && IsBattlerAlive(battler))
+            {
+                // Ability owner for text
+                gBattlerAbility = battler;
+
+                // Item owner (attacker)
+                gBattlerTarget = gBattlerAttacker;
+
+                BattleScriptPushCursor();
+
+                // Remove attacker's item using existing Knock Off logic
+                if (TryAcidicStomachBattleScript(gBattlerAttacker, battler))
+                {
+                    effect = TRUE;
+                    break; // Only trigger once
+                }
+            }
+        }
+    }
+    gBattleScripting.moveendState++;
+    break;
         case MOVEEND_DANCER: // Special case because it's so annoying
             if (gMovesInfo[gCurrentMove].danceMove)
             {
@@ -13333,7 +13420,7 @@ static void Cmd_cursetarget(void)
     else
     {
         gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
-        gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 2;
+        gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 4;
         if (gBattleMoveDamage == 0)
             gBattleMoveDamage = 1;
 
@@ -13540,7 +13627,7 @@ static void Cmd_setsafeguard(void)
     else
     {
         gSideStatuses[GetBattlerSide(gBattlerAttacker)] |= SIDE_STATUS_SAFEGUARD;
-        gSideTimers[GetBattlerSide(gBattlerAttacker)].safeguardTimer = 5;
+        gSideTimers[GetBattlerSide(gBattlerAttacker)].safeguardTimer = 7;
         gSideTimers[GetBattlerSide(gBattlerAttacker)].safeguardBattlerId = gBattlerAttacker;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SAFEGUARD;
     }

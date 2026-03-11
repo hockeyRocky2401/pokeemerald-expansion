@@ -12,8 +12,8 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_STENCH] =
     {
         .name = _("Stench"),
-        .description = COMPOUND_STRING("May cause a foe to flinch."),
-        .aiRating = 1,
+        .description = COMPOUND_STRING("Lowers the foe's Sp.Atk."),
+        .aiRating = 7,
     },
 
     [ABILITY_DRIZZLE] =
@@ -2607,4 +2607,63 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+
+    //My own custom abilities below here
+    [ABILITY_HIGH_FLYER] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("High Flyer"),
+    #else
+        .name = _("HighFlyer"),
+    #endif
+        .description = COMPOUND_STRING("Powers up Flying moves."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_RIPTIDE] =
+    {
+    #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Riptide"),
+    #else
+        .name = _("Riptide"),
+    #endif
+        .description = COMPOUND_STRING("Powers up Water moves."),
+        .aiRating = 6,
+    },
+
+    //Swalot's new ability
+    [ABILITY_ACIDIC_STOMACH] =
+    {
+        #if B_EXPANDED_ABILITY_NAMES == TRUE
+        .name = _("Acidic Stomach"),
+    #else
+        .name = _("AcidicStomach"),
+    #endif
+        .description = COMPOUND_STRING("Removes the foe's held item."),
+        .aiRating = 3,
+    },
+
+    //For Flygon line
+    [ABILITY_INSECT_INSTINCT] =
+    {
+        .name = _("Insect Instinct"),
+        .description = COMPOUND_STRING("Powers up Bug moves."),
+        .aiRating = 6,
+    },
+
+    //For Altaria etc.
+    [ABILITY_FAE_FORCE] =
+    {
+        .name = _("Fae Force"),
+        .description = COMPOUND_STRING("Powers up Fairy moves."),
+        .aiRating = 6,
+    },
+
+     [ABILITY_MIND_BOOST] =
+    {
+        .name = _("Mind Boost"),
+        .description = COMPOUND_STRING("Powers up Psychic moves."),
+        .aiRating = 6,
+    },
+
 };

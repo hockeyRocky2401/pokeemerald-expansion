@@ -5007,7 +5007,7 @@ BattleScript_EffectCharge::
 	attackanimation
 	waitanimation
 .if B_CHARGE_SPDEF_RAISE >= GEN_5
-	setstatchanger STAT_SPDEF, 1, FALSE
+	setstatchanger STAT_SPDEF, 2, FALSE
 	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_EffectChargeString
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_EffectChargeString
 	setgraphicalstatchangevalues
@@ -6888,6 +6888,12 @@ BattleScript_KnockedOff::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_AcidicStomach::
+    playanimation BS_TARGET, B_ANIM_ITEM_KNOCKOFF, 0
+    printstring STRINGID_ACIDICSTOMACH
+    waitmessage B_WAIT_TIME_LONG
+    return
+
 BattleScript_MoveUsedIsImprisoned::
 	printstring STRINGID_PKMNCANTUSEMOVESEALED
 	waitmessage B_WAIT_TIME_LONG
@@ -7905,6 +7911,66 @@ BattleScript_IntimidateInReverse:
 	modifybattlerstatstage BS_TARGET, STAT_ATK, INCREASE, 1, BattleScript_IntimidateLoopIncrement, ANIM_ON
 	call BattleScript_TryIntimidateHoldEffects
 	goto BattleScript_IntimidateLoopIncrement
+
+BattleScript_StenchActivates::
+    savetarget
+.if B_ABILITY_POP_UP == TRUE
+    showabilitypopup BS_ATTACKER
+    pause B_WAIT_TIME_LONG
+    destroyabilitypopup
+.endif
+    setbyte gBattlerTarget, 0
+BattleScript_StenchLoop:
+    jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_StenchLoopIncrement
+    jumpiftargetally BattleScript_StenchLoopIncrement
+    jumpifabsent BS_TARGET, BattleScript_StenchLoopIncrement
+    jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_StenchLoopIncrement
+.if B_UPDATED_INTIMIDATE >= GEN_8
+    jumpifability BS_TARGET, ABILITY_INNER_FOCUS, BattleScript_StenchPrevented
+    jumpifability BS_TARGET, ABILITY_SCRAPPY, BattleScript_StenchPrevented
+    jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_StenchPrevented
+    jumpifability BS_TARGET, ABILITY_OBLIVIOUS, BattleScript_StenchPrevented
+.endif
+BattleScript_StenchEffect:
+    copybyte sBATTLER, gBattlerAttacker
+    setstatchanger STAT_SPATK, 1, TRUE
+    statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_StenchLoopIncrement
+    setgraphicalstatchangevalues
+    jumpifability BS_TARGET, ABILITY_CONTRARY, BattleScript_StenchContrary
+    jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_StenchWontDecrease
+    playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+    printstring STRINGID_PKMNCUTSSPATKWITH
+BattleScript_StenchEffect_WaitString:
+    waitmessage B_WAIT_TIME_LONG
+    copybyte sBATTLER, gBattlerTarget
+BattleScript_StenchLoopIncrement:
+    addbyte gBattlerTarget, 1
+    jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_StenchLoop
+    copybyte sBATTLER, gBattlerAttacker
+    destroyabilitypopup
+    restoretarget
+    pause B_WAIT_TIME_MED
+    end3
+
+BattleScript_StenchPrevented:
+    copybyte sBATTLER, gBattlerTarget
+    call BattleScript_AbilityPopUp
+    printstring STRINGID_PKMNPREVENTSSTATLOSSWITH
+    goto BattleScript_StenchEffect_WaitString
+
+BattleScript_StenchWontDecrease:
+    printstring STRINGID_STATSWONTDECREASE
+    goto BattleScript_StenchEffect_WaitString
+
+BattleScript_StenchContrary:
+    call BattleScript_AbilityPopUpTarget
+    jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_StenchContrary_WontIncrease
+    playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+    printfromtable gStatUpStringIds
+    goto BattleScript_StenchEffect_WaitString
+BattleScript_StenchContrary_WontIncrease:
+    printstring STRINGID_TARGETSTATWONTGOHIGHER
+    goto BattleScript_StenchEffect_WaitString
 
 BattleScript_SupersweetSyrupActivates::
  	savetarget

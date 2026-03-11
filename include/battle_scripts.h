@@ -107,6 +107,7 @@ extern const u8 BattleScript_IngrainTurnHeal[];
 extern const u8 BattleScript_AtkDefDown[];
 extern const u8 BattleScript_DefSpDefDown[];
 extern const u8 BattleScript_KnockedOff[];
+extern const u8 BattleScript_AcidicStomach[];  //New for Swalot
 extern const u8 BattleScript_MoveUsedIsImprisoned[];
 extern const u8 BattleScript_SelectingImprisonedMove[];
 extern const u8 BattleScript_SelectingImprisonedMoveInPalace[];
@@ -171,6 +172,7 @@ extern const u8 BattleScript_RainDishActivates[];
 extern const u8 BattleScript_SandstreamActivates[];
 extern const u8 BattleScript_ShedSkinActivates[];
 extern const u8 BattleScript_IntimidateActivates[];
+extern const u8 BattleScript_StenchActivates[]; //New for Stench
 extern const u8 BattleScript_DroughtActivates[];
 extern const u8 BattleScript_TookAttack[];
 extern const u8 BattleScript_SturdyPreventsOHKO[];

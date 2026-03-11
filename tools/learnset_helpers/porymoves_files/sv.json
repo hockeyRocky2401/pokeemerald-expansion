@@ -2479,7 +2479,8 @@
       "MOVE_BURNING_JEALOUSY",
       "MOVE_PAIN_SPLIT",
       "MOVE_PSYCH_UP",
-      "MOVE_DOUBLE_EDGE"
+      "MOVE_DOUBLE_EDGE",
+      "MOVE_SHADOW_BALL"
     ],
     "EggMoves": [
       "MOVE_BABY_DOLL_EYES",
@@ -7212,7 +7213,8 @@
       "MOVE_TOXIC",
       "MOVE_PAIN_SPLIT",
       "MOVE_SLUDGE_WAVE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_BODY_PRESS"
     ],
     "EggMoves": [
       "MOVE_ACID_SPRAY",
@@ -7354,7 +7356,8 @@
       "MOVE_LASH_OUT",
       "MOVE_PAIN_SPLIT",
       "MOVE_SLUDGE_WAVE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_BODY_PRESS"
     ],
     "EggMoves": [
       "MOVE_ACID_SPRAY",
@@ -9805,7 +9808,8 @@
       "MOVE_FLIP_TURN",
       "MOVE_SCALE_SHOT",
       "MOVE_WHIRLPOOL",
-      "MOVE_MUDDY_WATER"
+      "MOVE_MUDDY_WATER",
+      "MOVE_DARK_PULSE"
     ],
     "EggMoves": [
       "MOVE_DISABLE",
@@ -9904,7 +9908,8 @@
       "MOVE_FLIP_TURN",
       "MOVE_SCALE_SHOT",
       "MOVE_WHIRLPOOL",
-      "MOVE_MUDDY_WATER"
+      "MOVE_MUDDY_WATER",
+      "MOVE_DARK_PULSE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -20899,7 +20904,8 @@
       "MOVE_DOUBLE_EDGE",
       "MOVE_WHIRLPOOL",
       "MOVE_MUDDY_WATER",
-      "MOVE_BREAKING_SWIPE"
+      "MOVE_BREAKING_SWIPE",
+      "MOVE_DARK_PULSE"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -25864,7 +25870,8 @@
       "MOVE_TRIPLE_AXEL",
       "MOVE_FUTURE_SIGHT",
       "MOVE_EXPANDING_FORCE",
-      "MOVE_ALLURING_VOICE"
+      "MOVE_ALLURING_VOICE",
+      "MOVE_FLAMETHROWER"
     ],
     "EggMoves": [
       "MOVE_CONFUSE_RAY",
@@ -26031,7 +26038,8 @@
       "MOVE_FUTURE_SIGHT",
       "MOVE_EXPANDING_FORCE",
       "MOVE_ALLURING_VOICE",
-      "MOVE_PSYCHIC_NOISE"
+      "MOVE_PSYCHIC_NOISE",
+      "MOVE_FLAMETHROWER"
     ],
     "EggMoves": [
       "MOVE_CONFUSE_RAY",
@@ -30675,14 +30683,18 @@
   "LUNATONE": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_BODY_PRESS"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },
   "SOLROCK": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_BODY_PRESS"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -32393,7 +32405,10 @@
   "WALREIN": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_BODY_PRESS",
+      "MOVE_FLIP_TURN"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -32414,7 +32429,9 @@
   "GOREBYSS": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_DAZZLING_GLEAM"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -32519,7 +32536,9 @@
       "MOVE_SCALE_SHOT",
       "MOVE_PSYCH_UP",
       "MOVE_ENDEAVOR",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_CALM_MIND"
     ],
     "EggMoves": [
       "MOVE_SUPERSONIC",
