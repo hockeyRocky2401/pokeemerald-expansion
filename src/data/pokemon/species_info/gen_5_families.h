@@ -4222,12 +4222,13 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 
     [SPECIES_KROOKODILE] =
     {
-        .baseHP        = 95,
+        //519
+        .baseHP        = 75,
         .baseAttack    = 117,
-        .baseDefense   = P_UPDATED_STATS >= GEN_6 ? 80 : 70,
+        .baseDefense   = P_UPDATED_STATS >= GEN_6 ? 90 : 70,
         .baseSpeed     = 92,
         .baseSpAttack  = 65,
-        .baseSpDefense = 70,
+        .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_GROUND, TYPE_DARK),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
@@ -5228,12 +5229,13 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 
     [SPECIES_RUNERIGUS] =
     {
+        //483 - 503
         .baseHP        = 58,
         .baseAttack    = 95,
-        .baseDefense   = 145,
+        .baseDefense   = 155,
         .baseSpeed     = 30,
         .baseSpAttack  = 50,
-        .baseSpDefense = 105,
+        .baseSpDefense = 115,
         .types = MON_TYPES(TYPE_GROUND, TYPE_GHOST),
         .catchRate = 90,
         .expYield = 169,
@@ -5855,12 +5857,13 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_HISUIAN_FORMS
     [SPECIES_ZORUA_HISUIAN] =
     {
+        //330 - 385
         .baseHP        = 35,
         .baseAttack    = 60,
-        .baseDefense   = 40,
-        .baseSpeed     = 70,
+        .baseDefense   = 50,
+        .baseSpeed     = 105,
         .baseSpAttack  = 85,
-        .baseSpDefense = 40,
+        .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_NORMAL, TYPE_GHOST),
         .catchRate = 75,
         .expYield = 66,
@@ -5918,6 +5921,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 
     [SPECIES_ZOROARK_HISUIAN] =
     {
+        // 510
         .baseHP        = 55,
         .baseAttack    = 100,
         .baseDefense   = 60,
@@ -8470,12 +8474,13 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_ELGYEM
     [SPECIES_ELGYEM] =
     {
+        //335 - 375
         .baseHP        = 55,
         .baseAttack    = 55,
-        .baseDefense   = 55,
+        .baseDefense   = 75,
         .baseSpeed     = 30,
         .baseSpAttack  = 85,
-        .baseSpDefense = 55,
+        .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_PSYCHIC),
         .catchRate = 255,
         .expYield = 67,
@@ -8532,6 +8537,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 
     [SPECIES_BEHEEYEM] =
     {
+        // 485
         .baseHP        = 75,
         .baseAttack    = 75,
         .baseDefense   = 75,
@@ -8727,6 +8733,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 
     [SPECIES_CHANDELURE] =
     {
+        //520
         .baseHP        = 60,
         .baseAttack    = 55,
         .baseDefense   = 90,
@@ -10239,12 +10246,13 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 
     [SPECIES_MANDIBUZZ] =
     {
-        .baseHP        = 110,
+        //510
+        .baseHP        = 70,
         .baseAttack    = 75,
         .baseDefense   = 105,
         .baseSpeed     = 80,
         .baseSpAttack  = 55,
-        .baseSpDefense = 95,
+        .baseSpDefense = 125,
         .types = MON_TYPES(TYPE_DARK, TYPE_FLYING),
         .catchRate = 60,
         .expYield = 179,
@@ -10803,12 +10811,13 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_TERRAKION
     [SPECIES_TERRAKION] =
     {
+        //580 - 620
         .baseHP        = 91,
         .baseAttack    = 129,
-        .baseDefense   = 90,
+        .baseDefense   = 120,
         .baseSpeed     = 108,
         .baseSpAttack  = 72,
-        .baseSpDefense = 90,
+        .baseSpDefense = 100,
         .types = MON_TYPES(TYPE_ROCK, TYPE_FIGHTING),
         .catchRate = 3,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_8) ? 290 : 261,

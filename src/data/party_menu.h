@@ -720,9 +720,18 @@ struct
     [MENU_CATALOG_MOWER] = {gText_LawnMower, CursorCb_CatalogMower},
     [MENU_CHANGE_FORM] = {gText_ChangeForm, CursorCb_ChangeForm},
     [MENU_CHANGE_ABILITY] = {gText_ChangeAbility, CursorCb_ChangeAbility},
+    [MENU_MOVE_REMINDER] = {gText_MoveReminder, Cursorcb_MoveReminder},
 };
 
 static const u8 sPartyMenuAction_SummarySwitchCancel[] = {MENU_SUMMARY, MENU_SWITCH, MENU_CANCEL1};
+//Custom
+static const u8 sPartyMenuAction_SummarySwitchReminderCancel[] =
+{
+    MENU_SUMMARY,
+    MENU_SWITCH,
+    MENU_MOVE_REMINDER,
+    MENU_CANCEL1
+};
 static const u8 sPartyMenuAction_ShiftSummaryCancel[] = {MENU_SHIFT, MENU_SUMMARY, MENU_CANCEL1};
 static const u8 sPartyMenuAction_SendOutSummaryCancel[] = {MENU_SEND_OUT, MENU_SUMMARY, MENU_CANCEL1};
 static const u8 sPartyMenuAction_SummaryCancel[] = {MENU_SUMMARY, MENU_CANCEL1};
@@ -743,7 +752,8 @@ static const u8 sPartyMenuAction_ZygardeCube[] = {MENU_CHANGE_FORM, MENU_CHANGE_
 static const u8 *const sPartyMenuActions[] =
 {
     [ACTIONS_NONE]          = NULL,
-    [ACTIONS_SWITCH]        = sPartyMenuAction_SummarySwitchCancel,
+    // [ACTIONS_SWITCH]        = sPartyMenuAction_SummarySwitchCancel,
+    [ACTIONS_SWITCH]        = sPartyMenuAction_SummarySwitchReminderCancel,
     [ACTIONS_SHIFT]         = sPartyMenuAction_ShiftSummaryCancel,
     [ACTIONS_SEND_OUT]      = sPartyMenuAction_SendOutSummaryCancel,
     [ACTIONS_ENTER]         = sPartyMenuAction_EnterSummaryCancel,

@@ -191,28 +191,28 @@ static bool32 HasBadOdds(u32 battler, bool32 emitResult)
     }
 
     // General bad type matchups have more wiggle room
-    if (typeEffectiveness >= UQ_4_12(2.0)) // If the player has at least a 2x type advantage
-    {
-        if (!hasSuperEffectiveMove // If the AI doesn't have a super effective move
-        && (gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 2 // And the current mon has at least 1/2 their HP, or 1/4 HP and Regenerator
-            || (aiAbility == ABILITY_REGENERATOR
-            && gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 4)))
-        {
-            // Then check if they have an important status move, which is worth using even in a bad matchup
-            if (hasStatusMove)
-                return FALSE;
+    // if (typeEffectiveness >= UQ_4_12(2.0)) // If the player has at least a 2x type advantage
+    // {
+    //     if (!hasSuperEffectiveMove // If the AI doesn't have a super effective move
+    //     && (gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 2 // And the current mon has at least 1/2 their HP, or 1/4 HP and Regenerator
+    //         || (aiAbility == ABILITY_REGENERATOR
+    //         && gBattleMons[battler].hp >= gBattleMons[battler].maxHP / 4)))
+    //     {
+    //         // Then check if they have an important status move, which is worth using even in a bad matchup
+    //         if (hasStatusMove)
+    //             return FALSE;
 
-            // 50% chance to stay in regardless
-            if (!RandomPercentage(RNG_AI_HASBADODDS, 50))
-                return FALSE;
+    //         // 50% chance to stay in regardless
+    //         if (!RandomPercentage(RNG_AI_HASBADODDS, 50))
+    //             return FALSE;
 
-            // Switch mon out
-            gBattleStruct->AI_monToSwitchIntoId[battler] = PARTY_SIZE;
-            if (emitResult)
-                BtlController_EmitTwoReturnValues(battler, 1, B_ACTION_SWITCH, 0);
-            return TRUE;
-        }
-    }
+    //         // Switch mon out
+    //         gBattleStruct->AI_monToSwitchIntoId[battler] = PARTY_SIZE;
+    //         if (emitResult)
+    //             BtlController_EmitTwoReturnValues(battler, 1, B_ACTION_SWITCH, 0);
+    //         return TRUE;
+    //     }
+    // }
     return FALSE;
 }
 
@@ -1104,16 +1104,16 @@ bool32 ShouldSwitch(u32 battler, bool32 emitResult)
 
     // Removing switch capabilites under specific conditions
     // These Functions prevent the "FindMonWithFlagsAndSuperEffective" from getting out of hand.
-    if (HasSuperEffectiveMoveAgainstOpponents(battler, FALSE))
-        return FALSE;
-    if (AreStatsRaised(battler))
-        return FALSE;
+    // if (HasSuperEffectiveMoveAgainstOpponents(battler, FALSE))
+    //     return FALSE;
+    // if (AreStatsRaised(battler))
+    //     return FALSE;
 
     //Default Function
     //Can prompt switch if AI has a pokemon in party that resists current opponent & has super effective move
-    if (FindMonWithFlagsAndSuperEffective(battler, MOVE_RESULT_DOESNT_AFFECT_FOE, 2, emitResult)
-        || FindMonWithFlagsAndSuperEffective(battler, MOVE_RESULT_NOT_VERY_EFFECTIVE, 3, emitResult))
-        return TRUE;
+    // if (FindMonWithFlagsAndSuperEffective(battler, MOVE_RESULT_DOESNT_AFFECT_FOE, 2, emitResult)
+    //     || FindMonWithFlagsAndSuperEffective(battler, MOVE_RESULT_NOT_VERY_EFFECTIVE, 3, emitResult))
+    //     return TRUE;
 
     return FALSE;
 }
@@ -1228,6 +1228,7 @@ static u32 GetBestMonTypeMatchup(struct Pokemon *party, int firstId, int lastId,
     {
         uq4_12_t bestResist = UQ_4_12(1.0);
         int bestMonId = PARTY_SIZE;
+
         // Find the mon whose type is the most suitable defensively.
         for (i = firstId; i < lastId; i++)
         {
@@ -1241,15 +1242,17 @@ static u32 GetBestMonTypeMatchup(struct Pokemon *party, int firstId, int lastId,
                 u8 defType1 = gSpeciesInfo[species].types[0];
                 u8 defType2 = gSpeciesInfo[species].types[1];
 
-                typeEffectiveness = uq4_12_multiply(typeEffectiveness, (GetTypeModifier(atkType1, defType1)));
+                typeEffectiveness = uq4_12_multiply(typeEffectiveness, GetTypeModifier(atkType1, defType1));
                 if (atkType2 != atkType1)
-                    typeEffectiveness = uq4_12_multiply(typeEffectiveness, (GetTypeModifier(atkType2, defType1)));
+                    typeEffectiveness = uq4_12_multiply(typeEffectiveness, GetTypeModifier(atkType2, defType1));
+
                 if (defType2 != defType1)
                 {
-                    typeEffectiveness = uq4_12_multiply(typeEffectiveness, (GetTypeModifier(atkType1, defType2)));
+                    typeEffectiveness = uq4_12_multiply(typeEffectiveness, GetTypeModifier(atkType1, defType2));
                     if (atkType2 != atkType1)
-                        typeEffectiveness = uq4_12_multiply(typeEffectiveness, (GetTypeModifier(atkType2, defType2)));
+                        typeEffectiveness = uq4_12_multiply(typeEffectiveness, GetTypeModifier(atkType2, defType2));
                 }
+
                 if (typeEffectiveness < bestResist)
                 {
                     bestResist = typeEffectiveness;
@@ -1258,20 +1261,39 @@ static u32 GetBestMonTypeMatchup(struct Pokemon *party, int firstId, int lastId,
             }
         }
 
-        // Ok, we know the mon has the right typing but does it have at least one super effective move?
+        // Ok, we know the mon has the right typing, but can it actually threaten a 2HKO?
         if (bestMonId != PARTY_SIZE)
         {
+            int dmg, bestDmg = 0;
+
+            if (bestResist > UQ_4_12(0.5))
+            {
+                bits |= gBitTable[bestMonId];
+                continue;
+            }
+
+            InitializeSwitchinCandidate(&party[bestMonId]);
+
             for (i = 0; i < MAX_MON_MOVES; i++)
             {
                 u32 move = GetMonData(&party[bestMonId], MON_DATA_MOVE1 + i);
-                if (move != MOVE_NONE && AI_GetTypeEffectiveness(move, battler, opposingBattler) >= UQ_4_12(2.0))
-                    break;
+
+                if (move != MOVE_NONE && gMovesInfo[move].power != 0)
+                {
+                    if (AI_THINKING_STRUCT->aiFlags[battler] & AI_FLAG_CONSERVATIVE)
+                        dmg = AI_CalcPartyMonDamage(move, battler, opposingBattler, AI_DATA->switchinCandidate.battleMon, TRUE, DMG_ROLL_LOWEST);
+                    else
+                        dmg = AI_CalcPartyMonDamage(move, battler, opposingBattler, AI_DATA->switchinCandidate.battleMon, TRUE, DMG_ROLL_DEFAULT);
+
+                    if (dmg > bestDmg)
+                        bestDmg = dmg;
+                }
             }
 
-            if (i != MAX_MON_MOVES)
-                return bestMonId; // Has both the typing and at least one super effective move.
+            if (bestDmg >= gBattleMons[opposingBattler].hp / 2)
+                return bestMonId;
 
-            bits |= gBitTable[bestMonId]; // Sorry buddy, we want something better.
+            bits |= gBitTable[bestMonId];
         }
         else
         {
@@ -2111,13 +2133,13 @@ u32 GetMostSuitableMonToSwitchInto(u32 battler, bool32 switchAfterMonKOd)
         if (bestMonId != PARTY_SIZE)
             return bestMonId;
 
-        bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, battler, opposingBattler);
-        if (bestMonId != PARTY_SIZE)
-            return bestMonId;
+        // bestMonId = GetBestMonTypeMatchup(party, firstId, lastId, invalidMons, battler, opposingBattler);
+        // if (bestMonId != PARTY_SIZE)
+        //     return bestMonId;
 
-        bestMonId = GetBestMonDmg(party, firstId, lastId, invalidMons, battler, opposingBattler);
-        if (bestMonId != PARTY_SIZE)
-            return bestMonId;
+        // bestMonId = GetBestMonDmg(party, firstId, lastId, invalidMons, battler, opposingBattler);
+        // if (bestMonId != PARTY_SIZE)
+        //     return bestMonId;
 
         // If ace mon is the last available Pokemon and switch move was used - switch to the mon.
         if (aceMonId != PARTY_SIZE)

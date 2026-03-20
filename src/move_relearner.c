@@ -365,6 +365,9 @@ static void FreeMoveRelearnerResources(void);
 static void RemoveScrollArrows(void);
 static void HideHeartSpritesAndShowTeachMoveText(bool8);
 
+//Custom
+static bool8 sMoveRelearnerFromParty;
+
 static void VBlankCB_MoveRelearner(void)
 {
     LoadOam();
@@ -375,7 +378,16 @@ static void VBlankCB_MoveRelearner(void)
 // Script arguments: The Pokémon to teach is in VAR_0x8004
 void TeachMoveRelearnerMove(void)
 {
+    sMoveRelearnerFromParty = FALSE;
     LockPlayerFieldControls();
+    CreateTask(Task_WaitForFadeOut, 10);
+    // Fade to black
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+}
+
+void TeachMoveRelearnerMoveFromParty(void)
+{
+    sMoveRelearnerFromParty = TRUE;
     CreateTask(Task_WaitForFadeOut, 10);
     // Fade to black
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
@@ -386,7 +398,10 @@ static void Task_WaitForFadeOut(u8 taskId)
     if (!gPaletteFade.active)
     {
         SetMainCallback2(CB2_InitLearnMove);
-        gFieldCallback = FieldCB_ContinueScriptHandleMusic;
+
+        if (!sMoveRelearnerFromParty)
+            gFieldCallback = FieldCB_ContinueScriptHandleMusic;
+
         DestroyTask(taskId);
     }
 }

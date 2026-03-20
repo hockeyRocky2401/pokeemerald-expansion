@@ -263,12 +263,13 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 
     [SPECIES_MONFERNO] =
     {
+        // 405 - 465
         .baseHP        = 64,
-        .baseAttack    = 78,
-        .baseDefense   = 52,
-        .baseSpeed     = 81,
-        .baseSpAttack  = 78,
-        .baseSpDefense = 52,
+        .baseAttack    = 88,
+        .baseDefense   = 62,
+        .baseSpeed     = 101,
+        .baseSpAttack  = 88,
+        .baseSpDefense = 62,
         .types = MON_TYPES(TYPE_FIRE, TYPE_FIGHTING),
         .catchRate = 45,
         .expYield = 142,
@@ -3481,6 +3482,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 #if P_FAMILY_SPIRITOMB
     [SPECIES_SPIRITOMB] =
     {
+        // 485
         .baseHP        = 50,
         .baseAttack    = 92,
         .baseDefense   = 108,
@@ -3497,7 +3499,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_INFILTRATOR },
+        // .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_INFILTRATOR },
+        .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_INTIMIDATE },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Spiritomb"),
         .cryId = CRY_SPIRITOMB,

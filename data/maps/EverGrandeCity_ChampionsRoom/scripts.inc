@@ -43,8 +43,10 @@ EverGrandeCity_ChampionsRoom_Movement_PlayerApproachWallace:
 
 EverGrandeCity_ChampionsRoom_EventScript_Wallace::
 	playbgm MUS_ENCOUNTER_CHAMPION, FALSE
-	msgbox EverGrandeCity_ChampionsRoom_Text_IntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_WALLACE, EverGrandeCity_ChampionsRoom_Text_Defeat
+@	msgbox EverGrandeCity_ChampionsRoom_Text_IntroSpeech, MSGBOX_DEFAULT
+	msgbox EverGrandeCity_ChampionsRoom_Text_IntroSteven, MSGBOX_DEFAULT
+@	trainerbattle_no_intro TRAINER_WALLACE, EverGrandeCity_ChampionsRoom_Text_Defeat
+	trainerbattle_no_intro TRAINER_STEVEN_CHAMPION, EverGrandeCity_ChampionsRoom_Text_DefeatSteven
 	goto EverGrandeCity_ChampionsRoom_EventScript_Defeated
 	end
 
@@ -53,7 +55,8 @@ EverGrandeCity_ChampionsRoom_EventScript_Defeated::
 	setmetatile 6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE
 	setmetatile 6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE
 	special DrawWholeMapView
-	msgbox EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
+@	msgbox EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
+	msgbox EverGrandeCity_ChampionsRoom_Text_PostBattleSteven, MSGBOX_DEFAULT
 	closemessage
 	playse SE_DOOR
 	checkplayergender
@@ -115,7 +118,8 @@ EverGrandeCity_ChampionsRoom_EventScript_BirchArrivesExitForHoF::
 	delay 20
 	applymovement LOCALID_WALLACE, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
-	msgbox EverGrandeCity_ChampionsRoom_Text_WallaceComeWithMe, MSGBOX_DEFAULT
+@	msgbox EverGrandeCity_ChampionsRoom_Text_WallaceComeWithMe, MSGBOX_DEFAULT
+	msgbox EverGrandeCity_ChampionsRoom_Text_StevenComeWithMe, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	applymovement LOCALID_WALLACE, EverGrandeCity_ChampionsRoom_Movement_WallaceExitStart
@@ -126,7 +130,8 @@ EverGrandeCity_ChampionsRoom_EventScript_BirchArrivesExitForHoF::
 	delay 20
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
-	msgbox EverGrandeCity_ChampionsRoom_Text_WallaceWaitOutside, MSGBOX_DEFAULT
+@	msgbox EverGrandeCity_ChampionsRoom_Text_WallaceWaitOutside, MSGBOX_DEFAULT
+	msgbox EverGrandeCity_ChampionsRoom_Text_StevenWaitOutside, MSGBOX_DEFAULT
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, EverGrandeCity_ChampionsRoom_EventScript_MayCongratulations
 	call_if_eq VAR_RESULT, FEMALE, EverGrandeCity_ChampionsRoom_EventScript_BrendanCongratulations
@@ -246,6 +251,18 @@ EverGrandeCity_ChampionsRoom_Text_IntroSpeech:
 	.string "their POKéMON in HOENN?\p"
 	.string "Show me right here and now!$"
 
+EverGrandeCity_ChampionsRoom_Text_IntroSteven:
+	.string "STEVEN: Welcome, {PLAYER}{KUN}.\p"
+	.string "I was looking forward to seeing you\n"
+	.string "here one day.\p"
+	.string "What did you see on your journey with\n"
+	.string "Pokémon?\p"
+	.string "What did you feel, meeting so many\n"
+	.string "other Trainers like you?\p"
+	.string "What has awoken in you?\n"
+	.string "I want you to hit me with it all!\p"
+	.string "Now, bring it!$"
+
 EverGrandeCity_ChampionsRoom_Text_Defeat:
 	.string "I, the CHAMPION, fall in defeat…\p"
 	.string "That was wonderful work.\n"
@@ -254,6 +271,15 @@ EverGrandeCity_ChampionsRoom_Text_Defeat:
 	.string "Kudos to you, {PLAYER}{KUN}!\p"
 	.string "You are a truly noble POKéMON\n"
 	.string "TRAINER!$"
+
+EverGrandeCity_ChampionsRoom_Text_DefeatSteven:
+	.string "{PLAYER}{KUN}!\p"
+	.string "That was excellent!\n"
+	.string "The feeling you have for your Pokémon…\p"
+	.string "And the Pokémon that gave their all in\n" 
+	.string "battle responding to that feeling…\p"
+	.string "Those two combined created a great\n" 
+	.string "power. Greater than I imagined.$"
 
 EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech:
 	.string "WALLACE: The POKéMON you sent into\n"
@@ -269,6 +295,12 @@ EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech:
 	.string "of the POKéMON LEAGUE.\p"
 	.string "I now proclaim you to be the new\n"
 	.string "HOENN region…$"
+
+EverGrandeCity_ChampionsRoom_Text_PostBattleSteven:
+	.string "STEVEN: I’m quite happy that I was able\n"
+	.string "to witness that battle.\p"
+	.string "{PLAYER}{KUN}, you’ve earned the right to be\n" 
+	.string "called the Hoenn Region’s new Champion!$"
 
 EverGrandeCity_ChampionsRoom_Text_MayAdvice:
 	.string "MAY: {PLAYER}{KUN}!\p"
@@ -319,8 +351,21 @@ EverGrandeCity_ChampionsRoom_Text_WallaceComeWithMe:
 	.string "The new CHAMPION!\p"
 	.string "Come with me.$"
 
+EverGrandeCity_ChampionsRoom_Text_StevenComeWithMe:
+	.string "STEVEN: {PLAYER}{KUN}…\p"
+	.string "No, let me rephrase that properly.\p"
+	.string "The new CHAMPION!\p"
+	.string "Come with me.$"
+
 EverGrandeCity_ChampionsRoom_Text_WallaceWaitOutside:
 	.string "WALLACE: I'm sorry, but…\p"
+	.string "From here on, only those TRAINERS who\n"
+	.string "have become CHAMPIONS may enter.\p"
+	.string "You'll have to wait outside with\n"
+	.string "PROF. BIRCH.$"
+
+EverGrandeCity_ChampionsRoom_Text_StevenWaitOutside:
+	.string "STEVEN: I'm sorry, but…\p"
 	.string "From here on, only those TRAINERS who\n"
 	.string "have become CHAMPIONS may enter.\p"
 	.string "You'll have to wait outside with\n"

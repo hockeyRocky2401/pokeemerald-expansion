@@ -19,8 +19,10 @@ Route111_WinstrateFamilysHouse_EventScript_Victoria::
 	faceplayer
 	setvar VAR_0x8008, LOCALID_VICTORIA
 	goto_if_set FLAG_RECEIVED_MACHO_BRACE, Route111_WinstrateFamilysHouse_EventScript_ReceivedMachoBrace
-	msgbox Route111_WinstrateFamilysHouse_Text_LikeYouToHaveMachoBrace, MSGBOX_DEFAULT
-	giveitem ITEM_MACHO_BRACE
+@	msgbox Route111_WinstrateFamilysHouse_Text_LikeYouToHaveMachoBrace, MSGBOX_DEFAULT
+	msgbox Route111_WinstrateFamilysHouse_Text_LikeYouToHavePowerHerb, MSGBOX_DEFAULT
+@	giveitem ITEM_MACHO_BRACE
+	giveitem ITEM_POWER_HERB
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_MACHO_BRACE
 	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
@@ -76,6 +78,14 @@ Route111_WinstrateFamilysHouse_Text_LikeYouToHaveMachoBrace:
 	.string "Since you've beaten all of us here,\n"
 	.string "I don't know if you need it, but we\l"
 	.string "would like you to have our MACHO BRACE.$"
+
+Route111_WinstrateFamilysHouse_Text_LikeYouToHavePowerHerb:
+	.string "We use this POWER HERB to allow\n"
+	.string "our POKéMON to use powerful moves in one\l"
+	.string "turn that usually take two turns.\p"
+	.string "Since you've beaten all of us here,\n"
+	.string "I don't know if you need it, but we\l"
+	.string "would like you to have our POWER HERB.$"
 
 Route111_WinstrateFamilysHouse_Text_PassionateAboutBattles:
 	.string "When it comes to POKéMON battles,\n"

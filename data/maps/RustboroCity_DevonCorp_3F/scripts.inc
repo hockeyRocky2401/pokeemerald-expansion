@@ -176,13 +176,16 @@ RustboroCity_DevonCorp_3F_EventScript_GiveExpShare::
 
 RustboroCity_DevonCorp_3F_EventScript_GiveFrigibax::
 	msgbox RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter, MSGBOX_DEFAULT
+	/*
 	getpartysize
 	compare VAR_RESULT, 6
 	goto_if_eq RustboroCity_DevonCorp3F_EventScript_PlayerHasFullParty
-	givemon SPECIES_FRIGIBAX, 18, ITEM_NONE
-	msgbox RustboroCity_DevonCorp_3F_Text_ObtainedFrigibax, MSGBOX_DEFAULT
+	*/
 	playfanfare MUS_OBTAIN_ITEM
+	givemon SPECIES_FRIGIBAX, 18, ITEM_NONE
 	waitfanfare
+	msgbox RustboroCity_DevonCorp_3F_Text_ObtainedFrigibax, MSGBOX_DEFAULT
+	
 	setflag FLAG_UNUSED_0x022
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
@@ -292,7 +295,7 @@ RustboroCity_DevonCorp_3F_Text_PlayerHasFullParty:
 	.string "Come back to me when you have room.$"
 
 RustboroCity_DevonCorp_3F_Text_ObtainedFrigibax:
-	.string "{COLOR LIGHT_BLUE}You obtained Frigibax!$"
+	.string "{COLOR BLUE}You obtained FRIGIBAX!$"
 
 RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends:
 	.string "MR. STONE: Since my youth, I've immersed\n"

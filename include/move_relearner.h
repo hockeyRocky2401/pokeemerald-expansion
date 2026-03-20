@@ -2,6 +2,7 @@
 #define GUARD_MOVE_RELEARNER_H
 
 void TeachMoveRelearnerMove(void);
+void TeachMoveRelearnerMoveFromParty(void);
 void MoveRelearnerShowHideHearts(s32);
 void MoveRelearnerShowHideCategoryIcon(s32);
 

@@ -51,7 +51,19 @@
     F(STEEL_WING) \
     F(SKILL_SWAP) \
     F(SNATCH) \
-    F(OVERHEAT)
+    F(OVERHEAT) \
+    F(U_TURN) \
+    F(ROOST) \
+    F(STEALTH_ROCK) \
+    F(VOLT_SWITCH) \
+    F(GRASSY_TERRAIN) \
+    F(PSYCHIC_TERRAIN) \
+    F(MISTY_TERRAIN) \
+    F(ELECTRIC_TERRAIN) \
+    F(BODY_PRESS) \
+    F(FLIP_TURN) \
+    F(DAZZLING_GLEAM) \
+    F(DARK_PULSE) \
 
 #define FOREACH_HM(F) \
     F(CUT) \

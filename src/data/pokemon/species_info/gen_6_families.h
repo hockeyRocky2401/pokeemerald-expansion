@@ -253,12 +253,13 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 
     [SPECIES_BRAIXEN] =
     {
+        //409 - 464
         .baseHP        = 59,
         .baseAttack    = 59,
-        .baseDefense   = 58,
-        .baseSpeed     = 73,
+        .baseDefense   = 68,
+        .baseSpeed     = 98,
         .baseSpAttack  = 90,
-        .baseSpDefense = 70,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_FIRE),
         .catchRate = 45,
         .expYield = 143,
@@ -3178,12 +3179,13 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 
     [SPECIES_DRAGALGE] =
     {
+        //494
         .baseHP        = 65,
         .baseAttack    = 75,
-        .baseDefense   = 100,
+        .baseDefense   = 90,
         .baseSpeed     = 44,
         .baseSpAttack  = 97,
-        .baseSpDefense = 133,
+        .baseSpDefense = 123,
         .types = MON_TYPES(TYPE_POISON, TYPE_DRAGON),
         .catchRate = 55,
         .expYield = 173,

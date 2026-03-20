@@ -3625,8 +3625,9 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
 #if P_FAMILY_CYCLIZAR
     [SPECIES_CYCLIZAR] =
     {
+        //501
         .baseHP        = 70,
-        .baseAttack    = 105,
+        .baseAttack    = 95,
         .baseDefense   = 65,
         .baseSpeed     = 121,
         .baseSpAttack  = 85,

@@ -5328,6 +5328,9 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
 
                 return effect;
             }
+
+            // if (effect && gLastUsedAbility != 0xFFFF)
+            //         RecordAbilityBattle(battler, gLastUsedAbility);
             else if (effect == 1) // Drain Hp ability.
             {
                 if (BATTLER_MAX_HP(battler) || (B_HEAL_BLOCKING >= GEN_5 && gStatuses3[battler] & STATUS3_HEAL_BLOCK))
@@ -5520,15 +5523,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+            //Now only if makes contact
         case ABILITY_CURSED_BODY:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-             && TARGET_TURN_DAMAGED
-             && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE
-             && IsBattlerAlive(gBattlerAttacker)
-             && !IsAbilityOnSide(gBattlerAttacker, ABILITY_AROMA_VEIL)
-             && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0
-             && !(GetActiveGimmick(gBattlerAttacker) == GIMMICK_DYNAMAX) // TODO: Max Moves don't make contact, useless?
-             && RandomPercentage(RNG_CURSED_BODY, 30))
+                && TARGET_TURN_DAMAGED
+                && IsMoveMakingContact(move, gBattlerAttacker)
+                && gDisableStructs[gBattlerAttacker].disabledMove == MOVE_NONE
+                && IsBattlerAlive(gBattlerAttacker)
+                && gBattleMons[gBattlerAttacker].pp[gChosenMovePos] != 0
+                && !(GetActiveGimmick(gBattlerAttacker) == GIMMICK_DYNAMAX)
+                && RandomPercentage(RNG_CURSED_BODY, 30))
             {
                 gDisableStructs[gBattlerAttacker].disabledMove = gChosenMove;
                 gDisableStructs[gBattlerAttacker].disableTimer = 4;
@@ -6538,8 +6542,8 @@ bool32 CanBattlerEscape(u32 battler) // no ability check
         return TRUE;
     else if (gBattleMons[battler].status2 & (STATUS2_ESCAPE_PREVENTION | STATUS2_WRAPPED))
         return FALSE;
-    else if (gStatuses3[battler] & STATUS3_ROOTED)
-        return FALSE;
+    // else if (gStatuses3[battler] & STATUS3_ROOTED)
+    //     return FALSE;
     else if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
         return FALSE;
     else if (gStatuses3[battler] & STATUS3_SKY_DROPPED)
@@ -8545,6 +8549,11 @@ bool32 IsMoveMakingContact(u32 move, u32 battlerAtk)
     }
 }
 
+bool32 IsClawMove(u32 move)
+{
+    return gMovesInfo[move].clawMove;
+}
+
 bool32 IsBattlerProtected(u32 battlerAtk, u32 battlerDef, u32 move)
 {
     // Decorate bypasses protect and detect, but not crafty shield
@@ -9222,9 +9231,13 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         if (GetBattlerTurnOrderNum(battlerAtk) == gBattlersCount - 1 && move != MOVE_FUTURE_SIGHT && move != MOVE_DOOM_DESIRE)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
+    // case ABILITY_TOUGH_CLAWS:
+    //     if (IsMoveMakingContact(move, battlerAtk))
+    //        modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+    //     break;
     case ABILITY_TOUGH_CLAWS:
-        if (IsMoveMakingContact(move, battlerAtk))
-           modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        if (IsClawMove(move))
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_STRONG_JAW:
         if (gMovesInfo[move].bitingMove)
@@ -9311,6 +9324,14 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         break; 
     case ABILITY_MIND_BOOST:
         if (moveType == TYPE_PSYCHIC)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break; 
+    case ABILITY_LIVE_WIRE:
+        if (moveType == TYPE_ELECTRIC)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        break;
+    case ABILITY_VERDANT_POWER:
+        if (moveType == TYPE_GRASS)
             modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;     
     case ABILITY_PROTOSYNTHESIS:
@@ -10048,7 +10069,8 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
     case ABILITY_SOLID_ROCK:
     case ABILITY_PRISM_ARMOR:
         if (typeEffectivenessModifier >= UQ_4_12(2.0))
-            return UQ_4_12(0.75);
+            // return UQ_4_12(0.75);
+            return UQ_4_12(0.5);
         break;
     case ABILITY_FLUFFY:
         if (!IsMoveMakingContact(move, battlerAtk) && moveType == TYPE_FIRE)
@@ -11240,25 +11262,29 @@ void SortBattlersBySpeed(u8 *battlers, bool32 slowToFast)
 void TryRestoreHeldItems(void)
 {
     u32 i;
-    bool32 returnNPCItems = B_RETURN_STOLEN_NPC_ITEMS >= GEN_5 && gBattleTypeFlags & BATTLE_TYPE_TRAINER;
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        // Check if held items should be restored after battle based on generation
-        if (B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9 || gBattleStruct->itemLost[B_SIDE_PLAYER][i].stolen || returnNPCItems)
+        u16 originalItem = gBattleStruct->itemLost[B_SIDE_PLAYER][i].originalItem;
+        u16 currentItem = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+
+        if (originalItem == ITEM_NONE)
+            continue;
+
+        // Restore consumed berries
+        if (ItemId_GetPocket(originalItem) == POCKET_BERRIES)
         {
-            u16 lostItem = gBattleStruct->itemLost[B_SIDE_PLAYER][i].originalItem;
-
-            // Check if the lost item is a berry and the mon is not holding it
-            if (ItemId_GetPocket(lostItem) == POCKET_BERRIES && GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) != lostItem)
-                lostItem = ITEM_NONE;
-
-            // Check if the lost item should be restored
-            if ((lostItem != ITEM_NONE || returnNPCItems) && ItemId_GetPocket(lostItem) != POCKET_BERRIES)
-                SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &lostItem);
+            if (currentItem == ITEM_NONE)
+                SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &originalItem);
+        }
+        // Restore other held items if config allows
+        else if (B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
+        {
+            if (currentItem == ITEM_NONE)
+                SetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM, &originalItem);
         }
     }
-}
+}       
 
 bool32 CanStealItem(u32 battlerStealing, u32 battlerItem, u16 item)
 {

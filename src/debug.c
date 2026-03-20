@@ -72,6 +72,7 @@
 // *******************************
 enum DebugMenu
 {
+    DEBUG_MENU_ITEM_POKEVIALS,
     DEBUG_MENU_ITEM_UTILITIES,
     DEBUG_MENU_ITEM_PCBAG,
     DEBUG_MENU_ITEM_PARTY,
@@ -268,6 +269,8 @@ enum BerryFunctionsMenu
 
 #define DEBUG_MAX_MENU_ITEMS 50
 
+#define MAX_POKEVIAL_CHARGES 4
+
 // *******************************
 struct DebugMonData
 {
@@ -346,6 +349,9 @@ static void DebugAction_OpenGiveMenu(u8 taskId);
 static void DebugAction_OpenSoundMenu(u8 taskId);
 
 static void DebugTask_HandleMenuInput_Main(u8 taskId);
+//Custom for Pokevials
+static void Debug_UpdatePokeVialsText(void);
+static void DebugAction_UsePokeVial(u8 taskId);
 static void DebugTask_HandleMenuInput_Utilities(u8 taskId);
 static void DebugTask_HandleMenuInput_PCBag(u8 taskId);
 static void DebugTask_HandleMenuInput_PCBag_Fill(u8 taskId);
@@ -497,6 +503,10 @@ static const u8 sDebugText_Dashes[] =        _("---");
 static const u8 sDebugText_Empty[] =         _("");
 static const u8 sDebugText_Continue[] =      _("Continue…{CLEAR_TO 110}{RIGHT_ARROW}");
 // Main Menu
+//Custom for PokeVials
+static u8 sDebugText_PokeVials[32];
+static const u8 sDebugText_PokeVialsPrefix[] = _("PokeVials: ");
+static const u8 sDebugText_PokeVialsSuffix[] = _("{CLEAR_TO 110}");
 static const u8 sDebugText_Utilities[] =     _("Utilities…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_PCBag[] =         _("PC/Bag…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_Party[] =         _("Party…{CLEAR_TO 110}{RIGHT_ARROW}");
@@ -697,6 +707,7 @@ static const s32 sPowersOfTen[] =
 // List Menu Items
 static const struct ListMenuItem sDebugMenu_Items_Main[] =
 {
+    [DEBUG_MENU_ITEM_POKEVIALS]     = {sDebugText_PokeVials,    DEBUG_MENU_ITEM_POKEVIALS},
     [DEBUG_MENU_ITEM_UTILITIES]     = {sDebugText_Utilities,    DEBUG_MENU_ITEM_UTILITIES},
     [DEBUG_MENU_ITEM_PCBAG]         = {sDebugText_PCBag,        DEBUG_MENU_ITEM_PCBAG},
     [DEBUG_MENU_ITEM_PARTY]         = {sDebugText_Party,        DEBUG_MENU_ITEM_PARTY},
@@ -867,6 +878,7 @@ static const struct ListMenuItem sDebugMenu_Items_BerryFunctions[] =
 // Menu Actions
 static void (*const sDebugMenu_Actions_Main[])(u8) =
 {
+    [DEBUG_MENU_ITEM_POKEVIALS]     = DebugAction_UsePokeVial,
     [DEBUG_MENU_ITEM_UTILITIES]     = DebugAction_OpenUtilitiesMenu,
     [DEBUG_MENU_ITEM_PCBAG]         = DebugAction_OpenPCBagMenu,
     [DEBUG_MENU_ITEM_PARTY]         = DebugAction_OpenPartyMenu,
@@ -1144,11 +1156,13 @@ void Debug_ShowMainMenu(void)
     sDebugMenuListData = AllocZeroed(sizeof(*sDebugMenuListData));
     Debug_InitDebugBattleData();
 
+    Debug_UpdatePokeVialsText();
     Debug_ShowMenu(DebugTask_HandleMenuInput_Main, sDebugMenu_ListTemplate_Main);
 }
 
 static void Debug_ReShowMainMenu(void)
 {
+    Debug_UpdatePokeVialsText();
     Debug_ShowMenu(DebugTask_HandleMenuInput_Main, sDebugMenu_ListTemplate_Main);
 }
 
@@ -1434,7 +1448,8 @@ static void Debug_RefreshListMenu(u8 taskId)
     else if (sDebugMenuListData->listId == 1 && sDebugBattleData->submenu > 1)
     {
         gMultiuseListMenuTemplate = sDebugMenu_ListTemplate_Battle_2;
-        totalItems = 7;
+        // totalItems = 7;
+        totalItems = 8;
     }
 
     // Failsafe to prevent memory corruption
@@ -1491,6 +1506,44 @@ static void DebugTask_HandleMenuInput_Main(u8 taskId)
         Debug_DestroyMenu_Full(taskId);
         ScriptContext_Enable();
     }
+}
+
+//For Pokevials
+
+static void Debug_UpdatePokeVialsText(void)
+{
+    u16 charges = VarGet(VAR_POKEVIAL_CHARGES);
+
+    if (charges > MAX_POKEVIAL_CHARGES)
+        charges = MAX_POKEVIAL_CHARGES;
+
+    StringCopy(sDebugText_PokeVials, sDebugText_PokeVialsPrefix);
+    ConvertIntToDecimalStringN(
+        sDebugText_PokeVials + StringLength(sDebugText_PokeVials),
+        charges,
+        STR_CONV_MODE_LEFT_ALIGN,
+        1
+    );
+    StringAppend(sDebugText_PokeVials, sDebugText_PokeVialsSuffix);
+}
+
+static void DebugAction_UsePokeVial(u8 taskId)
+{
+    u16 charges = VarGet(VAR_POKEVIAL_CHARGES);
+
+    if (charges == 0)
+    {
+        PlaySE(SE_FAILURE);
+        Debug_DestroyMenu_Full(taskId);
+        ScriptContext_Enable();
+        return;
+    }
+
+    PlaySE(SE_USE_ITEM);
+    HealPlayerParty();
+    VarSet(VAR_POKEVIAL_CHARGES, charges - 1);
+    ScriptContext_Enable();
+    Debug_DestroyMenu_Full(taskId);
 }
 
 static void DebugTask_HandleMenuInput_Utilities(u8 taskId)

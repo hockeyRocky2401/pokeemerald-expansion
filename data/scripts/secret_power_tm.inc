@@ -1,5 +1,5 @@
 Route111_Text_MakingRoomUseTMToMakeYourOwn:
-	.string "What's that?\n"
+	.string "AARUNE: What's that?\n"
 	.string "What am I doing?\p"
 	.string "I'm thinking about making my own room\n"
 	.string "here using a POKéMON move.\p"
@@ -7,8 +7,8 @@ Route111_Text_MakingRoomUseTMToMakeYourOwn:
 	.string "Will you use it to make your own room?$"
 
 Route111_Text_ExplainSecretPower:
-	.string "Find a big tree that looks like it might\n"
-	.string "drop some vines.\p"
+	.string "AARUNE: Find a big tree that looks like it\n"
+	.string "might drop some vines.\p"
 	.string "Use SECRET POWER in front of the tree.\n"
 	.string "Some vines should get free and drop\l"
 	.string "down, so you can climb the tree.\p"
@@ -25,13 +25,13 @@ Route111_Text_ExplainSecretPower:
 	.string "Okay, bye!$"
 
 Route111_Text_DontWantThis:
-	.string "Oh, you don't want this?\n"
+	.string "AARUNE: Oh, you don't want this?\n"
 	.string "If you change your mind, tell me, okay?$"
 
 Route111_Text_DontHaveAnyRoom:
-	.string "Oh, you don't have any room for this.\p"
-	.string "I'll hold on to it, so come back for it\n"
-	.string "another time, okay?$"
+	.string "AARUNE: Oh, you don't have any room for\p"
+	.string "this. I'll hold on to it, so come back for\n"
+	.string "it another time, okay?$"
 
 Route111_EventScript_SecretPowerMan::
 	lock

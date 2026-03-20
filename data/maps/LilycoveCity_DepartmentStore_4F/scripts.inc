@@ -29,9 +29,6 @@ LilycoveCity_DepartmentStore_4F_Pokemart_AttackTMs:
 	.2byte ITEM_TM_THUNDER
 	.2byte ITEM_TM_BLIZZARD
 	.2byte ITEM_TM_HYPER_BEAM
-	.2byte ITEM_TM_SHADOW_BALL
-	.2byte ITEM_TM_PSYCHIC
-	.2byte ITEM_TM_EARTHQUAKE
 	.2byte ITEM_NONE
 	release
 	end
@@ -52,6 +49,10 @@ LilycoveCity_DepartmentStore_4F_Pokemart_DefenseTMs:
 	.2byte ITEM_TM_SAFEGUARD
 	.2byte ITEM_TM_REFLECT
 	.2byte ITEM_TM_LIGHT_SCREEN
+    .2byte ITEM_TM55
+	.2byte ITEM_TM56
+	.2byte ITEM_TM57
+	.2byte ITEM_TM58
 	.2byte ITEM_NONE
 	release
 	end

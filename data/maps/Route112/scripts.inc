@@ -109,6 +109,27 @@ Route112_EventScript_Shayla::
 	msgbox Route112_Text_ShaylaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route112_EventScript_Nurse::
+    lock 
+	faceplayer
+	msgbox Route112_Text_Rest, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route112_EventScript_Rest
+	goto_if_eq VAR_RESULT, NO, Route112_EventScript_DeclineRest
+	end
+
+Route112_EventScript_Rest::
+	msgbox Route112_Nurse_Text_Rest, MSGBOX_DEFAULT
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	msgbox Route112_Nurse_Text_Healed, MSGBOX_DEFAULT
+	release 
+	end 
+
+Route112_EventScript_DeclineRest::
+    msgbox Route112_Nurse_Text_DeclineRest, MSGBOX_DEFAULT
+	release
+	end
+
 Route112_Text_LeaderGoingToAwakenThing:
 	.string "Hey, man, is our leader really going\n"
 	.string "to awaken that thing?$"
@@ -142,4 +163,19 @@ Route112_Text_MtChimneySign:
 Route112_Text_RouteSignLavaridge:
 	.string "ROUTE 112\n"
 	.string "{LEFT_ARROW} LAVARIDGE TOWN$"
+
+Route112_Text_Rest:
+	.string "Do you want me to heal your Pokémon\n"
+	.string "before you head up the mountain?$"
+
+Route112_Nurse_Text_Rest:
+    .string "I'll take your Pokémon for a minute.$"
+
+Route112_Nurse_Text_Healed:
+    .string "There! Your Pokémon look happy and\n"
+	.string "healthy!$"	
+
+Route112_Nurse_Text_DeclineRest:
+    .string "Come back to me if you want to heal\n"
+	.string "your Pokémon.$"
 

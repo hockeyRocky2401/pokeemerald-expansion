@@ -47,12 +47,14 @@
 #line 18
             .iv = TRAINER_PARTY_IVS(29, 29, 29, 29, 29, 29),
 #line 17
-            .lvl = 70,
+            .lvl = 65,
 #line 16
             .nature = NATURE_BRAVE,
-            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
-            .moves = {
 #line 20
+            .dynamaxLevel = 0,
+            .shouldUseDynamax = TRUE,
+            .moves = {
+#line 21
                 MOVE_IRON_DEFENSE,
                 MOVE_ZEN_HEADBUTT,
                 MOVE_BODY_PRESS,
@@ -60,45 +62,49 @@
             },
             },
             {
-#line 25
+#line 26
             .species = SPECIES_SKARMORY,
             .gender = TRAINER_MON_RANDOM_GENDER,
-#line 29
-            .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
-#line 28
-            .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
-#line 27
-            .lvl = 69,
-#line 26
-            .nature = NATURE_IMPISH,
-            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
-            .moves = {
 #line 30
+            .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+#line 29
+            .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+#line 28
+            .lvl = 64,
+#line 27
+            .nature = NATURE_IMPISH,
+#line 31
+            .dynamaxLevel = 0,
+            .shouldUseDynamax = TRUE,
+            .moves = {
+#line 32
                 MOVE_ROOST,
-                MOVE_DRILL_PECK,
+                MOVE_BRAVE_BIRD,
                 MOVE_BODY_PRESS,
                 MOVE_STEEL_WING,
             },
             },
             {
-#line 35
+#line 37
             .species = SPECIES_AGGRON,
             .gender = TRAINER_MON_RANDOM_GENDER,
-#line 39
+#line 41
             .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
-#line 38
-            .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
-#line 37
-            .lvl = 69,
-#line 36
-            .nature = NATURE_ADAMANT,
-            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
-            .moves = {
 #line 40
+            .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+#line 39
+            .lvl = 64,
+#line 38
+            .nature = NATURE_ADAMANT,
+#line 42
+            .dynamaxLevel = 0,
+            .shouldUseDynamax = TRUE,
+            .moves = {
+#line 43
                 MOVE_IRON_DEFENSE,
                 MOVE_BODY_PRESS,
                 MOVE_IRON_HEAD,
-                MOVE_STONE_EDGE,
+                MOVE_HEAD_SMASH,
             },
             },
         },

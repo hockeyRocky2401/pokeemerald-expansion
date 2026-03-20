@@ -91,7 +91,7 @@ PetalburgWoods_EventScript_DevonResearcherPostBattle::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	msgbox PetalburgWoods_Text_ThatWasAwfullyClose, MSGBOX_DEFAULT
-	giveitem ITEM_GREAT_BALL
+	giveitem ITEM_PREMIER_BALL
 	goto_if_eq VAR_RESULT, FALSE, PetalburgWoods_EventScript_BagFull
 	goto PetalburgWoods_EventScript_DevonResearcherFinish
 	end
@@ -318,6 +318,30 @@ PetalburgWoods_EventScript_JamesRematch::
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
 	end
 
+@ Custom
+
+@ Nurse 
+PetalburgWoods_EventScript_Nurse::
+	lock 
+	faceplayer
+	msgbox PetalburgWoods_Text_Rest, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, PetalburgWoods_EventScript_Rest
+	goto_if_eq VAR_RESULT, NO, PetalburgWoods_EventScript_DeclineRest
+	end 
+
+PetalburgWoods_EventScript_Rest::
+	msgbox PetalburgWoods_Nurse_Text_Rest, MSGBOX_DEFAULT
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	msgbox PetalburgWoods_Nurse_Text_Healed, MSGBOX_DEFAULT
+	release 
+	end 
+
+PetalburgWoods_EventScript_DeclineRest::
+    msgbox PetalburgWoods_Nurse_Text_DeclineRest, MSGBOX_DEFAULT
+	release
+	end
+
 PetalburgWoods_Text_NotAOneToBeFound:
 	.string "Hmmm…\n"
 	.string "Not a one to be found…$"
@@ -367,7 +391,7 @@ PetalburgWoods_Text_ThatWasAwfullyClose:
 	.string "That was awfully close!\p"
 	.string "Thanks to you, he didn't rob me of\n"
 	.string "these important papers.\p"
-	.string "I know, I'll give you a GREAT BALL as\n"
+	.string "I know, I'll give you a Premier Ball as\n"
 	.string "my thanks!$"
 
 PetalburgWoods_Text_TeamAquaAfterSomethingInRustboro:
@@ -474,3 +498,17 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+PetalburgWoods_Text_Rest:
+    .string "Petalburg Woods can be tiresome.\p"
+	.string "Do you want me to heal your Pokémon?$"
+
+PetalburgWoods_Nurse_Text_Rest:
+    .string "I'll take your Pokémon for a minute.$"
+
+PetalburgWoods_Nurse_Text_Healed:
+    .string "There! Your Pokémon look happy and\n"
+	.string "healthy!$"	
+
+PetalburgWoods_Nurse_Text_DeclineRest:
+    .string "Come back to me if you want to heal\n"
+	.string "your Pokémon.$"

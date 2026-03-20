@@ -42,9 +42,9 @@ LittlerootTown_MapScripts::
 LittlerootTown_OnTransition:
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
 	call Common_EventScript_SetupRivalGfxId
-	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
+@	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
-	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
+@	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
 	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 	call_if_eq VAR_OLDALE_RIVAL_STATE, 1, LittlerootTown_EventScript_MoveRivalFromOldale
@@ -139,7 +139,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	playse SE_LEDGE
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerStepOffTruck
 	waitmovement 0
-	opendoor VAR_0x8004, VAR_0x8005
+/*	opendoor VAR_0x8004, VAR_0x8005
 	waitdooranim
 	addobject LOCALID_MOM
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomExitHouse
@@ -159,11 +159,12 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomEnterHouse
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerEnterHouse
 	waitmovement 0
+	*/
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE
 	setvar VAR_LITTLEROOT_INTRO_STATE, 3
 	hideobjectat OBJ_EVENT_ID_PLAYER, 0
-	closedoor VAR_0x8004, VAR_0x8005
-	waitdooranim
+@	closedoor VAR_0x8004, VAR_0x8005
+@	waitdooranim
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	return

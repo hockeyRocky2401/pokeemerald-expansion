@@ -1514,6 +1514,15 @@ static bool32 AccuracyCalcHelper(u16 move)
         JumpIfMoveFailed(7, move);
         return TRUE;
     }
+
+    //Custom for hydro displacer
+    else if (GetBattlerAbility(gBattlerAttacker) == ABILITY_HYDRO_DISPLACER
+      && IsHydroDisplacerMove(move))
+    {
+        if (!JumpIfMoveFailed(7, move))
+            RecordAbilityBattle(gBattlerAttacker, ABILITY_HYDRO_DISPLACER);
+        return TRUE;
+    }
     // If the attacker has the ability No Guard and they aren't targeting a Pokemon involved in a Sky Drop with the move Sky Drop, move hits.
     else if (GetBattlerAbility(gBattlerAttacker) == ABILITY_NO_GUARD && (move != MOVE_SKY_DROP || gBattleStruct->skyDropTargets[gBattlerTarget] == 0xFF))
     {
@@ -5491,7 +5500,7 @@ static void Cmd_moveend(void)
                 if (gProtectStructs[gBattlerTarget].spikyShielded && GetBattlerAbility(gBattlerAttacker) != ABILITY_MAGIC_GUARD)
                 {
                     gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
-                    gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 8;
+                    gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 6;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_SPIKY_SHIELD);
@@ -5949,6 +5958,7 @@ static void Cmd_moveend(void)
                     {
                         gLastMoves[gBattlerAttacker] = gChosenMove;
                         RecordKnownMove(gBattlerAttacker, gChosenMove);
+                        TryRevealSignatureMoveSpecies(gBattlerAttacker, gChosenMove);
                         gLastResultingMoves[gBattlerAttacker] = gCurrentMove;
                     }
                 }
@@ -15148,7 +15158,8 @@ static void Cmd_handleballthrow(void)
 {
     CMD_ARGS();
 
-    u16 ballMultiplier = 100;
+    // u16 ballMultiplier = 100;
+    u16 ballMultiplier = 200; //Poke ball now the same as Ultra Ball
     s8 ballAddition = 0;
 
     if (gBattleControllerExecFlags)
@@ -15463,7 +15474,8 @@ static void Cmd_givecaughtmon(void)
     if (B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
     {
         u16 lostItem = gBattleStruct->itemLost[B_SIDE_OPPONENT][gBattlerPartyIndexes[GetCatchingBattler()]].originalItem;
-        if (lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRIES)
+        // if (lostItem != ITEM_NONE && ItemId_GetPocket(lostItem) != POCKET_BERRIES)
+        if (lostItem != ITEM_NONE)
             SetMonData(&gEnemyParty[gBattlerPartyIndexes[GetCatchingBattler()]], MON_DATA_HELD_ITEM, &lostItem);  // Restore non-berry items
     }
 

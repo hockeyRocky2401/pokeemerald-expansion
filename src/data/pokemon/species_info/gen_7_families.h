@@ -4280,7 +4280,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
 #if P_FAMILY_TURTONATOR
     [SPECIES_TURTONATOR] =
     {
-        .baseHP        = 60,
+        //485 - 505
+        .baseHP        = 80,
         .baseAttack    = 78,
         .baseDefense   = 135,
         .baseSpeed     = 36,
@@ -4296,7 +4297,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SHELL_ARMOR, ABILITY_NONE, ABILITY_NONE },
+        // .abilities = { ABILITY_SHELL_ARMOR, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_SHELL_ARMOR, ABILITY_ROUGH_SKIN, ABILITY_NONE },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Turtonator"),
         .cryId = CRY_TURTONATOR,

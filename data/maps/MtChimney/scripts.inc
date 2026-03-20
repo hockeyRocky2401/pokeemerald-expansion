@@ -50,8 +50,8 @@ MtChimney_EventScript_Maxie::
 	applymovement LOCALID_MAXIE, Common_Movement_Delay48
 	waitmovement 0
 	msgbox MtChimney_Text_MaxieIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_MAXIE_MT_CHIMNEY, MtChimney_Text_MaxieDefeat
-	msgbox MtChimney_Text_MaxieYouHaventSeenLastOfMagma, MSGBOX_DEFAULT
+@   trainerbattle_no_intro TRAINER_MAXIE_MT_CHIMNEY, MtChimney_Text_MaxieDefeat
+@	msgbox MtChimney_Text_MaxieYouHaventSeenLastOfMagma, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	fadescreen FADE_TO_BLACK
@@ -567,8 +567,14 @@ MtChimney_Text_MaxieIntro:
 	.string "what sleeps within this mountain…\p"
 	.string "Oh! There was no need for you to\n"
 	.string "learn that much.\p"
-	.string "But, no matter!\n"
-	.string "I'll teach you the consequences of\l"
+	.string "But, no matter!\p"
+	.string "I will back off this time.\p"
+	.string "But don't think that this is the last\n"
+	.string "you've seen of TEAM MAGMA.\p"
+	.string "Fufufu…\p"
+	.string "Even without the METEORITE, if we\n"
+	.string "obtain that ORB… Fufufu…$"
+/*	.string "I'll teach you the consequences of\l"
 	.string "meddling in our grand design!$"
 
 MtChimney_Text_MaxieDefeat:
@@ -576,13 +582,14 @@ MtChimney_Text_MaxieDefeat:
 	.string "I, MAXIE, was caught off guard?!$"
 
 MtChimney_Text_MaxieYouHaventSeenLastOfMagma:
-	.string "MAXIE: But, enough.\n"
+	.string "MAXIE: But, enough.\n"  
 	.string "I will back off this time.\p"
 	.string "But don't think that this is the last\n"
 	.string "you've seen of TEAM MAGMA.\p"
 	.string "Fufufu…\p"
 	.string "Even without the METEORITE, if we\n"
 	.string "obtain that ORB… Fufufu…$"
+	*/
 
 MtChimney_Text_TabithaIntro:
 	.string "Hehehe!\p"

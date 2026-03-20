@@ -18,13 +18,15 @@ Route104_PrettyPetalFlowerShop_EventScript_MoveShopOwner::
 Route104_PrettyPetalFlowerShop_EventScript_ShopOwner::
 	lock
 	faceplayer
+	goto Route104_PrettyPetalFlowerShop_EventScript_SellMints
+	/*
 	goto_if_set FLAG_TEMP_1, Route104_PrettyPetalFlowerShop_EventScript_SellDecorations
 	msgbox Route104_PrettyPetalFlowerShop_Text_ThisIsPrettyPetalFlowerShop, MSGBOX_DEFAULT
 	goto_if_set FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_PrettyPetalFlowerShop_EventScript_AlreadyMet
 	setflag FLAG_MET_PRETTY_PETAL_SHOP_OWNER
 	msgbox Route104_PrettyPetalFlowerShop_Text_IntroLearnAboutBerries, MSGBOX_YESNO
 	call_if_eq VAR_RESULT, YES, Route104_PrettyPetalFlowerShop_EventScript_ExplainBerries
-	call_if_eq VAR_RESULT, NO, Route104_PrettyPetalFlowerShop_EventScript_DontExplainBerries
+	call_if_eq VAR_RESULT, NO, Route104_PrettyPetalFlowerShop_EventScript_DontExplainBerries */
 	release
 	end
 
@@ -60,6 +62,41 @@ Route104_PrettyPetalFlowerShop_Pokemart_Plants:
 	.2byte DECOR_BIG_PLANT
 	.2byte DECOR_GORGEOUS_PLANT
 	.2byte DECOR_NONE
+	release
+	end
+
+	Route104_PrettyPetalFlowerShop_EventScript_SellMints::
+	message gText_WhatCanIDoForYou
+	waitmessage
+	pokemart Route104_PrettyPetalFlowerShop_Pokemart_Mints
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Route104_PrettyPetalFlowerShop_Pokemart_Mints:
+	.2byte ITEM_ADAMANT_MINT
+	.2byte ITEM_BOLD_MINT
+	.2byte ITEM_BRAVE_MINT
+	.2byte ITEM_CALM_MINT
+	.2byte ITEM_CAREFUL_MINT
+	.2byte ITEM_GENTLE_MINT
+	.2byte ITEM_HASTY_MINT
+	.2byte ITEM_IMPISH_MINT
+	.2byte ITEM_JOLLY_MINT
+	.2byte ITEM_LAX_MINT
+	.2byte ITEM_LONELY_MINT
+	.2byte ITEM_MILD_MINT
+	.2byte ITEM_MODEST_MINT
+	.2byte ITEM_NAIVE_MINT
+	.2byte ITEM_NAUGHTY_MINT
+	.2byte ITEM_QUIET_MINT
+	.2byte ITEM_RASH_MINT
+	.2byte ITEM_RELAXED_MINT
+	.2byte ITEM_SASSY_MINT
+	.2byte ITEM_SERIOUS_MINT
+	.2byte ITEM_TIMID_MINT
+	.2byte ITEM_NONE
 	release
 	end
 

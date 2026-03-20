@@ -24,16 +24,22 @@
       "direction": "emerge"
     }
   ],
-  "object_events": [],
-  "warp_events": [],
-  "coord_events": [],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",
       "x": 42,
       "y": 51,
       "elevation": 0,
-      "item": "ITEM_CARBOS",
+      "item": "ITEM_PP_UP",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_124_CARBOS"
     },
     {
@@ -73,7 +79,7 @@
       "x": 42,
       "y": 5,
       "elevation": 3,
-      "item": "ITEM_CALCIUM",
+      "item": "ITEM_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_124_CALCIUM"
     },
     {
@@ -81,7 +87,7 @@
       "x": 45,
       "y": 36,
       "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
+      "item": "ITEM_STAR_PIECE",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_124_HEART_SCALE_2"
     }
   ]

@@ -5857,8 +5857,8 @@ BattleScript_Pausex20::
 BattleScript_LevelUp::
 	fanfare MUS_LEVEL_UP
 	printstring STRINGID_PKMNGREWTOLV
-	setbyte sLVLBOX_STATE, 0
-	drawlvlupbox
+@	setbyte sLVLBOX_STATE, 0
+@	drawlvlupbox
 	handlelearnnewmove BattleScript_LearnedNewMove, BattleScript_LearnMoveReturn, TRUE
 	goto BattleScript_AskToLearnMove
 BattleScript_TryLearnMoveLoop::

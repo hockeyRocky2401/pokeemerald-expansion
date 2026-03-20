@@ -14,9 +14,10 @@ Music: Male
 
 Metagross
 Brave Nature
-Level: 70
+Level: 65
 IVs: 29 HP / 29 Atk / 29 Def / 29 SpA / 29 SpD / 29 Spe
 EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+Dynamax Level: 0
 - Iron Defense
 - Zen Headbutt
 - Body Press
@@ -24,20 +25,22 @@ EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
 
 Skarmory
 Impish Nature
-Level: 69
+Level: 64
 IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+Dynamax Level: 0
 - Roost
-- Drill Peck
+- Brave Bird
 - Body Press
 - Steel Wing
 
 Aggron
 Adamant Nature
-Level: 69
+Level: 64
 IVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+Dynamax Level: 0
 - Iron Defense
 - Body Press
 - Iron Head
-- Stone Edge
+- Head Smash

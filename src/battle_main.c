@@ -1971,15 +1971,26 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[i]);
             SetMonData(&party[i], MON_DATA_IVS, &(partyData[i].iv));
-            if (partyData[i].ev != NULL)
+            // if (partyData[i].ev != NULL)
+            // {
+            //     SetMonData(&party[i], MON_DATA_HP_EV, &(partyData[i].ev[0]));
+            //     SetMonData(&party[i], MON_DATA_ATK_EV, &(partyData[i].ev[1]));
+            //     SetMonData(&party[i], MON_DATA_DEF_EV, &(partyData[i].ev[2]));
+            //     SetMonData(&party[i], MON_DATA_SPATK_EV, &(partyData[i].ev[3]));
+            //     SetMonData(&party[i], MON_DATA_SPDEF_EV, &(partyData[i].ev[4]));
+            //     SetMonData(&party[i], MON_DATA_SPEED_EV, &(partyData[i].ev[5]));
+            // }
+            //Disabling EVS
             {
-                SetMonData(&party[i], MON_DATA_HP_EV, &(partyData[i].ev[0]));
-                SetMonData(&party[i], MON_DATA_ATK_EV, &(partyData[i].ev[1]));
-                SetMonData(&party[i], MON_DATA_DEF_EV, &(partyData[i].ev[2]));
-                SetMonData(&party[i], MON_DATA_SPATK_EV, &(partyData[i].ev[3]));
-                SetMonData(&party[i], MON_DATA_SPDEF_EV, &(partyData[i].ev[4]));
-                SetMonData(&party[i], MON_DATA_SPEED_EV, &(partyData[i].ev[5]));
+                u8 zero = 0;
+                SetMonData(&party[i], MON_DATA_HP_EV,    &zero);
+                SetMonData(&party[i], MON_DATA_ATK_EV,   &zero);
+                SetMonData(&party[i], MON_DATA_DEF_EV,   &zero);
+                SetMonData(&party[i], MON_DATA_SPATK_EV, &zero);
+                SetMonData(&party[i], MON_DATA_SPDEF_EV, &zero);
+                SetMonData(&party[i], MON_DATA_SPEED_EV, &zero);
             }
+            
             if (partyData[i].ability != ABILITY_NONE)
             {
                 const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[i].species];
@@ -3164,12 +3175,15 @@ void SwitchInClearSetData(u32 battler)
         if (gStatuses3[battler] & STATUS3_POWER_TRICK)
             SWAP(gBattleMons[battler].attack, gBattleMons[battler].defense, i);
     }
+    //Aqua Ring and Ingrain should stay
     else
-    {
-        gBattleMons[battler].status2 = 0;
-        gStatuses3[battler] = 0;
-        gStatuses4[battler] = 0;
-    }
+        {
+            u32 keepStatuses3 = gStatuses3[battler] & (STATUS3_AQUA_RING | STATUS3_ROOTED);
+
+            gBattleMons[battler].status2 = 0;
+            gStatuses3[battler] = keepStatuses3;
+            gStatuses4[battler] = 0;
+        }
 
     for (i = 0; i < gBattlersCount; i++)
     {

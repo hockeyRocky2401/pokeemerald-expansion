@@ -206,4 +206,18 @@ bool32 AI_ShouldSetUpHazards(u32 battlerAtk, u32 battlerDef, struct AiLogicData 
 void IncreaseTidyUpScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score);
 bool32 AI_ShouldSpicyExtract(u32 battlerAtk, u32 battlerAtkPartner, u32 move, struct AiLogicData *aiData);
 
+//Custom
+bool32 AI_CanFaintBeforeTarget(u32 battlerAtk, u32 battlerDef, u32 move);
+bool32 AI_TargetCanFaintBeforeAI(u32 battlerAtk, u32 battlerDef, u32 move);
+bool32 AI_TargetHasPriorityMove(u8 battlerAttacker, u8 battlerDef);
+bool32 CanAi2HkoTarget(u32 battlerAtk, u32 battlerDef);
+bool32 CanTarget2HkoAi(u32 battlerAtk, u32 battlerDef);
+// bool32 CanPartyMon2HkoTarget(u32 battlerAtk, u32 battlerDef, struct BattlePokemon switchinCandidate);
+// bool32 CanTarget2HkoPartyMon(u32 battlerAtk, u32 battlerDef, struct BattlePokemon switchinCandidate);
+// bool32 IsTargetFasterThanPartyMon(u32 battlerDef, struct BattlePokemon switchinCandidate);
+// bool32 WillTargetMoveFirstAnd2HkoPartyMon(u32 battlerAtk, u32 battlerDef, struct BattlePokemon switchinCandidate);
+bool32 IsHydroDisplacerMove(u16 move);
+void TryRevealSignatureMoveSpecies(u32 battler, u32 move);
+
+
 #endif //GUARD_BATTLE_AI_UTIL_H

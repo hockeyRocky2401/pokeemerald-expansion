@@ -189,6 +189,8 @@ const u8 gMenuText_Confirm[] = _("CONFIRM");
 const u8 gMenuText_Walk[] = _("WALK");
 const u8 gText_Cancel[] = _("CANCEL");
 const u8 gText_Cancel2[] = _("CANCEL");
+//Custom
+const u8 gText_MoveReminder[] = _("REMINDER");
 const u8 gMenuText_Show[] = _("SHOW");
 const u8 gText_EmptyString2[] = _("");
 const u8 gText_Cancel7[] = _("CANCEL"); // Unused

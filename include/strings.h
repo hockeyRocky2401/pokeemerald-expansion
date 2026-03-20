@@ -588,6 +588,9 @@ extern const u8 gText_MoveToBag[];
 extern const u8 gText_Give2[];
 extern const u8 gText_Cancel2[];
 
+//Custom
+extern const u8 gText_MoveReminder[];
+
 extern const u8 gText_NoItems[];
 extern const u8 gText_WhatToDoWithVar1sMail[];
 extern const u8 gText_MessageWillBeLost[];

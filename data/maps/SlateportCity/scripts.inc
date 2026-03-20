@@ -139,9 +139,11 @@ SlateportCity_Movement_ScottExit:
 SlateportCity_EventScript_EnergyGuru::
 	lock
 	faceplayer
-	message SlateportCity_Text_EnergyGuruSellWhatYouNeed
+@	message SlateportCity_Text_EnergyGuruSellWhatYouNeed
+	message SlateportCity_Text_RockGuruSellWhatYouNeed
 	waitmessage
-	pokemart SlateportCity_Pokemart_EnergyGuru
+@	pokemart SlateportCity_Pokemart_EnergyGuru
+	pokemart SlateportCity_Pokemart_RockGuru
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -154,6 +156,16 @@ SlateportCity_Pokemart_EnergyGuru:
 	.2byte ITEM_ZINC
 	.2byte ITEM_CALCIUM
 	.2byte ITEM_HP_UP
+	.2byte ITEM_NONE
+	release
+	end
+
+	.align 2
+SlateportCity_Pokemart_RockGuru:
+	.2byte ITEM_DAMP_ROCK
+	.2byte ITEM_HEAT_ROCK
+	.2byte ITEM_ICY_ROCK
+	.2byte ITEM_SMOOTH_ROCK
 	.2byte ITEM_NONE
 	release
 	end
@@ -952,6 +964,10 @@ SlateportCity_EventScript_BerryCrushRankingsSign::
 
 SlateportCity_Text_EnergyGuruSellWhatYouNeed:
 	.string "I'm the ENERGY GURU! I'll go for it and\n"
+	.string "sell you what you need!$"
+
+SlateportCity_Text_RockGuruSellWhatYouNeed:
+	.string "I'm the ROCK GURU! I'll go for it and\n"
 	.string "sell you what you need!$"
 
 SlateportCity_Text_OhYourPokemon:

@@ -17630,6 +17630,152 @@ Move_MALIGNANT_CHAIN::
 	waitforvisualfinish
 	end
 
+	@ I added in
+Move_MATCHA_GOTCHA::
+	loadspritegfx ANIM_TAG_POISON_BUBBLE
+	playsewithpan SE_M_SWIFT, SOUND_PAN_ATTACKER
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_ATTACKER, 4, 2, RGB_WHITE, 10, RGB_BLACK, 0	
+	waitforvisualfinish
+	delay 10
+	loopsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER, 27, 2
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_POISON_BUBBLE, 0, 12, 12, RGB_GREEN
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 24, 6, 2, 3
+	waitforvisualfinish
+	loopsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER, 18, 2
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 28, 10, 2, 4
+	waitforvisualfinish
+	loopsewithpan SE_M_DOUBLE_TEAM, SOUND_PAN_ATTACKER, 9, 4
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 32, 10, 4, 5
+	waitforvisualfinish
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	createsprite gSlideMonToOffsetSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 20, 0, 0, 4
+	jumpifdoublebattle MatchaGotchaDouble
+	goto MatchaGotchaSingle
+
+MatchaGotchaSingle:
+	call MatchaGotchaProjectile
+	call MatchaGotchaProjectile
+	loopsewithpan SE_FALL, SOUND_PAN_ATTACKER, 8, 2
+	call MatchaGotchaProjectile
+	call MatchaGotchaProjectile
+	delay 10
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 7
+	delay 28
+	playsewithpan SE_M_DIVE, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 2, 0, 10, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, -31, 2, 0, 12, RGB(31, 0, 0)	
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 10, 15, 55, FALSE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -20, 15, 55, FALSE
+	delay 3
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 5, 15, 55, FALSE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -10, 15, 55, FALSE
+	delay 3
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 30, 15, 55, FALSE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -30, 15, 55, FALSE
+	delay 3
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 2, 15, 55, FALSE
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -5, 15, 55, FALSE
+	delay 3
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 20, 15, 55, FALSE
+	waitforvisualfinish
+	end
+
+MatchaGotchaDouble:
+	playsewithpan SE_M_BUBBLE3, SOUND_PAN_ATTACKER
+	call MatchaGotchaDoubleProjectile
+	call MatchaGotchaDoubleProjectile
+	loopsewithpan SE_FALL, SOUND_PAN_ATTACKER, 8, 2
+	call MatchaGotchaDoubleProjectile
+	call MatchaGotchaDoubleProjectile
+	delay 10
+	createsprite gSlideMonToOriginalPosSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 7
+	waitforvisualfinish
+	playsewithpan SE_M_DIVE, SOUND_PAN_TARGET
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 2, 0, 10, 1
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_DEF_PARTNER, 2, 0, 10, 1
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, -31, 2, 0, 12, RGB(31, 0, 0)	
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 10, 15, 55, 0
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -20, 15, 55, 0
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 10, 15, 55, 2
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -20, 15, 55, 2
+	delay 3
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 5, 15, 55, 0
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -10, 15, 55, 0
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 5, 15, 55, 2
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -10, 15, 55, 2
+	delay 3
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 30, 15, 55, 0
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -30, 15, 55, 0
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, 30, 15, 55, 2
+	createsprite gAcidPoisonDropletSpriteTemplate, ANIM_TARGET, 2, 0, -10, -30, 15, 55, 2
+	waitforvisualfinish
+	end
+
+MatchaGotchaProjectile:
+	createsprite gSludgeProjectileSpriteTemplate, ANIM_TARGET, 2, 20, 0, 60, 0
+	delay 3
+	return
+
+MatchaGotchaDoubleProjectile:
+	createsprite gSludgeProjectileSpriteTemplate, ANIM_TARGET, 2, 20, 0, 60, 0, 0
+	createsprite gSludgeProjectileSpriteTemplate, ANIM_TARGET, 2, 20, 0, 60, 0, TRUE
+	delay 3
+	return
+
+Move_MIGHTY_CLEAVE::
+	loadspritegfx ANIM_TAG_SLASH
+	loadspritegfx ANIM_TAG_CROSS_IMPACT
+	loadspritegfx ANIM_TAG_LEER
+	loadspritegfx ANIM_TAG_ROCKS
+	fadetobg BG_ROCK_WRECKER
+	waitbgfadeout
+	createvisualtask AnimTask_StartSlidingBg, 5, 0xF000, 0, 0, -1
+	waitbgfadein
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_ATTACKER, 0, 2, 38, 1
+	call MightyCleaveDiggingRun
+	call MightyCleaveDiggingRun
+	call MightyCleaveDiggingRun
+	call MightyCleaveDiggingRun
+	call MightyCleaveDiggingRun
+	call MightyCleaveDiggingRun
+	call MightyCleaveDiggingRun
+	call MightyCleaveDiggingRun
+	call MightyCleaveDiggingRun
+	waitforvisualfinish
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 0
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 12
+ 	createsprite gLeerSpriteTemplate, ANIM_TARGET, 2, 24, -12
+	playsewithpan SE_M_DETECT, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 1
+	waitforvisualfinish
+	createsprite gSlashSliceSpriteTemplate, ANIM_TARGET, 2, 1, -8, 0
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	delay 4
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 15, 0, 40, 1
+	createvisualtask AnimTask_BlendParticle, 5, ANIM_TAG_CROSS_IMPACT, 0, 10, 10, RGB_RED
+	createsprite gSpriteTemplate_LargeCrossImpact, ANIM_TARGET, 2, 0, 0, 1, 36
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	delay 4
+	waitforvisualfinish
+	createsprite gBowMonSpriteTemplate, ANIM_ATTACKER, 2, 2
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	waitbgfadein
+	call UnsetPsychicBg
+	waitforvisualfinish
+	end
+MightyCleaveDiggingRun:
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 12, 4, -16, 18
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 16, 4, -10, 18
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, 0, 1, 14, 4, -18, 18
+	createsprite gDirtPlumeSpriteTemplate, ANIM_ATTACKER, 2, 0, 1, 12, 4, -16, 18
+	playsewithpan SE_M_ROCK_THROW, SOUND_PAN_ATTACKER
+	delay 5
+	return
+
 Move_TERA_BLAST::
 Move_ORDER_UP::
 Move_POPULATION_BOMB::
@@ -17648,9 +17794,9 @@ Move_NOXIOUS_TORQUE::
 Move_COMBAT_TORQUE::
 Move_MAGICAL_TORQUE::
 Move_PSYBLADE::
-Move_MATCHA_GOTCHA::
+@ Move_MATCHA_GOTCHA::
 Move_TERA_STARSTORM::
-Move_MIGHTY_CLEAVE::
+@ Move_MIGHTY_CLEAVE::
 Move_TACHYON_CUTTER::
 Move_SUPERCELL_SLAM::
 	end @to do

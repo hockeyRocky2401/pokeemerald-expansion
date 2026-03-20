@@ -3368,7 +3368,11 @@ bool32 ShouldUseWishAromatherapy(u32 battlerAtk, u32 battlerDef, u32 move)
         switch (gMovesInfo[move].effect)
         {
         case EFFECT_WISH:
+            if (CanAi2HkoTarget(battlerAtk, battlerDef) && !CanTarget2HkoAi(battlerAtk, battlerDef))
+                return FALSE;
+
             return ShouldRecover(battlerAtk, battlerDef, move, 50); // Switch recovery isn't good idea in doubles
+
         case EFFECT_HEAL_BELL:
             if (hasStatus)
                 return TRUE;
@@ -3596,7 +3600,8 @@ static u32 IncreaseStatUpScoreInternal(u32 battlerAtk, u32 battlerDef, u32 statI
     u32 tempScore = NO_INCREASE;
     u32 noOfHitsToFaint = NoOfHitsForTargetToFaintAI(battlerDef, battlerAtk);
     u32 aiIsFaster = AI_IsFaster(battlerAtk, battlerDef, TRUE);
-    u32 shouldSetUp = ((noOfHitsToFaint >= 2 && aiIsFaster) || (noOfHitsToFaint >= 3 && !aiIsFaster) || noOfHitsToFaint == UNKNOWN_NO_OF_HITS);
+    u32 shouldSetup = ((noOfHitsToFaint >= 3 && aiIsFaster) || (noOfHitsToFaint >= 4 && !aiIsFaster) || noOfHitsToFaint == UNKNOWN_NO_OF_HITS);
+    bool32 hasSimple = AI_DATA->abilities[battlerAtk] == ABILITY_SIMPLE;
 
     if (considerContrary && AI_DATA->abilities[battlerAtk] == ABILITY_CONTRARY)
         return NO_INCREASE;
@@ -3605,11 +3610,11 @@ static u32 IncreaseStatUpScoreInternal(u32 battlerAtk, u32 battlerDef, u32 statI
     if (gBattleMons[battlerAtk].statStages[statId] >= MAX_STAT_STAGE - 2)
         return NO_INCREASE;
 
-    // Don't increase stat if AI has less then 70% HP and number of hits isn't known
+    // Don't increase stat if AI has less than 70% HP and number of hits isn't known
     if (AI_DATA->hpPercents[battlerAtk] < 70 && noOfHitsToFaint == UNKNOWN_NO_OF_HITS)
         return NO_INCREASE;
 
-    // Don't set up if AI is dead to residual damage from weather
+    // Don't setup if AI is dead to residual damage from weather
     if (GetBattlerSecondaryDamage(battlerAtk) >= gBattleMons[battlerAtk].hp)
         return NO_INCREASE;
 
@@ -3617,14 +3622,30 @@ static u32 IncreaseStatUpScoreInternal(u32 battlerAtk, u32 battlerDef, u32 statI
     if (AI_DATA->abilities[battlerDef] == ABILITY_OPPORTUNIST)
         return NO_INCREASE;
 
+    // Heavily suppress ordinary +1 setup unless the mon has Simple
+    if (!hasSimple)
+    {
+        switch (statId)
+        {
+        case STAT_CHANGE_ATK:
+        case STAT_CHANGE_DEF:
+        case STAT_CHANGE_SPEED:
+        case STAT_CHANGE_SPATK:
+        case STAT_CHANGE_SPDEF:
+        case STAT_CHANGE_ACC:
+        case STAT_CHANGE_EVASION:
+            return NO_INCREASE;
+        }
+    }
+
     switch (statId)
     {
     case STAT_CHANGE_ATK:
-        if (HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_PHYSICAL) && shouldSetUp)
+        if (HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_PHYSICAL) && shouldSetup)
             tempScore += DECENT_EFFECT;
         break;
     case STAT_CHANGE_DEF:
-        if (HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_PHYSICAL) || !HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL))
+        if (HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_PHYSICAL) || HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL))
         {
             if (AI_THINKING_STRUCT->aiFlags[battlerAtk] & AI_FLAG_STALL)
                 tempScore += DECENT_EFFECT;
@@ -3637,11 +3658,11 @@ static u32 IncreaseStatUpScoreInternal(u32 battlerAtk, u32 battlerDef, u32 statI
             tempScore += DECENT_EFFECT;
         break;
     case STAT_CHANGE_SPATK:
-        if (HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_SPECIAL) && shouldSetUp)
+        if (HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_SPECIAL) && shouldSetup)
             tempScore += DECENT_EFFECT;
         break;
     case STAT_CHANGE_SPDEF:
-        if (HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL) || !HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_PHYSICAL))
+        if (HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL) || HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_PHYSICAL))
         {
             if (AI_THINKING_STRUCT->aiFlags[battlerAtk] & AI_FLAG_STALL)
                 tempScore += DECENT_EFFECT;
@@ -3650,11 +3671,11 @@ static u32 IncreaseStatUpScoreInternal(u32 battlerAtk, u32 battlerDef, u32 statI
         }
         break;
     case STAT_CHANGE_ATK_2:
-        if (HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_PHYSICAL) && shouldSetUp)
+        if (HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_PHYSICAL) && shouldSetup)
             tempScore += GOOD_EFFECT;
         break;
     case STAT_CHANGE_DEF_2:
-        if (HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_PHYSICAL) || !HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL))
+        if (HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_PHYSICAL) || HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL))
         {
             if (AI_THINKING_STRUCT->aiFlags[battlerAtk] & AI_FLAG_STALL)
                 tempScore += GOOD_EFFECT;
@@ -3667,11 +3688,11 @@ static u32 IncreaseStatUpScoreInternal(u32 battlerAtk, u32 battlerDef, u32 statI
             tempScore += GOOD_EFFECT;
         break;
     case STAT_CHANGE_SPATK_2:
-        if (HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_SPECIAL) && shouldSetUp)
+        if (HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_SPECIAL) && shouldSetup)
             tempScore += GOOD_EFFECT;
         break;
     case STAT_CHANGE_SPDEF_2:
-        if (HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL) || !HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_PHYSICAL))
+        if (HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_SPECIAL) || HasMoveWithCategory(battlerDef, DAMAGE_CATEGORY_PHYSICAL))
         {
             if (AI_THINKING_STRUCT->aiFlags[battlerAtk] & AI_FLAG_STALL)
                 tempScore += GOOD_EFFECT;
@@ -3680,7 +3701,7 @@ static u32 IncreaseStatUpScoreInternal(u32 battlerAtk, u32 battlerDef, u32 statI
         }
         break;
     case STAT_CHANGE_ACC:
-        if (gBattleMons[battlerAtk].statStages[STAT_ACC] <= 3) // Increase only if necessary
+        if (gBattleMons[battlerAtk].statStages[STAT_ACC] <= 3)
             tempScore += DECENT_EFFECT;
         break;
     case STAT_CHANGE_EVASION:
@@ -3772,22 +3793,31 @@ void IncreaseParalyzeScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score)
 
 void IncreaseSleepScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score)
 {
-    if (((AI_THINKING_STRUCT->aiFlags[battlerAtk] & AI_FLAG_TRY_TO_FAINT) && CanAIFaintTarget(battlerAtk, battlerDef, 0))
-            || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_CURE_SLP || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_CURE_STATUS)
+    if (AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_CURE_SLP
+     || AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_CURE_STATUS)
         return;
 
-    if (AI_CanPutToSleep(battlerAtk, battlerDef, AI_DATA->abilities[battlerDef], move, AI_DATA->partnerMove))
-        ADJUST_SCORE_PTR(DECENT_EFFECT);
-    else
+    if (!AI_CanPutToSleep(battlerAtk, battlerDef, AI_DATA->abilities[battlerDef], move, AI_DATA->partnerMove))
         return;
 
-    if ((HasMoveEffect(battlerAtk, EFFECT_DREAM_EATER) || HasMoveEffect(battlerAtk, EFFECT_NIGHTMARE))
-      && !(HasMoveEffect(battlerDef, EFFECT_SNORE) || HasMoveEffect(battlerDef, EFFECT_SLEEP_TALK)))
-        ADJUST_SCORE_PTR(WEAK_EFFECT);
+    // If attacking is already good enough, don't encourage sleep.
+    if (CanAIFaintTarget(battlerAtk, battlerDef, 0))
+        return;
 
-    if (HasMoveEffectANDArg(battlerAtk, EFFECT_DOUBLE_POWER_ON_ARG_STATUS, STATUS1_SLEEP)
-      || HasMoveEffectANDArg(BATTLE_PARTNER(battlerAtk), EFFECT_DOUBLE_POWER_ON_ARG_STATUS, STATUS1_SLEEP))
-        ADJUST_SCORE_PTR(WEAK_EFFECT);
+    if (CanAi2HkoTarget(battlerAtk, battlerDef))
+        return;
+
+    // Sleep shouldn't be a default good play anymore.
+    ADJUST_SCORE_PTR(-1);
+
+    // Dedicated sleep/synergy sets can still like it.
+    if (!HasDamagingMove(battlerAtk))
+        ADJUST_SCORE_PTR(BEST_EFFECT);
+    else if (HasMoveEffect(battlerAtk, EFFECT_DREAM_EATER)
+          || HasMoveEffect(battlerAtk, EFFECT_NIGHTMARE)
+          || HasMoveEffectANDArg(battlerAtk, EFFECT_DOUBLE_POWER_ON_ARG_STATUS, STATUS1_SLEEP)
+          || HasMoveEffectANDArg(BATTLE_PARTNER(battlerAtk), EFFECT_DOUBLE_POWER_ON_ARG_STATUS, STATUS1_SLEEP))
+        ADJUST_SCORE_PTR(GOOD_EFFECT);
 }
 
 void IncreaseConfusionScore(u32 battlerAtk, u32 battlerDef, u32 move, s32 *score)
@@ -3986,4 +4016,115 @@ bool32 AI_ShouldSpicyExtract(u32 battlerAtk, u32 battlerAtkPartner, u32 move, st
     return (preventsStatLoss
          && AI_IsFaster(battlerAtk, battlerAtkPartner, TRUE)
          && HasMoveWithCategory(battlerAtkPartner, DAMAGE_CATEGORY_PHYSICAL));
+}
+
+//Custom
+
+bool32 AI_CanFaintBeforeTarget(u32 battlerAtk, u32 battlerDef, u32 move)
+{
+    if (!CanTargetFaintAi(battlerAtk, battlerDef))
+        return FALSE;
+
+    return AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_FASTER;
+}
+
+bool32 AI_TargetCanFaintBeforeAI(u32 battlerAtk, u32 battlerDef, u32 move)
+{
+    if (!CanTargetFaintAi(battlerDef, battlerAtk))
+        return FALSE;
+
+    return AI_WhoStrikesFirst(battlerAtk, battlerDef, move) != AI_IS_FASTER;
+}
+
+bool32 AI_TargetHasPriorityMove(u8 battlerAttacker, u8 battlerDef)
+{
+    u8 i;
+    u16 move;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        move = gBattleMons[battlerDef].moves[i];
+
+        if (move == MOVE_NONE)
+            continue;
+
+        if (gMovesInfo[move].priority > 0)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+bool32 CanAi2HkoTarget(u32 battlerAtk, u32 battlerDef)
+{
+    return CanAIFaintTarget(battlerAtk, battlerDef, 2);
+}
+
+bool32 CanTarget2HkoAi(u32 battlerAtk, u32 battlerDef)
+{
+    return CanTargetFaintAiWithMod(battlerDef, battlerAtk, 0, 2);
+}
+
+// bool32 CanPartyMon2HkoTarget(u32 battlerAtk, u32 battlerDef, struct BattlePokemon switchinCandidate)
+// {
+//     u32 i;
+//     s32 bestDamage = 0;
+
+//     for (i = 0; i < MAX_MON_MOVES; i++)
+//     {
+//         u32 move = switchinCandidate.moves[i];
+//         s32 damage;
+
+//         if (move == MOVE_NONE)
+//             continue;
+//         if (gMovesInfo[move].power == 0)
+//             continue;
+
+//         damage = AI_CalcPartyMonDamage(move, battlerAtk, battlerDef, switchinCandidate, TRUE, DMG_ROLL_DEFAULT);
+//         if (damage > bestDamage)
+//             bestDamage = damage;
+//     }
+
+//     return (bestDamage * 2 >= gBattleMons[battlerDef].hp);
+// }
+
+// bool32 CanTarget2HkoPartyMon(u32 battlerAtk, u32 battlerDef, struct BattlePokemon switchinCandidate)
+// {
+//     u32 i;
+//     s32 bestDamage = 0;
+
+//     for (i = 0; i < MAX_MON_MOVES; i++)
+//     {
+//         u32 move = gBattleMons[battlerDef].moves[i];
+//         s32 damage;
+
+//         if (move == MOVE_NONE)
+//             continue;
+//         if (gMovesInfo[move].power == 0)
+//             continue;
+
+//         damage = AI_CalcPartyMonDamage(move, battlerAtk, battlerDef, switchinCandidate, FALSE, DMG_ROLL_DEFAULT);
+//         if (damage > bestDamage)
+//             bestDamage = damage;
+//     }
+
+//     return (bestDamage * 2 >= switchinCandidate.hp);
+// }
+
+bool32 IsHydroDisplacerMove(u16 move)
+{
+    return move == MOVE_HYDRO_PUMP
+        || move == MOVE_HYDRO_VORTEX;
+}
+
+void TryRevealSignatureMoveSpecies(u32 battler, u32 move)
+{
+    if (move == MOVE_BITTER_MALICE)
+    {
+        struct AiPartyMon *aiMon = &AI_PARTY->mons[
+            GetBattlerSide(battler)
+        ][gBattlerPartyIndexes[battler]];
+
+        aiMon->species = SPECIES_ZOROARK_HISUIAN;
+    }
 }

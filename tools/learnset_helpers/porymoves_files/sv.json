@@ -3002,14 +3002,20 @@
   "ZUBAT": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_ROOST",
+      "MOVE_U_TURN"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },
   "GOLBAT": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_ROOST",
+      "MOVE_U_TURN"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -14635,7 +14641,10 @@
   "CROBAT": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_ROOST",
+      "MOVE_U_TURN"
+     ],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -23168,7 +23177,8 @@
       "MOVE_GRASSY_GLIDE",
       "MOVE_ENDEAVOR",
       "MOVE_BREAKING_SWIPE",
-      "MOVE_UPPER_HAND"
+      "MOVE_UPPER_HAND",
+      "MOVE_BULK_UP"
     ],
     "EggMoves": [
       "MOVE_DOUBLE_KICK",
@@ -23308,7 +23318,8 @@
       "MOVE_GRASSY_GLIDE",
       "MOVE_ENDEAVOR",
       "MOVE_BREAKING_SWIPE",
-      "MOVE_UPPER_HAND"
+      "MOVE_UPPER_HAND",
+      "MOVE_BULK_UP"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -23460,7 +23471,8 @@
       "MOVE_THROAT_CHOP",
       "MOVE_BREAKING_SWIPE",
       "MOVE_DRAGON_CHEER",
-      "MOVE_UPPER_HAND"
+      "MOVE_UPPER_HAND",
+      "MOVE_BULK_UP"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -23963,7 +23975,8 @@
       "MOVE_WHIRLPOOL",
       "MOVE_MUDDY_WATER",
       "MOVE_SLUDGE_WAVE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_BULK_UP"
     ],
     "EggMoves": [
       "MOVE_STOMP",
@@ -24094,7 +24107,8 @@
       "MOVE_WHIRLPOOL",
       "MOVE_MUDDY_WATER",
       "MOVE_SLUDGE_WAVE",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_BULK_UP"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -24242,7 +24256,9 @@
       "MOVE_MUDDY_WATER",
       "MOVE_SLUDGE_WAVE",
       "MOVE_CURSE",
-      "MOVE_HARD_PRESS"
+      "MOVE_HARD_PRESS",
+      "MOVE_BULK_UP",
+      "MOVE_SANDSTORM"
     ],
     "EggMoves": [],
     "TutorMoves": []
@@ -26926,7 +26942,9 @@
   "SHEDINJA": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_U_TURN"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -27940,7 +27958,9 @@
   "MANECTRIC": {
     "LevelMoves": [],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_FLAMETHROWER"
+    ],
     "EggMoves": [],
     "TutorMoves": []
   },
@@ -28063,7 +28083,8 @@
       "MOVE_UPROAR",
       "MOVE_ENDEAVOR",
       "MOVE_ELECTROWEB",
-      "MOVE_ALLURING_VOICE"
+      "MOVE_ALLURING_VOICE",
+      "MOVE_DAZZLING_GLEAM"
     ],
     "EggMoves": [
       "MOVE_SING",
@@ -28190,7 +28211,8 @@
       "MOVE_UPROAR",
       "MOVE_ENDEAVOR",
       "MOVE_ELECTROWEB",
-      "MOVE_ALLURING_VOICE"
+      "MOVE_ALLURING_VOICE",
+      "MOVE_DAZZLING_GLEAM"
     ],
     "EggMoves": [
       "MOVE_SING",
@@ -93763,7 +93785,8 @@
       "MOVE_PAIN_SPLIT",
       "MOVE_PSYCH_UP",
       "MOVE_SKITTER_SMACK",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_DAZZLING_GLEAM"
     ],
     "EggMoves": [
       "MOVE_COMEUPPANCE",
@@ -93903,7 +93926,8 @@
       "MOVE_PSYCH_UP",
       "MOVE_SKITTER_SMACK",
       "MOVE_THROAT_CHOP",
-      "MOVE_CURSE"
+      "MOVE_CURSE",
+      "MOVE_DAZZLING_GLEAM"
     ],
     "EggMoves": [
       "MOVE_COMEUPPANCE",

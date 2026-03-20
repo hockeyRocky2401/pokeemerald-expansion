@@ -41,6 +41,7 @@
 #include "menu_helpers.h"
 #include "menu_specialized.h"
 #include "metatile_behavior.h"
+#include "move_relearner.h"
 #include "overworld.h"
 #include "palette.h"
 #include "party_menu.h"
@@ -104,7 +105,8 @@ enum {
     MENU_CATALOG_MOWER,
     MENU_CHANGE_FORM,
     MENU_CHANGE_ABILITY,
-    MENU_FIELD_MOVES
+    MENU_MOVE_REMINDER,
+    MENU_FIELD_MOVES,
 };
 
 // IDs for the action lists that appear when a party mon is selected
@@ -499,6 +501,8 @@ static void CursorCb_CatalogFan(u8);
 static void CursorCb_CatalogMower(u8);
 static void CursorCb_ChangeForm(u8);
 static void CursorCb_ChangeAbility(u8);
+//Custom
+static void Cursorcb_MoveReminder(u8 taskId);
 static bool8 SetUpFieldMove_Surf(void);
 static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
@@ -506,6 +510,9 @@ static bool8 SetUpFieldMove_Dive(void);
 void TryItemHoldFormChange(struct Pokemon *mon);
 static void ShowMoveSelectWindow(u8 slot);
 static void Task_HandleWhichMoveInput(u8 taskId);
+
+//Custom
+static void Task_RareCandySkipLevelUpStats(u8 taskId);
 
 // static const data
 #include "data/party_menu.h"
@@ -4716,7 +4723,8 @@ void Task_AbilityCapsule(u8 taskId)
             PlaySE(SE_SELECT);
             DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            // gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
             return;
         }
         gPartyMenuUseExitCallback = TRUE;
@@ -4768,7 +4776,8 @@ void Task_AbilityCapsule(u8 taskId)
     case 5:
         SetMonData(&gPlayerParty[tMonId], MON_DATA_ABILITY_NUM, &tAbilityNum);
         RemoveBagItem(gSpecialVar_ItemId, 1);
-        gTasks[taskId].func = Task_ClosePartyMenu;
+        // gTasks[taskId].func = Task_ClosePartyMenu;
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         break;
     }
 }
@@ -4803,7 +4812,8 @@ void Task_AbilityPatch(u8 taskId)
             PlaySE(SE_SELECT);
             DisplayPartyMenuMessage(gText_WontHaveEffect, 1);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            // gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+            gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
             return;
         }
         gPartyMenuUseExitCallback = TRUE;
@@ -4855,7 +4865,8 @@ void Task_AbilityPatch(u8 taskId)
     case 5:
         SetMonData(&gPlayerParty[tMonId], MON_DATA_ABILITY_NUM, &tAbilityNum);
         RemoveBagItem(gSpecialVar_ItemId, 1);
-        gTasks[taskId].func = Task_ClosePartyMenu;
+        // gTasks[taskId].func = Task_ClosePartyMenu;
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
         break;
     }
 }
@@ -5612,8 +5623,9 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
 
             DisplayPartyMenuMessage(gStringVar4, TRUE);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
-        }
+            // gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
+            gTasks[taskId].func = Task_RareCandySkipLevelUpStats;       
+         }
         else
         {
             PlaySE(SE_USE_ITEM);
@@ -5638,6 +5650,18 @@ static void UpdateMonDisplayInfoAfterRareCandy(u8 slot, struct Pokemon *mon)
     UpdatePartyMonHPBar(sPartyMenuBoxes[slot].monSpriteId, mon);
     AnimatePartySlot(slot, 1);
     ScheduleBgCopyTilemapToVram(0);
+}
+
+//Custom
+static void Task_RareCandySkipLevelUpStats(u8 taskId)
+{
+    if (WaitFanfare(FALSE) && IsPartyMenuTextPrinterActive() != TRUE)
+        // && (JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON)))
+    {
+        PlaySE(SE_SELECT);
+        sInitialLevel += 1; // preserve move-learning flow
+        gTasks[taskId].func = Task_TryLearnNewMoves;
+    }
 }
 
 static void Task_DisplayLevelUpStatsPg1(u8 taskId)
@@ -6576,6 +6600,26 @@ static void CursorCb_ChangeAbility(u8 taskId)
 {
     gSpecialVar_Result = 1;
     TryMultichoiceFormChange(taskId);
+}
+
+static void Cursorcb_MoveReminder(u8 taskId)
+{
+    u8 slot = GetCursorSelectionMonId();
+
+    if (slot >= PARTY_SIZE)
+        return;
+
+    if (GetNumberOfRelearnableMoves(&gPlayerParty[slot]) == 0)
+    {
+        PlaySE(SE_FAILURE);
+        return;
+    }
+
+    gSpecialVar_0x8004 = slot;
+    gSpecialVar_0x8005 = GetNumberOfRelearnableMoves(&gPlayerParty[slot]);
+
+    CleanupOverworldWindowsAndTilemaps();
+    TeachMoveRelearnerMoveFromParty();
 }
 
 void TryItemHoldFormChange(struct Pokemon *mon)

@@ -6,10 +6,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_FAMILY_BULBASAUR
     [SPECIES_BULBASAUR] =
     {
+        //318 - 418
         .baseHP        = 45,
         .baseAttack    = 59,
-        .baseDefense   = 79,
-        .baseSpeed     = 75,
+        .baseDefense   = 69,
+        .baseSpeed     = 85,
         .baseSpAttack  = 75,
         .baseSpDefense = 85,
         .types = MON_TYPES(TYPE_GRASS, TYPE_POISON),
@@ -827,7 +828,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
-        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_RAIN_DISH },
+        // .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_RAIN_DISH },
+        .abilities = { ABILITY_TORRENT, ABILITY_HYDRO_DISPLACER, ABILITY_RAIN_DISH },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Blastoise"),
         .cryId = CRY_BLASTOISE,
@@ -3766,9 +3768,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseHP        = 75,
         .baseAttack    = 100,
         .baseDefense   = 120,
-        .baseSpeed     = 65,
+        .baseSpeed     = 85,
         .baseSpAttack  = 25,
-        .baseSpDefense = 65,
+        .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_ICE, TYPE_STEEL),
         .catchRate = 90,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 158 : 163,
@@ -12905,11 +12907,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_FAMILY_TANGELA
     [SPECIES_TANGELA] =
     {
+        //435
         .baseHP        = 65,
-        .baseAttack    = 55,
+        .baseAttack    = 100,
         .baseDefense   = 115,
         .baseSpeed     = 60,
-        .baseSpAttack  = 100,
+        .baseSpAttack  = 55,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_GRASS),
         .catchRate = 45,
@@ -15267,12 +15270,13 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_FAMILY_LAPRAS
     [SPECIES_LAPRAS] =
     {
-        .baseHP        = 130,
+        // 535
+        .baseHP        = 95,
         .baseAttack    = 85,
-        .baseDefense   = 80,
+        .baseDefense   = 95,
         .baseSpeed     = 60,
         .baseSpAttack  = 85,
-        .baseSpDefense = 95,
+        .baseSpDefense = 115,
         .types = MON_TYPES(TYPE_WATER, TYPE_ICE),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 187 : 219,

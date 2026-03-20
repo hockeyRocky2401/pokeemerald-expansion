@@ -80,6 +80,8 @@ SootopolisCity_Gym_1F_Movement_FallThroughIce:
 	step_end
 
 SootopolisCity_Gym_1F_EventScript_Juan::
+    lock 
+    faceplayer
     goto_if_unset FLAG_DEFEATED_SOOTOPOLIS_GYM, SootopolisCity_Gym_1F_EventScript_JuanParty
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, SootopolisCity_Gym_1F_EventScript_JuanRematch
@@ -90,24 +92,25 @@ SootopolisCity_Gym_1F_EventScript_Juan::
 	end
 
 SootopolisCity_Gym_1F_EventScript_JuanParty::
-    msgbox SootopolisCity_Gym_1F_Text_JuanIntro
-    special SavePlayerParty
-    fadescreen FADE_TO_BLACK
-    special ChooseFivePokemonParty
-    waitstate
-    goto_if_ne VAR_RESULT, 0, SootopolisCity_Gym_1F_EventScript_JuanBattle
-    special LoadPlayerParty
+    msgbox SootopolisCity_Gym_1F_Text_JuanIntro, MSGBOX_DEFAULT
+@    special SavePlayerParty
+@    fadescreen FADE_TO_BLACK
+@    special ChooseFivePokemonParty
+@    waitstate
+@    goto_if_ne VAR_RESULT, 0, SootopolisCity_Gym_1F_EventScript_JuanBattle
+    goto SootopolisCity_Gym_1F_EventScript_JuanBattle
+@    special LoadPlayerParty
     release 
     end 
 
 SootopolisCity_Gym_1F_EventScript_JuanBattle::
-    special ReducePlayerPartyToSelectedMons 
-    frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
+@    special ReducePlayerPartyToSelectedMons 
+@    frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
     trainerbattle_single TRAINER_JUAN_1, SootopolisCity_Gym_1F_Text_JuanIntro2, SootopolisCity_Gym_1F_Text_JuanDefeat, SootopolisCity_Gym_1F_EventScript_JuanDefeated, NO_MUSIC
-    special LoadPlayerParty
+@    special LoadPlayerParty
 
 SootopolisCity_Gym_1F_EventScript_JuanDefeated::
-    special LoadPlayerParty
+@    special LoadPlayerParty
 	message SootopolisCity_Gym_1F_Text_ReceivedRainBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
@@ -134,9 +137,11 @@ SootopolisCity_Gym_1F_EventScript_JuanDefeated::
 	end
 
 SootopolisCity_Gym_1F_EventScript_GiveWaterPulse::
-	giveitem ITEM_TM_WATER_PULSE
+@	giveitem ITEM_TM_WATER_PULSE
+	giveitem ITEM_TM60
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
+@	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
+	msgbox SootopolisCity_Gym_1F_Text_ExplainFlipTurn, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_WATER_PULSE
 	return
 
@@ -224,9 +229,9 @@ SootopolisCity_Gym_1F_Text_JuanIntro:
 	.string "with the GYM.\p"
 	.string "However, a compelling reason arose for\n"
 	.string "me to make a comeback.\p"
-	.string "Ah, but enough chatter.\p"
-	.string "I will be using five POKéMON and\n"
-	.string "therefore, you may not use six.$"
+	.string "Ah, but enough chatter.$"
+@	.string "I will be using five POKéMON and\n"
+@	.string "therefore, you may not use six.$"
 
 SootopolisCity_Gym_1F_Text_JuanIntro2:
 	.string "Let us begin our match, shall we?\p"
@@ -273,6 +278,13 @@ SootopolisCity_Gym_1F_Text_ExplainWaterPulse:
 	.string "contains WATER PULSE.\p"
 	.string "In use, it will occasionally confuse\n"
 	.string "the target with ultrasonic waves.\p"
+	.string "… … … … … …$"
+
+SootopolisCity_Gym_1F_Text_ExplainFlipTurn:
+	.string "The TECHNICAL MACHINE I handed you\n"
+	.string "contains FLIP TURN.\p"
+	.string "In use, your Pokémon will switch\n"
+	.string "out after attacking.\p"
 	.string "… … … … … …$"
 
 SootopolisCity_Gym_1F_Text_RegisteredJuan:

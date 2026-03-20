@@ -6,7 +6,7 @@ SootopolisCity_House1_EventScript_BrickBreakBlackBelt::
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM_BRICK_BREAK, SootopolisCity_House1_EventScript_ReceivedBrickBreak
 	msgbox SootopolisCity_House1_Text_DevelopedThisTM, MSGBOX_DEFAULT
-	giveitem ITEM_TM_BRICK_BREAK
+	giveitem ITEM_TM59
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM_BRICK_BREAK
 	msgbox SootopolisCity_House1_Text_ExplainBrickBreak, MSGBOX_DEFAULT
@@ -32,12 +32,14 @@ SootopolisCity_House1_Text_DevelopedThisTM:
 	.string "For thirty years I've remained in\n"
 	.string "SOOTOPOLIS honing my skills.\p"
 	.string "I developed a shattering TM.\n"
+	.string "BRICK BREAK, it is called!\p"
+	.string "Used all around the world, it is!\p"
+	.string "And now, I've been given a new TM.\n"
 	.string "I bequeath it to you!$"
 
 SootopolisCity_House1_Text_ExplainBrickBreak:
-	.string "TM31 contains BRICK BREAK! It's a move\n"
+	.string "TM59 contains BODY PRESS! It's a move\n"
 	.string "so horrible that I can't describe it.$"
 
 SootopolisCity_House1_Text_Kecleon:
 	.string "KECLEON: Puu puhyaah.$"
-

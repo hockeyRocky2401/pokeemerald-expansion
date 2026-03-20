@@ -361,6 +361,59 @@ bool32 AddTextPrinter(struct TextPrinterTemplate *printerTemplate, u8 speed, voi
     return TRUE;
 }
 
+// void RunTextPrinters(void)
+// {
+//     int i;
+
+//     if (!gDisableTextPrinters)
+//     {
+//         for (i = 0; i < WINDOWS_MAX; ++i)
+//         {
+//             if (sTextPrinters[i].active)
+//             {
+//                 // u16 renderCmd = RenderFont(&sTextPrinters[i]);
+//                 // switch (renderCmd)
+//                 // {
+//                 // case RENDER_PRINT:
+//                 //     CopyWindowToVram(sTextPrinters[i].printerTemplate.windowId, COPYWIN_GFX);
+//                 // case RENDER_UPDATE:
+//                 //     if (sTextPrinters[i].callback != NULL)
+//                 //         sTextPrinters[i].callback(&sTextPrinters[i].printerTemplate, renderCmd);
+//                 //     break;
+//                 // case RENDER_FINISH:
+//                 //     sTextPrinters[i].active = FALSE;
+//                 //     break;
+//                 // }
+//                 int count;
+//                 if (sTextPrinters[i].textSpeed == 1)
+//                 count = 8;   // or 16, or even more
+//                 else
+//                 count = 1;
+
+//                 while (count-- > 0 && sTextPrinters[i].active)
+//                 {
+//                     u16 renderCmd = RenderFont(&sTextPrinters[i]);
+//                     switch (renderCmd)
+//                     {
+//                         case RENDER_PRINT:
+//                         CopyWindowToVram(sTextPrinters[i].printerTemplate.windowId, COPYWIN_GFX);
+//                         break;
+//                         case RENDER_UPDATE:
+//                         if (sTextPrinters[i].callback != NULL)
+//                         sTextPrinters[i].callback(&sTextPrinters[i].printerTemplate, renderCmd);
+//                         count = 0; // stop here if it hits a wait/update state
+//                         break;
+//                         case RENDER_FINISH:
+//                         sTextPrinters[i].active = FALSE;
+//                         count = 0;
+//                         break;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
 void RunTextPrinters(void)
 {
     int i;
@@ -371,18 +424,27 @@ void RunTextPrinters(void)
         {
             if (sTextPrinters[i].active)
             {
-                u16 renderCmd = RenderFont(&sTextPrinters[i]);
-                switch (renderCmd)
+                int count = 32; // temporary test
+
+                while (count-- > 0 && sTextPrinters[i].active)
                 {
-                case RENDER_PRINT:
-                    CopyWindowToVram(sTextPrinters[i].printerTemplate.windowId, COPYWIN_GFX);
-                case RENDER_UPDATE:
-                    if (sTextPrinters[i].callback != NULL)
-                        sTextPrinters[i].callback(&sTextPrinters[i].printerTemplate, renderCmd);
-                    break;
-                case RENDER_FINISH:
-                    sTextPrinters[i].active = FALSE;
-                    break;
+                    u16 renderCmd = RenderFont(&sTextPrinters[i]);
+
+                    switch (renderCmd)
+                    {
+                    case RENDER_PRINT:
+                        CopyWindowToVram(sTextPrinters[i].printerTemplate.windowId, COPYWIN_GFX);
+                        break;
+                    case RENDER_UPDATE:
+                        if (sTextPrinters[i].callback != NULL)
+                            sTextPrinters[i].callback(&sTextPrinters[i].printerTemplate, renderCmd);
+                        count = 0;
+                        break;
+                    case RENDER_FINISH:
+                        sTextPrinters[i].active = FALSE;
+                        count = 0;
+                        break;
+                    }
                 }
             }
         }

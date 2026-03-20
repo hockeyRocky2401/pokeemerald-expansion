@@ -14,8 +14,6 @@ FallarborTown_Mart_EventScript_Clerk::
 	.align 2
 FallarborTown_Mart_Pokemart:
 	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_ULTRA_BALL
 	.2byte ITEM_POTION
 	.2byte ITEM_SUPER_POTION
 	.2byte ITEM_HYPER_POTION
@@ -30,6 +28,8 @@ FallarborTown_Mart_Pokemart:
 	.2byte ITEM_REPEL
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_ABILITY_CAPSULE
+    .2byte ITEM_ABILITY_PATCH
 	.2byte ITEM_NONE
 	release
 	end

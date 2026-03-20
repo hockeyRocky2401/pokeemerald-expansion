@@ -164,7 +164,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REPEL",
+      "trainer_sight_or_berry_tree_id": "ITEM_AIR_BALLOON",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_LILYCOVE_CITY_MAX_REPEL"
     },
@@ -412,7 +412,9 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -499,7 +501,7 @@
       "x": 36,
       "y": 31,
       "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
+      "item": "ITEM_STAR_PIECE",
       "flag": "FLAG_HIDDEN_ITEM_LILYCOVE_CITY_HEART_SCALE"
     },
     {

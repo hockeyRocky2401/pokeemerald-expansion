@@ -25,7 +25,8 @@ EverGrandeCity_HallOfFame_EventScript_EnterHallOfFame::
 	applymovement LOCALID_WALLACE, Common_Movement_WalkInPlaceFasterRight
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	msgbox EverGrandeCity_HallOfFame_Text_HereWeHonorLeagueChampions, MSGBOX_DEFAULT
+@	msgbox EverGrandeCity_HallOfFame_Text_HereWeHonorLeagueChampions, MSGBOX_DEFAULT
+	msgbox EverGrandeCity_HallOfFame_Text_HereWeHonorChampionSteven, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_WALLACE, EverGrandeCity_HallOfFame_Movement_WalkIntoHallOfFame2
 	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_HallOfFame_Movement_WalkIntoHallOfFame2
@@ -34,7 +35,8 @@ EverGrandeCity_HallOfFame_EventScript_EnterHallOfFame::
 	applymovement LOCALID_WALLACE, Common_Movement_WalkInPlaceFasterRight
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
-	msgbox EverGrandeCity_HallOfFame_Text_LetsRecordYouAndYourPartnersNames, MSGBOX_DEFAULT
+@	msgbox EverGrandeCity_HallOfFame_Text_LetsRecordYouAndYourPartnersNames, MSGBOX_DEFAULT
+	msgbox EverGrandeCity_HallOfFame_Text_LetsRecordYouAndYourSteven, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_WALLACE, Common_Movement_WalkInPlaceFasterUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
@@ -91,8 +93,22 @@ EverGrandeCity_HallOfFame_Text_HereWeHonorLeagueChampions:
 	.string "It is here that the LEAGUE CHAMPIONS\n"
 	.string "are honored.$"
 
+EverGrandeCity_HallOfFame_Text_HereWeHonorChampionSteven:
+	.string "STEVEN: This room…\p"
+	.string "This is where we keep records of\n"
+	.string "POKéMON that prevailed through\l"
+	.string "harsh battles.\p"
+	.string "It is here that the LEAGUE CHAMPIONS\n"
+	.string "are honored.$"
+
 EverGrandeCity_HallOfFame_Text_LetsRecordYouAndYourPartnersNames:
 	.string "WALLACE: Come on, let's record your\n"
+	.string "name as a TRAINER who triumphed over\l"
+	.string "the POKéMON LEAGUE, and the names of\l"
+	.string "the partners who battled with you.$"
+
+EverGrandeCity_HallOfFame_Text_LetsRecordYouAndYourSteven:
+	.string "STEVEN: Come on, let's record your\n"
 	.string "name as a TRAINER who triumphed over\l"
 	.string "the POKéMON LEAGUE, and the names of\l"
 	.string "the partners who battled with you.$"

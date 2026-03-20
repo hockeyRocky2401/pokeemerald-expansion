@@ -203,8 +203,18 @@ Route110_EventScript_Dale::
 
 Route110_EventScript_Jacob::
 	trainerbattle_single TRAINER_JACOB, Route110_Text_JacobIntro, Route110_Text_JacobDefeated
+	checkflag FLAG_DEFEATED_JACOB
+	goto_if_unset Route110_JacobGivePolicy
 	msgbox Route110_Text_JacobPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route110_JacobGivePolicy:
+   msgbox Route110_Text_JacobGivePolicy, MSGBOX_DEFAULT
+   giveitem ITEM_WEAKNESS_POLICY
+   setflag FLAG_DEFEATED_JACOB
+   msgbox Route110_Text_ExplainPolicy, MSGBOX_DEFAULT
+   end
+
 
 Route110_EventScript_Anthony::
 	trainerbattle_single TRAINER_ANTHONY, Route110_Text_AnthonyIntro, Route110_Text_AnthonyDefeated
@@ -991,4 +1001,14 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "… … … … … …\p"
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
+
+Route110_Text_JacobGivePolicy:
+    .string "Well done on making it through\n" 
+	.string "the Cycling Road.\p"
+	.string "Take this.$"
+
+Route110_Text_ExplainPolicy:
+    .string "That'll boost your Pokémon's attack\n"
+	.string "stats after it's hit by a super\p"
+	.string "effective move."
 

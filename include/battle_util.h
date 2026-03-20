@@ -186,6 +186,7 @@ u32 GetBattlerHoldEffectIgnoreAbility(u32 battler, bool32 checkNegating);
 u32 GetBattlerHoldEffectInternal(u32 battler, bool32 checkNegating, bool32 checkAbility);
 u32 GetBattlerHoldEffectParam(u32 battler);
 bool32 IsMoveMakingContact(u32 move, u32 battlerAtk);
+bool32 IsClawMove(u32 move); //Custom for tough Claws
 bool32 IsBattlerGrounded(u32 battler);
 bool32 IsBattlerAlive(u32 battler);
 u32 GetMoveSlot(u16 *moves, u32 move);

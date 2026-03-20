@@ -2666,4 +2666,25 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 6,
     },
 
+    [ABILITY_HYDRO_DISPLACER] =
+    {
+        .name = _("Hydro Displacer"),
+        .description = COMPOUND_STRING("Hydro moves always hit."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_LIVE_WIRE] =
+    {
+        .name = _("Live Wire"),
+        .description = COMPOUND_STRING("Powers up Electric moves."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_VERDANT_POWER] =
+    {
+        .name = _("Verdant Power"),
+        .description = COMPOUND_STRING("Powers up Grass moves."),
+        .aiRating = 6,
+    },
+
 };

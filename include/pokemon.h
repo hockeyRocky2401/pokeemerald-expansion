@@ -497,6 +497,7 @@ struct MoveInfo
     u32 danceMove:1;
     u32 windMove:1;
     u32 slicingMove:1; // end of word
+    u32 clawMove:1; //Custom for Tough Claws
     u32 healingMove:1;
     u32 minimizeDoubleDamage:1;
     u32 ignoresTargetAbility:1;

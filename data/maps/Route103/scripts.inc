@@ -288,6 +288,30 @@ Route103_EventScript_Isabelle::
 	msgbox Route103_Text_IsabellePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+@ Custom
+
+@ Nurse 
+Route103_EventScript_Nurse::
+	lock 
+	faceplayer
+	msgbox Route103_Text_Rest, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route103_EventScript_Rest
+	goto_if_eq VAR_RESULT, NO, Route103_EventScript_DeclineRest
+	end 
+
+Route103_EventScript_Rest::
+	msgbox Route103_Nurse_Text_Rest, MSGBOX_DEFAULT
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	msgbox Route103_Nurse_Text_Healed, MSGBOX_DEFAULT
+	release 
+	end 
+
+Route103_EventScript_DeclineRest::
+    msgbox Route103_Nurse_Text_DeclineRest, MSGBOX_DEFAULT
+	release
+	end
+
 Route103_Text_MayRoute103Pokemon:
 	.string "MAY: Let's see… The POKéMON found\n"
 	.string "on ROUTE 103 include…$"
@@ -353,3 +377,18 @@ Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+Route103_Text_Rest:
+    .string "There's a lot of trainers around\n"
+	.string "here.\p"
+	.string "Do you want me to heal your Pokémon?$"
+
+Route103_Nurse_Text_Rest:
+    .string "I'll take your Pokémon for a minute.$"
+
+Route103_Nurse_Text_Healed:
+    .string "There! Your Pokémon look happy and\n"
+	.string "healthy!$"	
+
+Route103_Nurse_Text_DeclineRest:
+    .string "Come back to me if you want to heal\n"
+	.string "your Pokémon.$"
