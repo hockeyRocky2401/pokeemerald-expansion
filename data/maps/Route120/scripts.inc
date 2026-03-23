@@ -1,6 +1,6 @@
-.set LOCALID_BRIDGE_KECLEON, 30
-.set LOCALID_STEVEN, 31
-.set LOCALID_BRIDGE_KECLEON_SHADOW, 36  @ They use a second object which is identical to Kecleon but has a reflection palette tag for the bridge shadow
+.set LOCALID_BRIDGE_KECLEON, 24
+.set LOCALID_STEVEN, 25
+.set LOCALID_BRIDGE_KECLEON_SHADOW, 29  @ They use a second object which is identical to Kecleon but has a reflection palette tag for the bridge shadow
 
 Route120_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route120_OnResume

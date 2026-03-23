@@ -5421,7 +5421,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         && TARGET_TURN_DAMAGED
         && IsBattlerAlive(battler)
         && moveType == TYPE_FIRE
-        && CompareStat(battler, STAT_DEF, MAX_STAT_STAGE, CMP_LESS_THAN))
+        && CompareStat(battler, STAT_SPDEF, MAX_STAT_STAGE, CMP_LESS_THAN))
         {
             gEffectBattler = battler;
             SET_STATCHANGER(STAT_DEF, 2, FALSE);
@@ -6010,6 +6010,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
              && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
              && IsMoveMakingContact(move, gBattlerAttacker)
              && TARGET_TURN_DAMAGED // Need to actually hit the target
+             && !MoveHasAdditionalEffect(gCurrentMove, MOVE_EFFECT_TOXIC)
              && RandomPercentage(RNG_POISON_TOUCH, 30))
             {
                 gBattleScripting.moveEffect = MOVE_EFFECT_TOXIC;
@@ -9241,7 +9242,8 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         break;
     case ABILITY_STRONG_JAW:
         if (gMovesInfo[move].bitingMove)
-           modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+        //    modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_MEGA_LAUNCHER:
         if (gMovesInfo[move].pulseMove)
@@ -11619,8 +11621,8 @@ bool32 AreBattlersOfSameGender(u32 battler1, u32 battler2)
 
 u32 CalcSecondaryEffectChance(u32 battler, u32 battlerAbility, const struct AdditionalEffect *additionalEffect)
 {
-    bool8 hasSereneGrace = (battlerAbility == ABILITY_SERENE_GRACE);
-    bool8 hasRainbow = (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_RAINBOW) != 0;
+    bool32 hasSereneGrace = (battlerAbility == ABILITY_SERENE_GRACE);
+    bool32 hasRainbow = (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_RAINBOW) != 0;
     u16 secondaryEffectChance = additionalEffect->chance;
 
     if (hasRainbow && hasSereneGrace && additionalEffect->moveEffect == MOVE_EFFECT_FLINCH)
@@ -11630,6 +11632,17 @@ u32 CalcSecondaryEffectChance(u32 battler, u32 battlerAbility, const struct Addi
         secondaryEffectChance *= 2;
     if (hasRainbow && additionalEffect->moveEffect != MOVE_EFFECT_SECRET_POWER)
         secondaryEffectChance *= 2;
+
+        //For Poison Touch
+
+    if (battlerAbility == ABILITY_POISON_TOUCH
+        && additionalEffect->moveEffect == MOVE_EFFECT_TOXIC
+        && IsMoveMakingContact(gCurrentMove, battler))
+    {
+        secondaryEffectChance += 30;
+        if (secondaryEffectChance > 100)
+            secondaryEffectChance = 100;
+    }
 
     return secondaryEffectChance;
 }

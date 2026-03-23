@@ -1,7 +1,11 @@
-.set LOCALID_CHALLENGE_BIKER, 21
-.set LOCALID_RIVAL, 28
-.set LOCALID_RIVAL_ON_BIKE, 29
-.set LOCALID_BIRCH, 36
+@.set LOCALID_CHALLENGE_BIKER, 21
+.set LOCALID_CHALLENGE_BIKER, 14
+@.set LOCALID_RIVAL, 28
+.set LOCALID_RIVAL, 21
+@.set LOCALID_RIVAL_ON_BIKE, 29
+.set LOCALID_RIVAL_ON_BIKE, 22
+@.set LOCALID_BIRCH, 36
+.set LOCALID_BIRCH, 25
 
 Route110_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route110_OnResume
@@ -202,10 +206,16 @@ Route110_EventScript_Dale::
 	end
 
 Route110_EventScript_Jacob::
-	trainerbattle_single TRAINER_JACOB, Route110_Text_JacobIntro, Route110_Text_JacobDefeated
-	checkflag FLAG_DEFEATED_JACOB
-	goto_if_unset Route110_JacobGivePolicy
-	msgbox Route110_Text_JacobPostBattle, MSGBOX_AUTOCLOSE
+    lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_JACOB, Route110_JacobPostBattle
+    msgbox Route110_Text_JacobIntro MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_JACOB, Route110_Text_JacobDefeated
+	goto_if_unset FLAG_DEFEATED_JACOB, Route110_JacobGivePolicy
+
+Route110_JacobPostBattle:
+	msgbox Route110_Text_JacobPostBattle, MSGBOX_DEFAULT
+	release
 	end
 
 Route110_JacobGivePolicy:
@@ -477,6 +487,7 @@ Route110_EventScript_GiveItemfinder::
 	return
 
 Route110_EventScript_RivalExit::
+    setflag FLAG_DEFEATED_RIVAL_ROUTE110
 	closemessage
 	call_if_eq VAR_0x8008, 1, Route110_EventScript_MoveRival1
 	call_if_eq VAR_0x8008, 2, Route110_EventScript_MoveRival2

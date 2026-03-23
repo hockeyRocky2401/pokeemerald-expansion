@@ -196,7 +196,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Magikarp
-Level: 7
+Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Splash
 
@@ -239,12 +239,12 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Cascoon
-Level: 8
+Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle 
 
 Silcoon
-Level: 8
+Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle 
 
@@ -363,7 +363,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Zigzagoon @ Oran Berry
-Level: 7
+Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Quick Attack
 - Tackle
@@ -438,17 +438,16 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Marill 
-Level: 9
+Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Bubble
 - Rollout 
 
 Corphish
-Level: 10
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Water Gun
 - Vise Grip
-
 
 === TRAINER_JOSH ===
 Name: JOSH
@@ -503,7 +502,7 @@ Pic: Leader Roxanne
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability 
+AI: Check Bad Move / Try To Faint / Check Viability / Ace Pokemon
 
 Geodude
 Level: 14
@@ -513,8 +512,17 @@ EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Tackle
 - Rock Tomb
 
+Roggenrola
+Level: 14
+Ability: Sturdy
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe 
+- Rock Tomb
+- Headbutt
+
 Nosepass @ Oran Berry
 Level: 15
+Ability: Live Wire
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe 
 - Spark
@@ -731,7 +739,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Machop
-Level: 11
+Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Karate Chop
 - Low Kick
@@ -746,16 +754,15 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Dustox
-Level: 13
+Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Confusion
 - Poison Powder 
 - Gust 
 
 Beautifly
-Level: 13
+Level: 15
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Air Cutter 
 - Absorb
 - Gust
 
@@ -770,7 +777,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Shroomish
-Level: 11
+Level: 12
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Absorb 
 - Leech Seed
@@ -875,7 +882,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Geodude
-Level: 11
+Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Rock Throw 
 - Tackle 
@@ -898,10 +905,10 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Sandshrew
 Level: 12
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Bulldoze 
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe 
 - Rollout 
 - Tackle 
+- Fury Cutter
 
 === TRAINER_DAWSON ===
 Name: DAWSON
@@ -913,13 +920,13 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Zigzagoon
-Level: 10
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Quick Attack 
 - Baby-Doll Eyes
 
 Seedot @ Oran Berry
-Level: 10
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Vine Whip 
 - Bide
@@ -935,14 +942,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Lotad
-Level: 10
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Absorb 
 - Water Gun
 - Leech Seed
 
 Zigzagoon @ Oran Berry
-Level: 10
+Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Baby-Doll Eyes
 - Quick Attack
@@ -957,7 +964,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Ralts
-Level: 11
+Level: 13
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Confusion
 - Disarming Voice
@@ -1044,7 +1051,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Marill
-Level: 11
+Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Rollout
 - Bubble
@@ -1059,7 +1066,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Poochyena
-Level: 14
+Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 EVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Bite 
@@ -1136,7 +1143,17 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Ace Pokemon
 
-Beautifly
+Skitty (F)
+Level: 16
+Ability: Cute Charm
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Fake Out
+- Parting Shot
+- Draining Kiss 
+- Fury Swipes
+
+Beautifly (F)
 Level: 16
 Ability: Verdant Power
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
@@ -1146,7 +1163,7 @@ EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Signal Beam 
 - Sleep Powder
 
-Combusken @ Oran Berry
+Combusken (F) @ Oran Berry
 Level: 17
 Ability: Speed Boost
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
@@ -1154,7 +1171,7 @@ EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Flame Wheel
 - Double Kick
 - Detect
-- Peck
+- Cut
 
 === TRAINER_MAY_RUSTBORO_TREECKO ===
 Name: MAY
@@ -1165,7 +1182,17 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Ace Pokemon
 
-Beautifly
+Skitty (F)
+Level: 16
+Ability: Cute Charm
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Fake Out
+- Parting Shot
+- Draining Kiss 
+- Fury Swipes
+
+Beautifly (F)
 Level: 16
 Ability: Verdant Power
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
@@ -1175,7 +1202,7 @@ EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Signal Beam 
 - Sleep Powder
 
-Combusken @ Oran Berry
+Combusken (F) @ Oran Berry
 Level: 17
 Ability: Speed Boost
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
@@ -1183,7 +1210,7 @@ EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Flame Wheel
 - Double Kick
 - Detect
-- Peck
+- Cut
 
 === TRAINER_MAY_RUSTBORO_TORCHIC ===
 Name: MAY
@@ -1194,7 +1221,17 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Ace Pokemon
 
-Beautifly
+Skitty (F)
+Level: 16
+Ability: Cute Charm
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Fake Out
+- Parting Shot
+- Draining Kiss 
+- Fury Swipes
+
+Beautifly (F)
 Level: 16
 Ability: Verdant Power
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
@@ -1204,7 +1241,7 @@ EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 - Signal Beam 
 - Sleep Powder
 
-Combusken @ Oran Berry
+Combusken (F) @ Oran Berry
 Level: 17
 Ability: Speed Boost
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
@@ -1212,7 +1249,7 @@ EVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - Flame Wheel
 - Double Kick
 - Detect
-- Peck
+- Cut
 
 === TRAINER_LAURA ===
 Name: LAURA
@@ -1331,9 +1368,18 @@ Ability: Guts
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe 
 EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Karate Chop
-- Bullet Punch
+- Rock Tomb
 - Mach Punch
 - Bulk Up
+
+Clobbopus
+Level: 18
+Ability: Technician
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe 
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Power-Up Punch
+- Rock Tomb
+- Double Hit
 
 Meditite
 Level: 18
@@ -1557,14 +1603,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Wingull
-Level: 16
+Level: 19
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Air Cutter
 - Supersonic
 - Water Pulse 
 
 Machop
-Level: 16
+Level: 19
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Mach Punch
 - Bullet Punch
@@ -1697,7 +1743,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Azurill
-Level: 16
+Level: 20
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Bubble
 - Rollout
@@ -1796,13 +1842,13 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Azurill
-Level: 16
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Rollout 
 - Bubble
 
 Marill
-Level: 16
+Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Covet
 - Aqua Jet
@@ -1818,7 +1864,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Goldeen
-Level: 17
+Level: 20
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Clamp
 - Agility
@@ -1836,23 +1882,31 @@ AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
 
 Tentacool
 Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Rapid Spin
 - Acid Spray
 - Whirlpool
-- Acid Armor
 
 Machop
 Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Bulk Up
 - Mach Punch 
 - Bullet Punch
 - Karate Chop
 
-Barboach @ Oran Berry
+Electrike
 Level: 20
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Shock Wave
+- Fire Fang 
+- Ice Fang
+- Bite
+
+Barboach @ Oran Berry
+Level: 21
+Ability: Berserk
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Water Pulse 
 - Yawn 
 - Mud Slap
@@ -2088,6 +2142,16 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon 
 
+Skitty
+Level: 22
+Ability: Cute Charm
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Fake Out
+- Parting Shot
+- Draining Kiss 
+- Fury Swipes
+
 Beautifly
 Ability: Verdant Power
 Level: 22
@@ -2127,6 +2191,16 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon 
 
+Skitty
+Level: 22
+Ability: Cute Charm
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Fake Out
+- Parting Shot
+- Draining Kiss 
+- Fury Swipes
+
 Beautifly
 Ability: Verdant Power
 Level: 22
@@ -2165,6 +2239,16 @@ Gender: Female
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon 
+
+Skitty
+Level: 22
+Ability: Cute Charm
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+EVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+- Fake Out
+- Parting Shot
+- Draining Kiss 
+- Fury Swipes
 
 Beautifly
 Ability: Verdant Power
@@ -2606,6 +2690,16 @@ EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Shock Wave
 - Volt Switch
 - Bite
+- Charge
+
+Dedenne @ Oran Berry
+Level: 25
+Ability: Cheek Pouch
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe 
+EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+- Shock Wave
+- Volt Switch
+- Dazzling Gleam
 - Charge
 
 Magnemite
@@ -3270,25 +3364,42 @@ Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Gulpin
-Level: 24
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+Gulpin @ Black Sludge
+Level: 25
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Stockpile
 - Toxic
 - Spit Up
 - Acid Spray
 
+Phanpy
+Level: 25
+Ability: Technician
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Rapid Spin
+- Magnitude
+- Rollout
+
+Lombre
+Level: 25
+Ability: Own Tempo
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Knock Off
+- Giga Drain
+- Water Pulse
+- Leech Seed
+
 Magnemite
-Level: 24
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+Level: 25
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Shock Wave
 - Mirror Shot
 - Thunder Wave
 
-Swellow
-Level: 25
+Swellow @ Weakness Policy
+Level: 26
 Ability: Guts
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Wing Attack
 - Steel Wing
 
@@ -3302,13 +3413,13 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Geodude
-Level: 23
+Level: 25
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Rock Slide 
 - Sand Tomb
 
 Phanpy
-Level: 23
+Level: 25
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Body Slam
 - Bulldoze
@@ -3324,13 +3435,13 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Geodude
-Level: 23
+Level: 25
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Rock Slide 
 - Sand Tomb
 
 Phanpy
-Level: 23
+Level: 25
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Body Slam
 - Bulldoze
@@ -3936,14 +4047,14 @@ Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
 
-Skitty
+Nuzleaf
 Level: 26
-Ability: Cute Charm
+Ability: Pickpocket
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Draining Kiss
-- Parting Shot
-- Fury Swipes
-- Fake Out
+- Razor Leaf
+- Air Cutter
+- Knock Off
+- Sucker Punch
 
 Mudkip
 Level: 26
@@ -3954,17 +4065,27 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Mud Bomb
 - Rock Slide
 
+Mawile
+Level: 26
+Ability: Intimidate
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Play Rough
+- Bite
+- Thunder Fang
+- Ice Fang
+
 Taillow
 Level: 26
 Ability: Guts
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Wing Attack
 - Steel Wing
+- U-turn
 
 Breloom @ Toxic Orb
 Level: 27
 Ability: Poison Heal
-IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Spore
 - Brick Break
 - Seed Bomb
@@ -4210,14 +4331,14 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Magnemite
-Level: 28
+Level: 26
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Thunderbolt 
 - Thunder Wave 
 - Mirror Shot
 
 Loudred
-Level: 28
+Level: 26
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Bite  
 - Hyper Voice
@@ -4234,15 +4355,16 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Double Battle
 
 Illumise 
-Level: 36
+Level: 38
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Follow Me 
+- Tail Glow 
 - Helping Hand
 - Moonblast 
 - Bug Buzz
 
 Seviper
-Level: 36
+Level: 38
+Ability: Poison Touch
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Poison Tail
 - Coil
@@ -4250,7 +4372,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Protect
 
 Magneton @ Sitrus Berry
-Level: 37
+Level: 38
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Flash Cannon
 - Thunderbolt
@@ -4258,7 +4380,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Protect
 
 Loudred @ Sitrus Berry
-Level: 37
+Level: 38
 Ability: Punk Rock
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Crunch 
@@ -4278,13 +4400,14 @@ AI: Check Bad Move / Try To Faint / Check Viability / Double Battle
 Illumise 
 Level: 39
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Follow Me 
+- Tail Glow 
 - Helping Hand
 - Moonblast 
 - Bug Buzz
 
 Seviper
 Level: 39
+Ability: Poison Touch
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Poison Tail
 - Coil
@@ -4376,17 +4499,26 @@ Music: Twins
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Taillow
-Level: 23
+Poochyena
+Level: 24
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe 
-- Wing Attack 
+- Crunch
+- Take Down
+- Parting Shot
+
+Taillow
+Level: 24
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe 
+- Wing Attack
+- Steel Wing
 
 Zigzagoon 
-Level: 23
+Level: 24
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe 
 - Take Down
 - Covet
-- Pin Missile 
+- Pin Missile
+- Quick Attack
 
 === TRAINER_VICTORIA ===
 Name: VICTORIA
@@ -4397,7 +4529,21 @@ Music: Twins
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Roselia @ Oran Berry
+Seedot
+Level: 24
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe 
+- Mega Drain
+- Rollout 
+- Leech Seed
+
+Lotad
+Level: 24
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe 
+- Bubblebeam
+- Mega Drain
+- Leech Seed 
+
+Roselia
 Level: 24
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe 
 - Magical Leaf
@@ -4413,9 +4559,24 @@ Music: Intense
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
+Sandshrew
+Level: 24
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Sand Tomb
+- Rapid Spin
+- Slash
+- Cut 
+
+Machop
+Level: 24
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Knock Off
+- Rock Smash
+- Mach Punch 
+
 Meditite
 Level: 24
-IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Jump Kick
 - Psybeam
 - Mach Punch 
@@ -4431,7 +4592,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Shroomish
-Level: 23
+Level: 24
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Spore 
 - Headbutt
@@ -4439,14 +4600,14 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Leech Seed  
 
 Numel
-Level: 23
+Level: 24
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Incinerate
 - Mud Bomb 
 - Ancient Power
 
 Marill
-Level: 23
+Level: 24
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Aqua Jet
 - Covet 
@@ -4497,15 +4658,23 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
 
 Graveler
-Level: 27
+Level: 26
 Ability: Sturdy
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Rock Tomb
 - Sand Tomb
 - Rock Polish
 
+Koffing
+Level: 26
+Ability: Levitate
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Smog
+- Clear Smog
+- Headbutt
+
 Machop
-Level: 27
+Level: 26
 Ability: Guts
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Mach Punch
@@ -4513,15 +4682,15 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Submission
 
 Phanpy
-Level: 27
+Level: 26
 Ability: Technician
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Bulldoze
+- Magnitude
 - Rapid Spin
 - Rollout
 
 Sandslash @ Sitrus Berry
-Level: 28
+Level: 27
 Ability: Rough Skin
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Rapid Spin 
@@ -4655,14 +4824,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Koffing
-Level: 24
+Level: 26
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Smog
 - Clear Smog
 - Headbutt
 
 Slugma
-Level: 24
+Level: 26
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Lava Plume 
 - Ancient Power
@@ -4677,14 +4846,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Shroomish
-Level: 24
+Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe 
 - Spore 
 - Headbutt 
 - Mega Drain 
 
 Roselia
-Level: 24
+Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Magical Leaf
 - Pin Missile
@@ -4700,21 +4869,21 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching 
 
 Electrike
-Level: 25
+Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Shock Wave  
 - Bite
 - Fire Fang 
 
 Wailmer
-Level: 25
+Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Clamp
 - Body Slam
 - Rollout 
 
 Meditite
-Level: 25
+Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Mach Punch
 - Psybeam 
@@ -4819,23 +4988,23 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Wingull
-Level: 25
+Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Water Pulse 
 - Air Slash
 
 Numel
-Level: 25
+Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Lava Plume 
 - Ancient Power
 - Mud Shot
 
 Roselia
-Level: 25
+Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Pin Missile 
-- Mega Drain 
+- Magical Leaf
 - Poison Sting 
 
 === TRAINER_BROOKE_2 ===
@@ -4936,7 +5105,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Machop
-Level: 25
+Level: 28
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Mach Punch
 - Knock Off
@@ -5151,7 +5320,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Zigzagoon @ Oran Berry
-Level: 7
+Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Quick Attack
 - Tackle
@@ -5650,14 +5819,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Wailmer
-Level: 35
+Level: 36
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Liquidation
 - Body Slam
 - Rollout
 
 Horsea
-Level: 35
+Level: 36
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Bubblebeam
 - Dragonbreath 
@@ -5808,13 +5977,14 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Magical Leaf
 - Calm Mind
 
-Grovyle
+Rhyhorn
 Level: 38
+Ability: Lightning Rod
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Leaf Blade
-- Knock Off
-- X-Scissor
-- Low Kick
+- Surf
+- Drill Run
+- Rock Blast 
+- Stealth Rock
 
 Machoke @ Sitrus Berry
 Level: 39
@@ -6151,14 +6321,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Taillow
-Level: 33
+Level: 36
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Dual Wingbeat
 - Facade
 - Steel Wing
 
 Swellow
-Level: 33
+Level: 36
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Dual Wingbeat
 - Facade
@@ -6250,7 +6420,7 @@ Minun
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Helping Hand
-- Follow Me 
+- Dazzling Gleam
 - Nuzzle 
 - Thunderbolt
 
@@ -6369,11 +6539,11 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Magikarp
-Level: 41
+Level: 50
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Feebas
-Level: 41
+Level: 50
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_CATHERINE_1 ===
@@ -7070,7 +7240,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Tentacool
-Level: 16
+Level: 18
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Rapid Spin
 - Acid
@@ -7086,14 +7256,14 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Tentacool
-Level: 19
+Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Acid Spray 
 - Rapid Spin 
 - Whirlpool
 
 Wailmer
-Level: 19
+Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Clamp
 - Body Slam
@@ -7253,7 +7423,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Koffing
-Level: 36
+Level: 39
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 === TRAINER_MAY_ROUTE_119_MUDKIP ===
@@ -7652,10 +7822,10 @@ Pic: Aqua Admin F
 Gender: Female
 Music: Aqua
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Smart Switching / Check Viability / Ace Pokemon / Prefer Baton Pass
+AI: Check Bad Move / Try To Faint / Smart Switching / Check Viability / Prefer Baton Pass
 
 Gorebyss
-Level: 37
+Level: 38
 Ability: Fae Force
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
@@ -7665,17 +7835,17 @@ EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
 - Coil
 
 Mightyena
-Level: 37
-Ability: Intimidate
+Level: 38
+Ability: Strong Jaw
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 18 Spe
 EVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Crunch
 - Parting Shot
-- Super Fang
+- Fire Fang
 - Play Rough
 
 Carvanha 
-Level: 37
+Level: 38
 Ability: Speed Boost
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
@@ -7685,7 +7855,7 @@ EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
 - Ice Fang
 
 Lanturn
-Level: 37
+Level: 38
 Ability: Volt Absorb
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
@@ -7695,7 +7865,7 @@ EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
 - Aqua Ring
 
 Elgyem
-Level: 37
+Level: 38
 Ability: Analytic
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
@@ -7770,10 +7940,6 @@ Swellow
 Level: 38
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-Xatu
-Level: 38
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
 === TRAINER_EDWARDO ===
 Name: EDWARDO
 Class: Bird Keeper
@@ -7784,10 +7950,6 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Doduo
-Level: 38
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-
-Pelipper
 Level: 38
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
@@ -8119,11 +8281,11 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Duskull 
-Level: 40
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 Shuppet
-Level: 40
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 === TRAINER_JESSICA_1 ===
@@ -8460,13 +8622,14 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Volt Switch
 - Surf
 
-Tangela
+Pidgeot @ Heavy Duty Boots
 Level: 43
-Ability: Regenerator
+Ability: Wind Rider
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Power Whip
-- Knock Off
-- Brick Break
+- Tailwind
+- Brave Bird
+- Roost
+- U-turn
 
 Girafarig
 Level: 43
@@ -8634,7 +8797,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Spoink 
-Level: 41
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 === TRAINER_ZANDER ===
@@ -8864,11 +9027,11 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Ralts
-Level: 40
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 Kirlia
-Level: 40
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 === TRAINER_TASHA ===
@@ -8913,7 +9076,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Parting Shot
 - Will-O-Wisp
 - Hex
-- Knock Off
+- Trick Room
 
 Perrserker @ Rocky Helmet
 Level: 43
@@ -8942,14 +9105,14 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Facade
 - Pin Missile
 
-Kirlia @ Light Clay
+Grumpig
 Level: 43
 Ability: Trace
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Dazzling Gleam
 - Psychic
-- Reflect 
-- Light Screen
+- Power Gem 
+- Nasty Plot
 
 Dusclops @ Sitrus Berry
 Level: 44
@@ -9132,11 +9295,11 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Duskull 
-Level: 41
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 Shuppet
-Level: 41
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 === TRAINER_ED ===
@@ -9783,10 +9946,10 @@ Pic: Magma Admin
 Gender: Male
 Music: Magma
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
 
 Magmar @ Heat Rock
-Level: 43
+Level: 44
 Ability: Flame Body
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
@@ -9796,7 +9959,7 @@ EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 - Thunder Punch
 
 Claydol
-Level: 43
+Level: 44
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 - Earth Power
@@ -9805,7 +9968,7 @@ EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 - Calm Mind
 
 Mightyena
-Level: 43
+Level: 44
 Ability: Intimidate
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
@@ -9815,14 +9978,14 @@ EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 - Play Rough
 
 Numel @ Focus Sash
-Level: 43
+Level: 44
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 - Flamethrower
 - Earth Power
 
 Magcargo
-Level: 43
+Level: 44
 Ability: Flame Body
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
@@ -9918,7 +10081,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
 
 Delcatty (F)
-Level: 46
+Level: 45
 Ability: Cute Charm
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -9928,7 +10091,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Hyper Voice
 
 Beautifly (F) @ Heavy-Duty Boots
-Level: 46
+Level: 45
 Ability: Verdant Power
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -9938,7 +10101,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Air Slash
 
 Munchlax (F) @ Chesto Berry
-Level: 46
+Level: 45
 Ability: Immunity
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -9948,7 +10111,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Crunch
 
 Venusaur (F) @ Rocky Helmet
-Level: 46
+Level: 45
 Ability: Chlorophyll
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -9957,7 +10120,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Sludge Bomb
 
 Blastoise (F) @ White Herb
-Level: 46
+Level: 45
 Ability: Hydro Displacer
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -9967,7 +10130,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Ice Beam
 
 Blaziken (F) @ Sitrus Berry
-Level: 47
+Level: 46
 Ability: Speed Boost
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
 EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
@@ -9986,7 +10149,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
 
 Delcatty (F)
-Level: 46
+Level: 45
 Ability: Cute Charm
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -9996,7 +10159,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Hyper Voice
 
 Beautifly (F) @ Heavy-Duty Boots
-Level: 46
+Level: 45
 Ability: Verdant Power
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -10006,7 +10169,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Air Slash
 
 Munchlax (F) @ Chesto Berry
-Level: 46
+Level: 45
 Ability: Immunity
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -10016,7 +10179,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Crunch
 
 Venusaur (F) @ Rocky Helmet
-Level: 46
+Level: 45
 Ability: Chlorophyll
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -10025,7 +10188,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Sludge Bomb
 
 Blastoise (F) @ White Herb
-Level: 46
+Level: 45
 Ability: Hydro Displacer
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -10035,7 +10198,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Ice Beam
 
 Blaziken (F) @ Sitrus Berry
-Level: 47
+Level: 46
 Ability: Speed Boost
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
 EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
@@ -10054,7 +10217,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon 
 
 Delcatty (F)
-Level: 46
+Level: 45
 Ability: Cute Charm
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -10064,7 +10227,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Hyper Voice
 
 Beautifly (F) @ Heavy-Duty Boots
-Level: 46
+Level: 45
 Ability: Verdant Power
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -10074,7 +10237,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Air Slash
 
 Munchlax (F) @ Chesto Berry
-Level: 46
+Level: 45
 Ability: Immunity
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -10084,7 +10247,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Crunch
 
 Venusaur (F) @ Rocky Helmet
-Level: 46
+Level: 45
 Ability: Chlorophyll
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -10093,7 +10256,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Sludge Bomb
 
 Blastoise (F) @ White Herb
-Level: 46
+Level: 45
 Ability: Hydro Displacer
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
@@ -10103,7 +10266,7 @@ EVs: 50 HP / 50 Atk / 50 Def / 50 SpA / 50 SpD / 50 Spe
 - Ice Beam
 
 Blaziken (F) @ Sitrus Berry
-Level: 47
+Level: 46
 Ability: Speed Boost
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
 EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
@@ -10377,10 +10540,10 @@ Pic: Aqua Admin M
 Gender: Male
 Music: Aqua
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
 
 Thievul @ Focus Sash
-Level: 46
+Level: 47
 Ability: Stakeout
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
@@ -10390,7 +10553,7 @@ EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Nasty Plot
 
 Ludicolo
-Level: 46
+Level: 47
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Hydro Pump
@@ -10399,7 +10562,7 @@ EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Ice Beam
 
 Carvanha
-Level: 46
+Level: 47
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Liquidation 
@@ -10408,7 +10571,7 @@ EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Protect
 
 Wailmer 
-Level: 46
+Level: 47
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Liquidation 
@@ -10417,7 +10580,7 @@ EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Curse
 
 Mightyena
-Level: 46
+Level: 47
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 EVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Crunch
@@ -10854,7 +11017,7 @@ EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
 - Helping Hand
 - Dazzling Gleam
 - Psychic
-- Protect
+- Follow Me
 
 Xatu @ Leftovers
 Level: 48
@@ -11274,7 +11437,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Mightyena
-Level: 47
+Level: 48
 Ability: Intimidate
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
@@ -11284,7 +11447,7 @@ EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 - Play Rough
 
 Magcargo
-Level: 47
+Level: 48
 Ability: Flame Body
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
@@ -11470,7 +11633,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
 
 Manectric @ Heavy-Duty Boots
-Level: 47
+Level: 48
 Ability: Lightning Rod
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Volt Switch
@@ -11478,9 +11641,8 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Thunderbolt
 - Snarl
 
-Sandslash @ Rocky Helmet
-Level: 47
-Ability: Rough Skin
+Tropius
+Level: 48
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Drill Run
 - Swords Dance
@@ -11488,7 +11650,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Rapid Spin
 
 Wigglytuff
-Level: 47
+Level: 48
 Ability: Defiant
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Play Rough
@@ -11497,7 +11659,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Zen Headbutt
 
 Tentacruel @ Black Sludge
-Level: 47
+Level: 48
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Sludge Wave
 - Toxic
@@ -11505,7 +11667,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Bubblebeam
 
 Braixen @ Focus Sash
-Level: 47
+Level: 48
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Mystical Fire
 - Psychic
@@ -11513,7 +11675,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Will-O-Wisp
 
 Machamp @ Sitrus Berry
-Level: 48
+Level: 49
 Ability: No Guard
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Dynamic Punch
@@ -12048,10 +12210,10 @@ Pic: Aqua Admin F
 Gender: Female
 Music: Aqua
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
 
 Gorebyss
-Level: 47
+Level: 48
 Ability: Fae Force
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
@@ -12061,17 +12223,17 @@ EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
 - Baton Pass
 
 Mightyena
-Level: 47
-Ability: Intimidate
+Level: 48
+Ability: Strong Jaw
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 18 Spe
 EVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Crunch
 - Parting Shot
-- Super Fang
+- Fire Fang
 - Play Rough
 
 Carvanha 
-Level: 47
+Level: 48
 Ability: Speed Boost
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
@@ -12081,7 +12243,7 @@ EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
 - Protect
 
 Lanturn @ Leftovers
-Level: 47
+Level: 48
 Ability: Volt Absorb
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
@@ -12091,7 +12253,7 @@ EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
 - Aqua Ring
 
 Beheeyem
-Level: 47
+Level: 48
 Ability: Analytic
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 EVs: 35 HP / 35 Atk / 35 Def / 35 SpA / 35 SpD / 35 Spe
@@ -14039,7 +14201,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Ace Pokemon / Smart Switching
 
 Gliscor @ Toxic Orb
-Level: 55
+Level: 54
 Ability: Poison Heal
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
@@ -14049,7 +14211,7 @@ EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
 - Protect
 
 Hatterene @ Rocky Helmet
-Level: 55
+Level: 54
 Ability: Magic Bounce
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
@@ -14059,7 +14221,7 @@ EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
 - Flamethrower
 
 Azumarill @ Sitrus Berry
-Level: 55
+Level: 54
 Ability: Huge Power 
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
@@ -14069,7 +14231,7 @@ EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
 - Play Rough 
 
 Roserade @ Black Sludge
-Level: 55
+Level: 54
 Ability: Technician
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
@@ -14079,7 +14241,7 @@ EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
 - Toxic Spikes
 
 Magnezone @ Leftovers
-Level: 55
+Level: 54
 Ability: Levitate
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
@@ -14089,7 +14251,7 @@ EVs: 60 HP / 60 Atk / 60 Def / 60 SpA / 60 SpD / 60 Spe
 - Flash Cannon 
 
 Gallade @ Focus Sash
-Level: 56
+Level: 55
 Ability: Justified
 IVs: 26 HP / 26 Atk / 26 Def / 26 SpA / 26 SpD / 26 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14318,15 +14480,15 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Play Rough
 - Crunch
 
-Shiftry @ Focus Sash
+Weezing @ Black Sludge
 Level: 57
-Ability: Wind Rider
+Ability: Neutralizing Gas
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
-- Leaf Blade
-- Tailwind
-- Knock Off
-- Sucker Punch
+- Smog
+- Protect
+- Flamethrower
+- Venoshock
 
 Cacturne @ Rocky Helmet
 Level: 57
@@ -14379,7 +14541,7 @@ AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Poke
 Mugshot: Green
 
 Sableye @ Heavy-Duty Boots
-Level: 58
+Level: 57
 Ability: Prankster
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14389,7 +14551,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Taunt
 
 Dusclops @ Rocky Helmet
-Level: 58
+Level: 57
 Ability: Frisk
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14399,7 +14561,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Protect
 
 Chandelure @ Choice Specs
-Level: 58
+Level: 57
 Ability: Flame Body
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14408,7 +14570,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Energy Ball
 
 Sinistcha @ Leftovers
-Level: 58
+Level: 57
 Ability: Heatproof 
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14418,7 +14580,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Strength Sap 
 
 Banette @ Life Orb
-Level: 58
+Level: 57
 Ability: Cursed Body
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14428,7 +14590,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Play Rough
 
 Dusknoir @ Sitrus Berry
-Level: 59
+Level: 58
 Ability: Hustle
 IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
 EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
@@ -14448,7 +14610,7 @@ AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Poke
 Mugshot: Pink
 
 Froslass @ Icy Rock
-Level: 59
+Level: 57
 Ability: Snow Warning 
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14458,7 +14620,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Blizzard
 
 Glalie @ Heavy-Duty Boots
-Level: 59
+Level: 57
 Ability: Moody 
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14468,7 +14630,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Crunch
 
 SPECIES_SANDSLASH_ALOLAN @ Wide Lens
-Level: 59
+Level: 57
 Ability: Slush Rush
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14478,7 +14640,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Iron Head 
 
 Lapras @ Leftovers
-Level: 59
+Level: 57
 Ability: Water Absorb
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14488,7 +14650,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Aqua Ring
 
 Mr. Rime @ Choice Specs
-Level: 59
+Level: 57
 Ability: Ice Body
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14498,7 +14660,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Shadow Ball
 
 Walrein @ Life Orb
-Level: 60
+Level: 58
 Ability: Sheer Force
 IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
 EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
@@ -14518,7 +14680,7 @@ AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Poke
 Mugshot: Blue
 
 Cyclizar @ Heavy-Duty Boots
-Level: 60
+Level: 57
 Ability: Regenerator 
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14528,7 +14690,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Knock Off 
 
 Flygon @ Choice Scarf
-Level: 60
+Level: 57
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - U-turn 
@@ -14537,7 +14699,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Earthquake
 
 Dragalge @ Black Sludge
-Level: 60
+Level: 57
 Ability: Levitate
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14547,7 +14709,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Flip Turn 
 
 Altaria @ Leftovers
-Level: 60
+Level: 57
 Ability: Fae Force 
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14557,7 +14719,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Flamethrower
 
 Kingdra @ Choice Specs
-Level: 60
+Level: 57
 Ability: Sniper 
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
@@ -14567,7 +14729,7 @@ EVs: 68 HP / 68 Atk / 68 Def / 68 SpA / 68 SpD / 68 Spe
 - Flip Turn 
 
 Salamence @ Sitrus Berry
-Level: 61
+Level: 58
 Ability: Moxie
 IVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
 EVs: 72 HP / 72 Atk / 72 Def / 72 SpA / 72 SpD / 72 Spe
@@ -14810,7 +14972,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
 
 Lairon @ Rocky Helmet
-Level: 42
+Level: 43
 Ability: Filter
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Rock Slide 
@@ -14819,7 +14981,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Curse
 
 Toxicroak
-Level: 42
+Level: 43
 Ability: Dry Skin
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Poison Jab
@@ -14828,7 +14990,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Knock Off
 
 Roselia @ Black Sludge
-Level: 42
+Level: 43
 Ability: Poison Point
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Sludge Bomb
@@ -14837,7 +14999,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Toxic Spikes
 
 Numel @ Focus Sash
-Level: 42
+Level: 43
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Flamethrower
 - Earth Power
@@ -14845,7 +15007,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Yawn
 
 Marshtomp
-Level: 42
+Level: 43
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Liquidation
 - Curse
@@ -14853,7 +15015,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Rock Slide
 
 Castform @ Sitrus Berry
-Level: 43
+Level: 44
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - Hyper Voice
 - Weather Ball
@@ -14951,7 +15113,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Surskit
-Level: 41
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 === TRAINER_JEFFREY_2 ===
@@ -15077,15 +15239,15 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Baltoy 
-Level: 40
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 Sandshrew
-Level: 40
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 Sandslash
-Level: 40
+Level: 42
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 
 === TRAINER_KAYLEE ===
@@ -15132,14 +15294,14 @@ Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Seedot
-Level: 8
+Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Bide 
 - Absorb 
 - Astonish
 
 Lotad
-Level: 8
+Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Absorb 
 - Water Gun
@@ -15293,12 +15455,12 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Zigzagoon
-Level: 6
+Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Quick Attack
 
 Shroomish
-Level: 6
+Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle 
 - Absorb
@@ -15313,15 +15475,15 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Skitty
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 10
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Fake Out
 - Disarming Voice
 - Tackle
 
 Shroomish
-Level: 8
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 10
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Tackle 
 - Absorb
 - Leech Seed
@@ -15832,14 +15994,13 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Lombre
+Treecko
 Level: 28
-Ability: Own Tempo
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Bubblebeam
-- Giga Drain
-- Leech Seed
-- Fake Out
+- Leaf Blade
+- Knock Off
+- Low Kick
+- Parting Shot
 
 Azumarill @ Sitrus Berry
 Level: 29
@@ -16017,6 +16178,14 @@ Music: Suspicious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
 
+Sableye
+Level: 29
+Ability: Prankster
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Parting Shot
+- Foul Play
+- Will-O-Wisp
+
 Aron 
 Level: 29
 Ability: Filter
@@ -16045,7 +16214,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
 Seviper @ Black Sludge
 Level: 30
-Ability: Merciless
+Ability: Poison Touch
 IVs: 17 HP / 17 Atk / 17 Def / 17 SpA / 17 SpD / 17 Spe
 - Poison Tail
 - Coil
@@ -16379,15 +16548,23 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
 
 Roselia
-Level: 30
+Level: 29
 Ability: Technician
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Magical Leaf
 - Pin Missile
 - Poison Sting
 
+Chimecho
+Level: 29
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Psychic 
+- Uproar
+- Heal Bell
+- Recover
+
 Trapinch
-Level: 30
+Level: 29
 Ability: Arena Trap
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Sand Tomb
@@ -16395,7 +16572,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Bug Bite
 
 Slugma 
-Level: 30
+Level: 29
 Ability: Flame Body
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Lava Plume
@@ -16404,7 +16581,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Yawn
 
 Zangoose @ Toxic Orb
-Level: 31
+Level: 30
 Ability: Toxic Boost
 IVs: 17 HP / 17 Atk / 17 Def / 17 SpA / 17 SpD / 17 Spe
 - Crush Claw
@@ -16568,6 +16745,15 @@ EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 - Ancient Power
 - Calm Mind
 
+Slugma
+Level: 30
+Ability: Flame Body
+IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
+EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
+- Lava Plume
+- Ancient Power
+- Clear Smog
+
 Mightyena
 Level: 30
 Ability: Intimidate
@@ -16588,13 +16774,14 @@ EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 - Yawn
 
 Golbat @ Sitrus Berry
-Level: 31
+Level: 30
 Ability: Inner Focus
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 EVs: 25 HP / 25 Atk / 25 Def / 25 SpA / 25 SpD / 25 Spe
 - Poison Fang
 - Dual Wingbeat
 - Leech Life
+- U-turn
 
 === TRAINER_MAXIE_MT_CHIMNEY ===
 Name: MAXIE
@@ -16771,17 +16958,17 @@ Music: Magma
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Numel
-Level: 26
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Lava Plume 
-- Earth Power 
-
-Mightyena
-Level: 26
+Poochyena
+Level: 27
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Bite 
 - Tackle 
+
+Numel
+Level: 27
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Lava Plume 
+- Earth Power 
 
 === TRAINER_DIANA_1 ===
 Name: DIANA
@@ -16792,7 +16979,7 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Ace Pokemon
 
-Gloom
+Gloom @ Black Sludge
 Level: 30
 Ability: Stench
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
@@ -16810,6 +16997,15 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Dazzling Gleam
 - Perish Song
 
+Linoone
+Level: 30
+Ability: Quick Feet
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Slash
+- Covet
+- Belly Drum
+- Quick Attack
+
 Spoink
 Level: 30
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
@@ -16817,7 +17013,7 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Power Gem 
 - Confuse Ray
 
-Treecko @ Sitrus Berry
+Grovyle @ Sitrus Berry
 Level: 31
 Ability: Unburden
 IVs: 17 HP / 17 Atk / 17 Def / 17 SpA / 17 SpD / 17 Spe
@@ -17195,6 +17391,16 @@ EVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
 - Overheat
 - Yawn 
 - Ancient Power  
+- Clear Smog
+
+Salandit
+Level: 32
+Ability: Corrosion
+IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe 
+EVs: 28 HP / 28 Atk / 28 Def / 28 SpA / 28 SpD / 28 Spe
+- Overheat
+- Toxic
+- Venoshock  
 - Clear Smog
 
 Monferno
@@ -17673,19 +17879,20 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Pin Missile 
 - Leech Seed
 
-Swellow
+Skarmory
 Level: 33
-Ability: Guts
+Ability: Sturdy
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
-- Dual Wingbeat
 - Steel Wing
-- U-turn
+- Drill Peck
+- Roost
 
 Barboach
 Level: 33
+Ability: Berserk
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Mud Bomb
-- Aqua Tail
+- Bubblebeam
 - Yawn
 
 Trapinch
@@ -17695,6 +17902,15 @@ IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 - Crunch
 - Sand Tomb
 - Bug Bite
+
+Sudowoodo
+Level: 33
+Ability: Verdant Power
+IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
+- Seed Bomb
+- Rock Slide
+- Hammer Arm
+- Curse
 
 Shiftry @ Sitrus Berry
 Level: 34
@@ -18116,7 +18332,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Vulpix
-Level: 36
+Level: 37
 Ability: Cursed Body
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Will-O-Wisp
@@ -18125,7 +18341,7 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Extrasensory
 
 Seaking
-Level: 36
+Level: 37
 Ability: Lightning Rod
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Liquidation
@@ -18134,7 +18350,7 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Megahorn
 
 Kadabra @ Light Clay
-Level: 36
+Level: 37
 Ability: Synchronize
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Psychic 
@@ -18142,28 +18358,26 @@ IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Reflect
 - Light Screen
 
-Doduo
-Level: 36
+Dodrio
+Level: 37
 Ability: High Flyer
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
 - Drill Peck
 - Jump Kick
 - Double Hit
 
-Shuppet
-Level: 36
-Ability: Cursed Body
+Lombre 
+Level: 37
 IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-- Will-O-Wisp
-- Shadow Claw
-- Curse
-- Shadow Sneak
+- Bubblebeam
+- Giga Drain 
+- Leech Seed
 
 Hariyama @ Sitrus Berry
-Level: 37
+Level: 38
 Ability: Sheer Force
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Force Palm
+- Cross Chop
 - Knock Off 
 - Rock Tomb
 - Bulk Up
@@ -18269,7 +18483,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Machop
-Level: 33
+Level: 36
 IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Mach Punch
 - Knock Off
@@ -18277,7 +18491,7 @@ IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Ice Punch
 
 Machoke
-Level: 34
+Level: 36
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Mach Punch
 - Knock Off
@@ -18658,7 +18872,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
 Electrike
-Level: 20
+Level: 22
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Shock Wave
 - Bite
@@ -18947,7 +19161,7 @@ Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching
 
 Skarmory @ Rocky Helmet
-Level: 62
+Level: 59
 Ability: Sturdy
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
 EVs: 78 HP / 78 Atk / 78 Def / 78 SpA / 78 SpD / 78 Spe
@@ -18957,7 +19171,7 @@ EVs: 78 HP / 78 Atk / 78 Def / 78 SpA / 78 SpD / 78 Spe
 - Steel Wing
 
 Aggron @ Smooth Rock
-Level: 62
+Level: 59
 Ability: Filter
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
 EVs: 78 HP / 78 Atk / 78 Def / 78 SpA / 78 SpD / 78 Spe
@@ -18967,7 +19181,7 @@ EVs: 78 HP / 78 Atk / 78 Def / 78 SpA / 78 SpD / 78 Spe
 - Iron Head 
 
 Cradily @ Leftovers
-Level: 62
+Level: 59
 Ability: Storm Drain 
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
 EVs: 78 HP / 78 Atk / 78 Def / 78 SpA / 78 SpD / 78 Spe
@@ -18977,7 +19191,7 @@ EVs: 78 HP / 78 Atk / 78 Def / 78 SpA / 78 SpD / 78 Spe
 - Recover
 
 Armaldo @ Assault Vest
-Level: 62
+Level: 59
 Ability: Skill Link 
 IVs: 27 HP / 27 Atk / 27 Def / 27 SpA / 27 SpD / 27 Spe
 EVs: 78 HP / 78 Atk / 78 Def / 78 SpA / 78 SpD / 78 Spe
@@ -18987,7 +19201,7 @@ EVs: 78 HP / 78 Atk / 78 Def / 78 SpA / 78 SpD / 78 Spe
 - Rapid Spin
 
 Metagross @ Weakness Policy
-Level: 62
+Level: 59
 Ability: Clear Body 
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 84 HP / 84 Atk / 84 Def / 84 SpA / 84 SpD / 84 Spe
@@ -18997,7 +19211,7 @@ EVs: 84 HP / 84 Atk / 84 Def / 84 SpA / 84 SpD / 84 Spe
 - Bullet Punch
 
 Terrakion @ Sitrus Berry
-Level: 63
+Level: 60
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 78 HP / 78 Atk / 78 Def / 78 SpA / 78 SpD / 78 Spe
 - Mighty Cleave

@@ -11,26 +11,27 @@ RustboroCity_Gym_EventScript_Roxanne::
 	end
 
 RustboroCity_Gym_EventScript_RoxanneParty::
-   msgbox RustboroCity_Gym_Text_RoxanneIntro MSGBOX_DEFAULT
+   msgbox RustboroCity_Gym_Text_RoxanneIntro1 MSGBOX_DEFAULT
    waitmessage
-   special SavePlayerParty
-   fadescreen FADE_TO_BLACK
-   setvar VAR_0x8005, ROXANNE_PARTY_SIZE
-   special ChoosePartyForBattleFrontier
-   waitstate
-   goto_if_ne VAR_RESULT, 0, RustboroCity_Gym_EventScript_RoxanneBattle
-   special LoadPlayerParty
+@   special SavePlayerParty
+@   fadescreen FADE_TO_BLACK
+@   setvar VAR_0x8005, ROXANNE_PARTY_SIZE
+@   special ChoosePartyForBattleFrontier
+@   waitstate
+@   goto_if_ne VAR_RESULT, 0, RustboroCity_Gym_EventScript_RoxanneBattle
+   goto RustboroCity_Gym_EventScript_RoxanneBattle
+@   special LoadPlayerParty
    release 
    end 
 
 RustboroCity_Gym_EventScript_RoxanneBattle::
-   special ReducePlayerPartyToSelectedMons 
-   frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
+@   special ReducePlayerPartyToSelectedMons 
+@   frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
    trainerbattle_single TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneIntro2, RustboroCity_Gym_Text_RoxanneDefeat, RustboroCity_Gym_EventScript_RoxanneDefeated, NO_MUSIC
-   special LoadPlayerParty
+@   special LoadPlayerParty
 
 RustboroCity_Gym_EventScript_RoxanneDefeated::
-    special LoadPlayerParty
+@    special LoadPlayerParty
 	message RustboroCity_Gym_Text_ReceivedStoneBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
@@ -205,6 +206,13 @@ RustboroCity_Gym_Text_RoxanneIntro:
 	.string "LEAGUE match, and I am using two\l"
 	.string "POKéMON, you must also only use two\l"
 	.string "POKéMON. Choose wisely.$" 
+
+RustboroCity_Gym_Text_RoxanneIntro1:
+	.string "Hello, I am ROXANNE, the RUSTBORO\n"
+	.string "POKéMON GYM LEADER.\p"
+	.string "I became a GYM LEADER so that I might\n"
+	.string "apply what I learned at the POKéMON\l"
+	.string "TRAINER'S SCHOOL in battle.$" 
 
 RustboroCity_Gym_Text_RoxanneIntro2:
 	.string "Would you kindly demonstrate how you\n"

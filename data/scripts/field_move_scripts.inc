@@ -362,7 +362,7 @@ EventScript_UseDiveUnderwater::
 	msgbox Text_WantToSurface, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, EventScript_EndSurface
 @	msgbox Text_MonUsedDive, MSGBOX_DEFAULT
-@	dofieldeffect FLDEFF_USE_DIVE
+	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndSurface
 	end
 

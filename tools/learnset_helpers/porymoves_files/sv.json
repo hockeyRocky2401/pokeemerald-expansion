@@ -30350,7 +30350,8 @@
       "MOVE_FEATHER_DANCE",
       "MOVE_BREAKING_SWIPE",
       "MOVE_DRAGON_CHEER",
-      "MOVE_ALLURING_VOICE"
+      "MOVE_ALLURING_VOICE",
+      "MOVE_CALM_MIND"
     ],
     "EggMoves": [
       "MOVE_ASTONISH",

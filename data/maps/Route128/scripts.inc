@@ -1,6 +1,6 @@
-.set LOCALID_STEVEN, 3
-.set LOCALID_ARCHIE, 4
-.set LOCALID_MAXIE, 5
+.set LOCALID_STEVEN, 1
+.set LOCALID_ARCHIE, 2
+.set LOCALID_MAXIE, 3
 
 Route128_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route128_OnTransition

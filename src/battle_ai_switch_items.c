@@ -1081,8 +1081,8 @@ bool32 ShouldSwitch(u32 battler, bool32 emitResult)
         return TRUE;
     if (ShouldSwitchIfGameStatePrompt(battler, emitResult))
         return TRUE;
-    if (FindMonThatTrapsOpponent(battler, emitResult))
-        return TRUE;
+    // if (FindMonThatTrapsOpponent(battler, emitResult))
+    //     return TRUE;
     if (FindMonThatAbsorbsOpponentsMove(battler, emitResult))
         return TRUE;
 

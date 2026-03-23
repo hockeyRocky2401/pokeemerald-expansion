@@ -2961,10 +2961,11 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
 #if P_FAMILY_SALANDIT
     [SPECIES_SALANDIT] =
     {
+        //320 - 350
         .baseHP        = 48,
         .baseAttack    = 44,
         .baseDefense   = 40,
-        .baseSpeed     = 77,
+        .baseSpeed     = 107,
         .baseSpAttack  = 71,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_POISON, TYPE_FIRE),

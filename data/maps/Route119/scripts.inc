@@ -1,6 +1,6 @@
-.set LOCALID_RIVAL, 16
-.set LOCALID_RIVAL_ON_BIKE, 25
-.set LOCALID_SCOTT, 43
+.set LOCALID_RIVAL, 12
+.set LOCALID_RIVAL_ON_BIKE, 21
+.set LOCALID_SCOTT, 37
 
 Route119_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route119_OnResume
@@ -137,6 +137,7 @@ Route119_EventScript_GiveFlyHM::
 	return
 
 Route119_EventScript_RivalExitScottArrive::
+    setflag FLAG_DEFEATED_RIVAL_ROUTE119
 	closemessage
 	call_if_eq VAR_TEMP_1, 1, Route119_EventScript_SetRivalPos1
 	call_if_eq VAR_TEMP_1, 2, Route119_EventScript_SetRivalPos2

@@ -4422,7 +4422,23 @@ static void Cmd_getexp(void)
 
                     ApplyExperienceMultipliers(&gBattleMoveDamage, *expMonId, gBattlerFainted);
 
-                    if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleMoveDamage != 0)
+                    //For Max Exp
+                    // if (gBattleMoveDamage != 0)
+                    // gBattleMoveDamage = 5000;
+
+                    // if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleMoveDamage != 0)
+                    // {
+                    //     u32 growthRate = gSpeciesInfo[GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPECIES)].growthRate;
+                    //     u32 currentExp = GetMonData(&gPlayerParty[*expMonId], MON_DATA_EXP);
+                    //     u32 levelCap = GetCurrentLevelCap();
+
+                    //     if (GetMonData(&gPlayerParty[*expMonId], MON_DATA_LEVEL) >= levelCap)
+                    //         gBattleMoveDamage = 0;
+                    //     else if (gExperienceTables[growthRate][levelCap] < currentExp + gBattleMoveDamage)
+                    //         gBattleMoveDamage = gExperienceTables[growthRate][levelCap] - currentExp;
+                    // }
+
+                    if (gBattleMoveDamage != 0)
                     {
                         u32 growthRate = gSpeciesInfo[GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPECIES)].growthRate;
                         u32 currentExp = GetMonData(&gPlayerParty[*expMonId], MON_DATA_EXP);
@@ -4430,7 +4446,7 @@ static void Cmd_getexp(void)
 
                         if (GetMonData(&gPlayerParty[*expMonId], MON_DATA_LEVEL) >= levelCap)
                             gBattleMoveDamage = 0;
-                        else if (gExperienceTables[growthRate][levelCap] < currentExp + gBattleMoveDamage)
+                        else
                             gBattleMoveDamage = gExperienceTables[growthRate][levelCap] - currentExp;
                     }
 

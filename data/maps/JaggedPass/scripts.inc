@@ -1,4 +1,4 @@
-.set LOCALID_HIDEOUT_GUARD, 5
+.set LOCALID_HIDEOUT_GUARD, 3
 
 JaggedPass_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, JaggedPass_OnResume

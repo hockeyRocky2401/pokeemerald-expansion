@@ -16365,6 +16365,7 @@ static const u16 sSwabluTeachableLearnset[] = {
 static const u16 sAltariaTeachableLearnset[] = {
     MOVE_AERIAL_ACE,
     MOVE_ATTRACT,
+    MOVE_CALM_MIND,
     MOVE_DAZZLING_GLEAM,
     MOVE_DOUBLE_TEAM,
     MOVE_DRAGON_CLAW,

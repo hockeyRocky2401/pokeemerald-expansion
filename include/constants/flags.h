@@ -51,12 +51,12 @@
 #define FLAG_DEFEATED_SPIRITOMB               0x26 // Unused Flag      Using for defeated Spiritomb. 
 #define FLAG_HIDE_VICTORY_ROAD_ENTRANCE_MAY   0x27 //May Victory Road battle
 #define FLAG_DEFEATED_MAY_VICTORY_ROAD        0x28 //Defeated May VR
-#define FLAG_DEFEATED_JACOB  0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
+#define FLAG_DEFEATED_JACOB  0x29 // Unused Flag for Defeating Jacob
+#define FLAG_DEFEATED_PETALBURG_GRUNT         0x2A // Unused Flag for beating Petalburg Grunt
+#define FLAG_DEFEATED_RIVAL_ROUTE110          0x2B // Unused Flag for beating May on route 110
+#define FLAG_DEFEATED_RIVAL_ROUTE119          0x2C // Unused Flag for May Route 119
+#define FLAG_DEFEATED_RIVAL_LILYCOVE          0x2D // Unused Flag for May Lilycove
+#define FLAG_DEFEATED_ARCHIE 0x2E // Unused Flag for beating Archie
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
 #define FLAG_UNUSED_0x030    0x30 // Unused Flag
 #define FLAG_UNUSED_0x031    0x31 // Unused Flag

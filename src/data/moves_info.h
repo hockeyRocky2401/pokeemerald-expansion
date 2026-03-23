@@ -761,7 +761,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "A strong jumping kick. May\n"
             "miss and hurt the kicker."),
         #if B_UPDATED_MOVE_DATA >= GEN_5
-            .power = 100,
+            .power = 85,
         #elif B_UPDATED_MOVE_DATA >= GEN_4
             .power = 85,
         #else
@@ -1534,7 +1534,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "Creates a huge wave, then\n"
             "crashes it down on the foe."),
         .effect = EFFECT_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 75 : 95,
+        .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 80 : 95,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 15,
@@ -3168,7 +3168,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "An exhaust-gas attack\n"
             "that always poisons."),
         .effect = EFFECT_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 40 : 20,
+        .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 60 : 20,
         .type = TYPE_POISON,
         .accuracy = 100,
         .pp = 20,
@@ -8300,7 +8300,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .power = 100,
         .type = TYPE_FIGHTING,
         .accuracy = 95,
-        .pp = 15,
+        .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,

@@ -324,6 +324,7 @@ LilycoveCity_EventScript_BattleBrendanMudkip::
 	end
 
 LilycoveCity_EventScript_DefeatedMay::
+    setflag FLAG_DEFEATED_RIVAL_LILYCOVE
 	msgbox LilycoveCity_Text_MayGoingBackToLittleroot, MSGBOX_DEFAULT
 	setvar VAR_RESULT, FALSE
 	call_if_set FLAG_BADGE06_GET, LilycoveCity_EventScript_CheckFinalBadge
